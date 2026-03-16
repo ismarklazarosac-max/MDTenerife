@@ -1,0 +1,8 @@
+{
+  "permissions": {
+    "allow": [
+      "WebFetch(domain:marketingdigitaltenerife.com)",
+      "Bash(\"/c/Program Files/nodejs/node.exe\" screenshot.mjs http://localhost:3000 footer)"
+    ]
+  }
+}
