@@ -127,6 +127,8 @@ ul { list-style: none; }
   cursor: pointer;
   transition: transform 0.25s var(--spring), box-shadow 0.25s var(--ease), background 0.2s var(--ease);
   white-space: nowrap;
+  position: relative;
+  z-index: 2;
 }
 
 .btn-primary {
@@ -195,23 +197,23 @@ ul { list-style: none; }
   position: fixed;
   top: 0; left: 0; right: 0;
   z-index: 1000;
-  padding: 22px 0;
+  padding: 18px 0;
   transition: padding 0.3s var(--ease), background 0.3s var(--ease), box-shadow 0.3s var(--ease);
 }
 
 .nav-header.scrolled {
-  padding: 14px 0;
-  background: rgba(2, 11, 30, 0.92);
-  backdrop-filter: blur(20px);
-  -webkit-backdrop-filter: blur(20px);
-  box-shadow: 0 1px 0 rgba(255,255,255,0.06);
+  padding: 12px 0;
+  background: rgba(2, 11, 30, 0.95);
+  backdrop-filter: blur(24px);
+  -webkit-backdrop-filter: blur(24px);
+  box-shadow: 0 1px 0 rgba(255,255,255,0.07);
 }
 
 .nav-inner {
   display: flex;
   align-items: center;
   justify-content: space-between;
-  gap: 32px;
+  gap: 20px;
 }
 
 .nav-logo {
@@ -219,11 +221,12 @@ ul { list-style: none; }
   align-items: center;
   gap: 12px;
   flex-shrink: 0;
+  text-decoration: none;
 }
 
 .logo-img {
-  width: 52px;
-  height: 52px;
+  width: 48px;
+  height: 48px;
   object-fit: contain;
   filter: drop-shadow(0 2px 8px rgba(11,134,170,0.4));
 }
@@ -245,40 +248,201 @@ ul { list-style: none; }
   text-transform: uppercase;
 }
 
+/* ── Nav container ── */
 .nav-links {
   display: flex;
   align-items: center;
-  gap: 6px;
+  gap: 2px;
 }
 
-.nav-links a {
+/* ── Base nav item (links + buttons) ── */
+.nav-link {
   font-family: var(--font-head);
   font-size: 13px;
   font-weight: 600;
   color: rgba(255,255,255,0.72);
-  padding: 8px 12px;
+  padding: 8px 11px;
   border-radius: 8px;
   transition: color 0.2s, background 0.2s;
   letter-spacing: 0.01em;
+  white-space: nowrap;
+  text-decoration: none;
+  display: inline-flex;
+  align-items: center;
+  gap: 4px;
+  background: none;
+  border: none;
+  cursor: pointer;
+  line-height: 1;
 }
-.nav-links a:hover { color: var(--white); background: rgba(255,255,255,0.08); }
-.nav-links a.active { color: var(--white); }
+.nav-link:hover { color: var(--white); background: rgba(255,255,255,0.08); }
+.nav-link.active { color: var(--white); }
 
-.nav-links .nav-cta {
-  background: var(--orange);
-  color: var(--white);
-  padding: 10px 22px;
-  border-radius: 50px;
-  margin-left: 8px;
+/* ── CTA button ── */
+.nav-cta {
+  background: var(--orange) !important;
+  color: var(--white) !important;
+  padding: 10px 20px !important;
+  border-radius: 50px !important;
+  margin-left: 10px;
   box-shadow: var(--sh-orange);
+  font-family: var(--font-head);
+  font-size: 13px;
+  font-weight: 700;
+  white-space: nowrap;
+  text-decoration: none;
+  display: inline-flex;
+  align-items: center;
   transition: background 0.2s, transform 0.2s var(--spring), box-shadow 0.2s;
 }
-.nav-links .nav-cta:hover {
-  background: var(--orange-dark);
+.nav-cta:hover {
+  background: var(--orange-dark) !important;
   transform: translateY(-1px);
   box-shadow: 0 10px 30px rgba(244,98,36,0.45);
 }
 
+/* ── Dropdown wrapper ── */
+.nav-drop-wrap {
+  position: relative;
+}
+
+/* ── Chevron arrow ── */
+.nav-chevron {
+  display: inline-block;
+  transition: transform 0.25s var(--ease);
+  opacity: 0.6;
+  flex-shrink: 0;
+  margin-top: 1px;
+}
+.nav-drop-wrap:hover .nav-chevron,
+.nav-drop-wrap.open .nav-chevron {
+  transform: rotate(180deg);
+  opacity: 1;
+}
+
+/* ── Dropdown panel ── */
+/*
+  FIX: top:100% + padding-top:14px instead of top:calc(100%+14px).
+  The padding-top bridges the visual gap as part of the element,
+  so the mouse never leaves .nav-drop-wrap:hover while crossing it.
+  The ::after pseudo provides the visible panel background starting
+  below the padding. Items render above ::after via z-index stacking.
+*/
+.nav-drop {
+  position: absolute;
+  top: 100%;
+  left: 50%;
+  transform: translateX(-50%) translateY(-6px);
+  padding: 14px 0 0; /* top = bridge gap; sides/bottom handled by inner padding via ::after */
+  min-width: 296px;
+  opacity: 0;
+  pointer-events: none;
+  transition: opacity 0.2s var(--ease), transform 0.2s var(--ease);
+  z-index: 200;
+}
+
+/* Visual panel background — starts after the 14px bridge */
+.nav-drop::after {
+  content: '';
+  position: absolute;
+  inset: 14px 0 0 0;
+  background: rgba(2, 9, 26, 0.98);
+  backdrop-filter: blur(28px);
+  -webkit-backdrop-filter: blur(28px);
+  border: 1px solid rgba(255,255,255,0.09);
+  border-radius: 18px;
+  box-shadow:
+    0 32px 80px rgba(2,11,30,0.7),
+    0 0 0 1px rgba(255,255,255,0.04),
+    inset 0 1px 0 rgba(255,255,255,0.05);
+  z-index: -1;
+  pointer-events: none;
+}
+
+/* Arrow tip — sits in the 14px bridge zone above the panel */
+.nav-drop::before {
+  content: '';
+  position: absolute;
+  top: 9px;
+  left: 50%;
+  transform: translateX(-50%) rotate(45deg);
+  width: 10px; height: 10px;
+  background: rgba(2, 9, 26, 0.98);
+  border-left: 1px solid rgba(255,255,255,0.09);
+  border-top: 1px solid rgba(255,255,255,0.09);
+  z-index: 1;
+}
+
+/* Items need their own padding now that .nav-drop has no side/bottom padding */
+.nav-drop .nav-drop-item { margin: 0 10px; }
+.nav-drop .nav-drop-item:first-child { margin-top: 10px; }
+.nav-drop .nav-drop-item:last-child  { margin-bottom: 10px; }
+.nav-drop .nav-drop-divider { margin: 6px 10px; }
+
+/* Open on hover OR keyboard focus (desktop) */
+.nav-drop-wrap:hover .nav-drop,
+.nav-drop-wrap:focus-within .nav-drop {
+  opacity: 1;
+  pointer-events: auto;
+  transform: translateX(-50%) translateY(0);
+}
+
+/* ── Dropdown items ── */
+.nav-drop-item {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  padding: 11px 12px;
+  border-radius: 12px;
+  color: rgba(255,255,255,0.72);
+  text-decoration: none;
+  transition: background 0.16s var(--ease), color 0.16s;
+}
+.nav-drop-item:hover {
+  background: rgba(255,255,255,0.07);
+  color: var(--white);
+}
+.nav-drop-item:hover .nav-drop-icon {
+  background: rgba(11,134,170,0.2);
+  border-color: rgba(11,134,170,0.35);
+}
+
+.nav-drop-icon {
+  width: 34px; height: 34px;
+  border-radius: 9px;
+  background: rgba(255,255,255,0.06);
+  border: 1px solid rgba(255,255,255,0.08);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 15px;
+  flex-shrink: 0;
+  transition: background 0.16s, border-color 0.16s;
+}
+
+.nav-drop-title {
+  font-family: var(--font-head);
+  font-size: 13px;
+  font-weight: 700;
+  color: inherit;
+  line-height: 1.25;
+  letter-spacing: -0.005em;
+}
+.nav-drop-desc {
+  font-size: 11px;
+  color: rgba(255,255,255,0.35);
+  font-family: var(--font-body);
+  margin-top: 2px;
+  line-height: 1.3;
+}
+
+.nav-drop-divider {
+  height: 1px;
+  background: rgba(255,255,255,0.07);
+  margin: 6px 2px;
+}
+
+/* ── Hamburger ── */
 .nav-hamburger {
   display: none;
   flex-direction: column;
@@ -288,6 +452,7 @@ ul { list-style: none; }
   cursor: pointer;
   padding: 8px;
   z-index: 1010;
+  flex-shrink: 0;
 }
 .nav-hamburger span {
   display: block;
@@ -295,8 +460,11 @@ ul { list-style: none; }
   height: 2px;
   background: var(--white);
   border-radius: 2px;
-  transition: transform 0.25s var(--ease), opacity 0.25s;
+  transition: transform 0.28s var(--ease), opacity 0.2s;
 }
+.nav-hamburger.open span:nth-child(1) { transform: translateY(7px) rotate(45deg); }
+.nav-hamburger.open span:nth-child(2) { opacity: 0; transform: scaleX(0); }
+.nav-hamburger.open span:nth-child(3) { transform: translateY(-7px) rotate(-45deg); }
 
 /* ════════════════════════════════════════════════════
    HERO
@@ -1578,6 +1746,7 @@ ul { list-style: none; }
   background: linear-gradient(135deg, rgba(11,134,170,0.05), rgba(244,98,36,0.03));
   opacity: 0;
   transition: opacity 0.3s;
+  pointer-events: none;
 }
 
 .service-card::after {
@@ -1590,6 +1759,7 @@ ul { list-style: none; }
   transform-origin: left;
   transition: transform 0.4s var(--ease);
   border-radius: 0 0 2px 2px;
+  pointer-events: none;
 }
 
 .service-card:hover {
@@ -1679,6 +1849,9 @@ ul { list-style: none; }
   color: var(--blue);
   transition: gap 0.25s var(--spring), color 0.2s;
   letter-spacing: 0.01em;
+  position: relative;
+  z-index: 2;
+  pointer-events: auto;
 }
 .service-link .arrow {
   transition: transform 0.25s var(--spring);
@@ -1753,138 +1926,350 @@ ul { list-style: none; }
 .industry-card:hover .industry-name { color: var(--navy); }
 
 /* ════════════════════════════════════════════════════
-   PORTFOLIO
+   PORTFOLIO — v2
 ════════════════════════════════════════════════════ */
 .portfolio {
   padding: 120px 0;
-  background: var(--off-white);
+  background: var(--ink);
   position: relative;
   overflow: hidden;
+}
+
+.portfolio::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background:
+    radial-gradient(ellipse 55% 50% at 85% 15%, rgba(11,134,170,0.08) 0%, transparent 58%),
+    radial-gradient(ellipse 45% 55% at 5% 85%, rgba(4,34,114,0.38) 0%, transparent 55%);
+  pointer-events: none;
 }
 
 .portfolio-header {
-  display: flex;
-  justify-content: space-between;
-  align-items: flex-end;
-  margin-bottom: 48px;
-  gap: 32px;
+  margin-bottom: 52px;
+  position: relative;
+  z-index: 1;
+  text-align: center;
 }
 
-.portfolio-filters {
-  display: flex;
-  gap: 8px;
-  flex-wrap: wrap;
+.portfolio-header .section-title { color: var(--white); }
+
+.portfolio-sub {
+  font-size: 15px;
+  color: rgba(255,255,255,0.46);
+  line-height: 1.65;
+  margin-top: 12px;
+  max-width: 520px;
+  margin-left: auto;
+  margin-right: auto;
 }
 
-.filter-btn {
-  font-family: var(--font-head);
-  font-size: 12px;
-  font-weight: 600;
-  padding: 9px 18px;
-  border-radius: 50px;
-  border: 1.5px solid var(--gray-light);
-  background: var(--white);
-  color: var(--gray-dark);
-  cursor: pointer;
-  letter-spacing: 0.02em;
-  transition: all 0.25s var(--ease);
-}
-.filter-btn:hover {
-  border-color: rgba(4,34,114,0.2);
-  color: var(--navy);
-}
-.filter-btn--active {
-  background: var(--navy);
-  color: var(--white);
-  border-color: var(--navy);
-  box-shadow: var(--sh-navy-sm);
+/* ── Grid structure ── */
+.port-grid-wrap {
+  position: relative;
+  z-index: 1;
 }
 
-.portfolio-grid {
+.port-row {
   display: grid;
   grid-template-columns: repeat(3, 1fr);
-  gap: 24px;
+  gap: 20px;
 }
 
-.port-card {
+.port-row--bottom { margin-top: 20px; }
+
+/* ── Main service/category card ── */
+.port-main-card {
+  background: linear-gradient(145deg, rgba(4,34,114,0.65) 0%, rgba(2,11,30,0.9) 100%);
+  border: 1px solid rgba(255,255,255,0.07);
   border-radius: var(--r-lg);
-  overflow: hidden;
-  background: var(--white);
-  box-shadow: var(--sh-navy-sm);
-  transition: transform 0.35s var(--spring), box-shadow 0.35s var(--ease), opacity 0.3s, scale 0.3s;
- cursor: pointer;
-}
-.port-card:hover {
-  transform: translateY(-6px);
-  box-shadow: var(--sh-navy-lg);
-}
-
-.port-img-wrap {
-  position: relative;
-  aspect-ratio: 4/3;
-  overflow: hidden;
-}
-
-.port-img-wrap img {
-  width: 100%;
-  height: 100%;
-  object-fit: cover;
-  transition: transform 0.5s var(--ease);
-}
-.port-card:hover .port-img-wrap img { transform: scale(1.06); }
-
-.port-overlay {
-  position: absolute;
-  inset: 0;
-  background: linear-gradient(to top, rgba(2,11,30,0.75) 0%, rgba(2,11,30,0.1) 60%, transparent 100%);
+  padding: 30px 26px 26px;
   display: flex;
-  align-items: flex-end;
-  padding: 20px;
+  flex-direction: column;
+  position: relative;
+  overflow: hidden;
+  transition: transform 0.35s var(--spring), border-color 0.3s var(--ease), box-shadow 0.35s var(--ease);
+}
+
+.port-main-card::before {
+  content: '';
+  position: absolute;
+  top: 0; left: 0; right: 0;
+  height: 1px;
+  background: linear-gradient(90deg, transparent, rgba(11,134,170,0.35), transparent);
   opacity: 0;
-  transition: opacity 0.35s var(--ease);
-}
-.port-card:hover .port-overlay { opacity: 1; }
-
-.port-overlay-tag {
-  font-size: 11px;
-  font-weight: 600;
-  font-family: var(--font-body);
-  color: var(--white);
-  background: rgba(255,255,255,0.15);
-  backdrop-filter: blur(8px);
-  border: 1px solid rgba(255,255,255,0.2);
-  padding: 5px 12px;
-  border-radius: 50px;
-  letter-spacing: 0.08em;
-  text-transform: uppercase;
+  transition: opacity 0.3s;
+  pointer-events: none;
 }
 
-.port-info {
-  padding: 22px 24px;
+.port-main-card:hover {
+  transform: translateY(-5px);
+  border-color: rgba(11,134,170,0.22);
+  box-shadow: 0 20px 48px rgba(2,11,30,0.55), 0 4px 12px rgba(11,134,170,0.1);
+}
+.port-main-card:hover::before { opacity: 1; }
+
+/* Páginas Web — expandable */
+.port-main-card--web {
+  cursor: pointer;
+  user-select: none;
+}
+.port-main-card--web.expanded {
+  border-color: rgba(11,134,170,0.42);
+  box-shadow: 0 20px 48px rgba(2,11,30,0.55), 0 0 0 1px rgba(11,134,170,0.14), 0 4px 16px rgba(11,134,170,0.2);
+}
+.port-main-card--web.expanded::before { opacity: 1; }
+
+.port-card-icon {
+  width: 46px; height: 46px;
+  border-radius: 12px;
+  background: rgba(11,134,170,0.1);
+  border: 1px solid rgba(11,134,170,0.16);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 20px;
+  margin-bottom: 18px;
+  flex-shrink: 0;
+  transition: background 0.25s, transform 0.3s var(--spring);
+}
+.port-main-card:hover .port-card-icon {
+  background: rgba(11,134,170,0.18);
+  transform: scale(1.06);
 }
 
-.port-cat {
-  font-size: 11px;
-  font-weight: 600;
-  letter-spacing: 0.1em;
+.port-card-label {
+  font-size: 10px;
+  font-weight: 700;
+  letter-spacing: 0.12em;
   text-transform: uppercase;
   color: var(--orange);
   margin-bottom: 6px;
   font-family: var(--font-body);
 }
 
-.port-title {
+.port-card-title {
   font-family: var(--font-head);
   font-size: 17px;
   font-weight: 700;
-  color: var(--text);
-  margin-bottom: 8px;
+  color: var(--white);
+  margin-bottom: 10px;
+  line-height: 1.25;
+  letter-spacing: -0.01em;
 }
 
-.port-desc {
-  font-size: 13.5px;
+.port-card-desc {
+  font-size: 13px;
+  color: rgba(255,255,255,0.44);
+  line-height: 1.65;
+  flex: 1;
+  margin-bottom: 22px;
+}
+
+/* CTA button */
+.port-card-cta {
+  display: inline-flex;
+  align-items: center;
+  gap: 7px;
+  font-size: 11.5px;
+  font-weight: 700;
+  font-family: var(--font-head);
+  letter-spacing: 0.04em;
+  color: var(--white);
+  background: rgba(255,255,255,0.07);
+  border: 1px solid rgba(255,255,255,0.12);
+  padding: 9px 16px;
+  border-radius: 50px;
+  transition: background 0.25s var(--ease), border-color 0.25s var(--ease), gap 0.2s;
+  align-self: flex-start;
+  text-decoration: none;
+  pointer-events: auto;
+  position: relative;
+  z-index: 2;
+}
+.port-card-cta:hover {
+  background: rgba(11,134,170,0.25);
+  border-color: rgba(11,134,170,0.45);
+  gap: 10px;
+}
+.port-card-cta:focus-visible {
+  outline: 2px solid var(--blue);
+  outline-offset: 3px;
+}
+
+/* Expand button (Páginas Web) */
+.port-expand-btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  font-size: 11.5px;
+  font-weight: 700;
+  font-family: var(--font-head);
+  letter-spacing: 0.03em;
+  color: #2AAECE;
+  background: rgba(11,134,170,0.12);
+  border: 1px solid rgba(11,134,170,0.28);
+  padding: 9px 16px;
+  border-radius: 50px;
+  transition: background 0.25s, border-color 0.25s;
+  align-self: flex-start;
+  pointer-events: none;
+}
+.port-main-card--web:hover .port-expand-btn {
+  background: rgba(11,134,170,0.2);
+  border-color: rgba(11,134,170,0.45);
+}
+
+.port-expand-arrow {
+  display: inline-flex;
+  transition: transform 0.35s var(--ease);
+  line-height: 1;
+}
+.port-main-card--web.expanded .port-expand-arrow {
+  transform: rotate(180deg);
+}
+
+.port-expand-count {
+  background: rgba(11,134,170,0.2);
+  color: rgba(255,255,255,0.65);
+  border-radius: 50px;
+  padding: 1px 8px;
+  font-size: 10px;
+  font-weight: 600;
+}
+
+/* ── Expandable web preview panel ── */
+.port-web-panel {
+  overflow: hidden;
+  max-height: 0;
+  opacity: 0;
+  margin-top: 0;
+  transition:
+    max-height 0.52s cubic-bezier(0.4, 0, 0.2, 1),
+    opacity 0.35s ease,
+    margin-top 0.4s ease;
+}
+.port-web-panel.open {
+  opacity: 1;
+  margin-top: 20px;
+}
+
+.port-web-panel-inner {
+  background: rgba(255,255,255,0.025);
+  border: 1px solid rgba(255,255,255,0.07);
+  border-radius: var(--r-lg);
+  padding: 24px;
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 18px;
+}
+
+/* Individual preview card (inside panel) */
+.port-preview-card {
+  background: var(--white);
+  border-radius: var(--r-md);
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+  box-shadow: 0 4px 20px rgba(2,11,30,0.3);
+  transition: transform 0.3s var(--spring), box-shadow 0.3s var(--ease);
+}
+.port-preview-card:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 14px 40px rgba(2,11,30,0.45);
+}
+
+.port-preview-img-wrap {
+  position: relative;
+  aspect-ratio: 16/10;
+  overflow: hidden;
+  background: #f0f2f5;
+  flex-shrink: 0;
+}
+.port-preview-img-wrap img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: top center;
+  display: block;
+  transition: transform 0.5s var(--ease);
+}
+.port-preview-card:hover .port-preview-img-wrap img { transform: scale(1.04); }
+
+.port-preview-overlay {
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(to top, rgba(2,11,30,0.65) 0%, transparent 55%);
+  display: flex;
+  align-items: flex-end;
+  padding: 12px 14px;
+  opacity: 0;
+  transition: opacity 0.3s var(--ease);
+}
+.port-preview-card:hover .port-preview-overlay { opacity: 1; }
+
+.port-preview-view-link {
+  font-size: 10px;
+  font-weight: 700;
+  font-family: var(--font-body);
+  color: #fff;
+  background: rgba(255,255,255,0.14);
+  backdrop-filter: blur(8px);
+  border: 1px solid rgba(255,255,255,0.22);
+  padding: 4px 12px;
+  border-radius: 50px;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  text-decoration: none;
+  transition: background 0.2s;
+}
+.port-preview-view-link:hover { background: rgba(255,255,255,0.25); }
+
+.port-preview-info {
+  padding: 15px 16px 18px;
+  display: flex;
+  flex-direction: column;
+  flex: 1;
+}
+
+.port-preview-name {
+  font-family: var(--font-head);
+  font-size: 14px;
+  font-weight: 700;
+  color: var(--text);
+  margin-bottom: 5px;
+  letter-spacing: -0.01em;
+}
+
+.port-preview-desc {
+  font-size: 12px;
   color: var(--text-muted);
   line-height: 1.6;
+  flex: 1;
+  margin-bottom: 12px;
+}
+
+.port-preview-btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 5px;
+  font-size: 11px;
+  font-weight: 700;
+  font-family: var(--font-head);
+  color: var(--navy);
+  border: 1px solid rgba(4,34,114,0.18);
+  background: rgba(4,34,114,0.04);
+  padding: 6px 12px;
+  border-radius: 50px;
+  text-decoration: none;
+  align-self: flex-start;
+  transition: background 0.2s, border-color 0.2s, gap 0.2s;
+  letter-spacing: 0.02em;
+}
+.port-preview-btn:hover {
+  background: rgba(4,34,114,0.1);
+  border-color: rgba(4,34,114,0.32);
+  gap: 7px;
 }
 
 /* ════════════════════════════════════════════════════
@@ -1904,99 +2289,241 @@ ul { list-style: none; }
   background:
     radial-gradient(ellipse 60% 50% at 30% 20%, rgba(11,134,170,0.1) 0%, transparent 60%),
     radial-gradient(ellipse 50% 60% at 80% 80%, rgba(4,34,114,0.4) 0%, transparent 55%);
+  pointer-events: none;
 }
 
 .testimonials-header {
   text-align: center;
-  max-width: 560px;
-  margin: 0 auto 64px;
+  max-width: 520px;
+  margin: 0 auto 48px;
   position: relative;
   z-index: 1;
+}
+
+.testimonials-header .section-title {
+  font-size: clamp(26px, 3.2vw, 38px);
+  letter-spacing: -0.025em;
+  line-height: 1.12;
+  margin-bottom: 12px;
+}
+
+.testimonials-header .section-sub {
+  font-size: 15px;
+  line-height: 1.65;
+  color: rgba(255,255,255,0.48);
+  max-width: 400px;
+}
+
+.testimonials-header .section-label {
+  margin-bottom: 14px;
 }
 
 .testimonials-grid {
   display: grid;
-  grid-template-columns: repeat(3, 1fr);
-  gap: 24px;
+  grid-template-columns: 1fr 1fr;
+  gap: 28px;
   position: relative;
   z-index: 1;
+  max-width: 960px;
+  margin: 0 auto;
 }
 
+/* ── Shared card base ── */
 .test-card {
-  background: rgba(255,255,255,0.05);
-  border: 1px solid rgba(255,255,255,0.09);
   border-radius: var(--r-lg);
   padding: 36px 32px;
-  transition: background 0.3s, border-color 0.3s, transform 0.35s var(--spring);
+  position: relative;
+  overflow: hidden;
+  transition: transform 0.35s var(--spring), box-shadow 0.35s var(--ease);
 }
-.test-card:hover {
-  background: rgba(255,255,255,0.08);
-  border-color: rgba(255,255,255,0.16);
-  transform: translateY(-4px);
+.test-card:hover { transform: translateY(-5px); }
+
+/* ── Card 1: results / growth — dark teal accent ── */
+.test-card--growth {
+  background: linear-gradient(145deg, rgba(4,34,114,0.55) 0%, rgba(11,134,170,0.18) 100%);
+  border: 1px solid rgba(11,134,170,0.25);
+  box-shadow: 0 2px 0 rgba(11,134,170,0.35) inset, 0 24px 56px rgba(2,11,30,0.4);
+}
+.test-card--growth:hover {
+  box-shadow: 0 2px 0 rgba(11,134,170,0.5) inset, 0 32px 72px rgba(2,11,30,0.5);
 }
 
+/* ── Card 2: trust / professional — subtle warm border ── */
+.test-card--trust {
+  background: rgba(255,255,255,0.04);
+  border: 1px solid rgba(255,255,255,0.1);
+  box-shadow: 0 24px 56px rgba(2,11,30,0.35);
+}
+.test-card--trust:hover {
+  background: rgba(255,255,255,0.065);
+  border-color: rgba(244,98,36,0.22);
+  box-shadow: 0 32px 72px rgba(2,11,30,0.45);
+}
+
+/* ── Google badge ── */
+.test-google-badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  background: rgba(255,255,255,0.08);
+  border: 1px solid rgba(255,255,255,0.12);
+  border-radius: 50px;
+  padding: 4px 12px 4px 8px;
+  font-size: 10.5px;
+  font-weight: 600;
+  font-family: var(--font-body);
+  color: rgba(255,255,255,0.55);
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
+  margin-bottom: 22px;
+}
+.test-google-badge .badge-dot {
+  width: 6px; height: 6px;
+  border-radius: 50%;
+  background: #34d399;
+  flex-shrink: 0;
+}
+
+/* ── Stars ── */
 .test-stars {
   display: flex;
-  gap: 4px;
-  margin-bottom: 20px;
-  color: var(--orange);
-  font-size: 16px;
+  gap: 3px;
+  margin-bottom: 18px;
+  color: #FBBF24;
+  font-size: 17px;
+  letter-spacing: 1px;
 }
 
-.test-quote {
-  font-size: 15.5px;
-  line-height: 1.75;
-  color: rgba(255,255,255,0.7);
-  margin-bottom: 28px;
-  font-style: italic;
-}
-
-.test-quote::before {
-  content: '"';
-  display: block;
-  font-family: Georgia, serif;
-  font-size: 56px;
-  color: rgba(244,98,36,0.3);
-  line-height: 0.8;
+/* ── Card title ── */
+.test-title {
+  font-family: var(--font-head);
+  font-size: 17px;
+  font-weight: 700;
+  color: var(--white);
   margin-bottom: 14px;
+  letter-spacing: -0.01em;
+  line-height: 1.3;
+}
+
+/* ── Quote text ── */
+.test-quote {
+  font-size: 14.5px;
+  line-height: 1.78;
+  color: rgba(255,255,255,0.62);
+  margin-bottom: 26px;
+  font-style: italic;
+  position: relative;
+}
+.test-quote::before {
+  content: '\201C';
+  font-family: Georgia, serif;
+  font-size: 52px;
+  color: rgba(244,98,36,0.25);
+  line-height: 0.75;
+  display: block;
+  margin-bottom: 10px;
   font-style: normal;
 }
 
+/* ── Result badges ── */
+.test-badges {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 7px;
+  margin-bottom: 28px;
+}
+.test-badge {
+  font-size: 11px;
+  font-weight: 600;
+  font-family: var(--font-body);
+  padding: 4px 11px;
+  border-radius: 50px;
+  letter-spacing: 0.03em;
+}
+.test-badge--teal {
+  background: rgba(11,134,170,0.18);
+  color: #2AAECE;
+  border: 1px solid rgba(11,134,170,0.25);
+}
+.test-badge--navy {
+  background: rgba(4,34,114,0.25);
+  color: rgba(255,255,255,0.55);
+  border: 1px solid rgba(255,255,255,0.1);
+}
+.test-badge--orange {
+  background: rgba(244,98,36,0.15);
+  color: var(--orange);
+  border: 1px solid rgba(244,98,36,0.2);
+}
+
+/* ── Author row ── */
 .test-author {
   display: flex;
   align-items: center;
   gap: 14px;
-  padding-top: 24px;
+  padding-top: 22px;
   border-top: 1px solid rgba(255,255,255,0.07);
 }
-
 .test-avatar {
-  width: 46px; height: 46px;
+  width: 44px; height: 44px;
   border-radius: 50%;
-  object-fit: cover;
-  border: 2px solid rgba(255,255,255,0.1);
-  background: linear-gradient(135deg, var(--navy), var(--blue));
   display: flex;
   align-items: center;
   justify-content: center;
   font-family: var(--font-head);
-  font-size: 16px;
-  font-weight: 700;
+  font-size: 15px;
+  font-weight: 800;
   color: var(--white);
   flex-shrink: 0;
 }
+.test-avatar--teal  { background: linear-gradient(135deg, #0B86AA, #042272); }
+.test-avatar--warm  { background: linear-gradient(135deg, #C94E1A, #042272); }
 
 .test-name {
   font-family: var(--font-head);
-  font-size: 15px;
+  font-size: 14px;
   font-weight: 700;
   color: var(--white);
   margin-bottom: 2px;
 }
 .test-role {
-  font-size: 12.5px;
-  color: rgba(255,255,255,0.4);
+  font-size: 12px;
+  color: rgba(255,255,255,0.38);
   font-family: var(--font-body);
+}
+
+/* ── Google CTA ── */
+.testimonials-cta {
+  text-align: center;
+  margin-top: 52px;
+  position: relative;
+  z-index: 1;
+}
+.btn-google {
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+  background: rgba(255,255,255,0.06);
+  border: 1px solid rgba(255,255,255,0.14);
+  border-radius: 50px;
+  padding: 13px 26px;
+  font-family: var(--font-head);
+  font-size: 13px;
+  font-weight: 700;
+  color: rgba(255,255,255,0.75);
+  letter-spacing: 0.02em;
+  transition: background 0.25s, border-color 0.25s, color 0.25s, transform 0.25s var(--spring);
+  text-decoration: none;
+}
+.btn-google:hover {
+  background: rgba(255,255,255,0.11);
+  border-color: rgba(255,255,255,0.28);
+  color: var(--white);
+  transform: translateY(-2px);
+}
+.btn-google-icon {
+  width: 20px; height: 20px;
+  flex-shrink: 0;
 }
 
 /* ════════════════════════════════════════════════════
@@ -2351,6 +2878,15 @@ cursor: pointer;
   padding: 17px 32px;
 }
 
+.form-submit-note {
+  text-align: center;
+  font-size: 12px;
+  color: var(--gray-mid);
+  font-family: var(--font-body);
+  margin-top: 12px;
+  letter-spacing: 0.02em;
+}
+
 /* ════════════════════════════════════════════════════
    FOOTER
 ════════════════════════════════════════════════════ */
@@ -2579,25 +3115,76 @@ cursor: pointer;
   .testimonials-grid { grid-template-columns: 1fr; }
   .process-steps { grid-template-columns: repeat(2, 1fr); }
   .process-steps::before { display: none; }
-  .portfolio-grid { grid-template-columns: repeat(2, 1fr); }
-  .portfolio-header { flex-direction: column; align-items: flex-start; }
+  .port-row { grid-template-columns: repeat(2, 1fr); }
+  .port-web-panel-inner { grid-template-columns: repeat(2, 1fr); }
   .contact-inner { grid-template-columns: 1fr; gap: 48px; }
 }
 
 @media (max-width: 640px) {
   .container { padding: 0 20px; }
 
-  .nav-links { display: none; flex-direction: column; position: fixed; inset: 0; background: rgba(2,11,30,0.97); backdrop-filter: blur(20px); padding: 100px 28px 40px; gap: 4px; z-index: 1005; }
-  .nav-links.open { display: flex; }
-  .nav-links a { font-size: 18px; padding: 14px 16px; border-radius: 12px; color: rgba(255,255,255,0.8); }
-  .nav-links .nav-cta { margin-top: 16px; text-align: center; justify-content: center; }
+  /* ── Mobile nav overlay ── */
   .nav-hamburger { display: flex; }
+  .nav-links {
+    display: none;
+    flex-direction: column;
+    position: fixed;
+    top: 0; left: 0; right: 0; bottom: 0;
+    background: rgba(2,11,30,0.98);
+    backdrop-filter: blur(24px);
+    -webkit-backdrop-filter: blur(24px);
+    padding: 88px 20px 40px;
+    gap: 2px;
+    z-index: 1005;
+    overflow-y: auto;
+  }
+  .nav-links.open { display: flex; }
+  /* Reset link styles for mobile */
+  .nav-link {
+    font-size: 15px;
+    padding: 13px 16px;
+    border-radius: 12px;
+    color: rgba(255,255,255,0.85);
+    width: 100%;
+    justify-content: space-between;
+  }
+  /* Mobile dropdown — accordion, not floating */
+  .nav-drop-wrap { width: 100%; }
+  .nav-drop {
+    position: static;
+    transform: none !important;
+    opacity: 1 !important;
+    pointer-events: auto !important;
+    background: rgba(255,255,255,0.04);
+    border-radius: 12px;
+    min-width: auto;
+    margin: 4px 0 6px 0;
+    box-shadow: none;
+    border: 1px solid rgba(255,255,255,0.07);
+    display: none;
+    padding: 6px; /* resets desktop padding-top:14px */
+  }
+  .nav-drop::before { display: none; }
+  .nav-drop::after  { display: none; }
+  /* Reset desktop item margins for mobile */
+  .nav-drop .nav-drop-item,
+  .nav-drop .nav-drop-item:first-child,
+  .nav-drop .nav-drop-item:last-child { margin: 0; }
+  .nav-drop .nav-drop-divider { margin: 6px 0; }
+  .nav-drop-wrap.open .nav-drop { display: block; }
+  /* Disable hover-based open on mobile */
+  .nav-drop-wrap:hover .nav-drop { opacity: 1; transform: none; }
+  .nav-drop-item { padding: 9px 10px; }
+  .nav-drop-icon { width: 28px; height: 28px; font-size: 13px; }
+  .nav-drop-title { font-size: 13px; }
+  .nav-cta { margin-left: 0 !important; margin-top: 10px; justify-content: center; width: 100%; }
 
   .services-grid { grid-template-columns: 1fr; }
   .problem-grid { grid-template-columns: 1fr; }
   .industries-grid { grid-template-columns: repeat(2, 1fr); }
   .process-steps { grid-template-columns: 1fr; }
-  .portfolio-grid { grid-template-columns: 1fr; }
+  .port-row { grid-template-columns: 1fr; }
+  .port-web-panel-inner { grid-template-columns: 1fr; }
   .footer-grid { grid-template-columns: 1fr; gap: 32px; }
   .form-row { grid-template-columns: 1fr; }
   .hero-stat { padding-right: 18px; margin-right: 18px; }
@@ -2807,24 +3394,109 @@ cursor: pointer;
 ════════════════════════════════════════════════════ -->
 <header class="nav-header" id="navbar">
   <div class="container nav-inner">
-    <a href="#" class="nav-logo">
+
+    <!-- Logo -->
+    <a href="/" class="nav-logo">
       <img src="BRANDING/LOGO.png" alt="MDT" class="logo-img" />
       <span class="nav-brand-text">
         <span class="brand-mdt">MDT</span>
         <span class="brand-sub">Marketing Digital Tenerife</span>
       </span>
     </a>
+
+    <!-- Nav -->
     <nav class="nav-links" id="navLinks">
-      <a href="#services">Servicios</a>
-      <a href="#industries">Sectores</a>
-      <a href="#portfolio">Proyectos</a>
-      <a href="#process">Proceso</a>
-      <a href="#testimonials">Opiniones</a>
+
+      <a href="/" class="nav-link">Inicio</a>
+
+      <!-- ── Servicios ▼ ── -->
+      <div class="nav-drop-wrap" id="dropServicios">
+        <button class="nav-link nav-drop-btn" aria-expanded="false" aria-haspopup="true">
+          Servicios
+          <svg class="nav-chevron" width="12" height="12" viewBox="0 0 12 12" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="2 4 6 8 10 4"/></svg>
+        </button>
+        <div class="nav-drop" role="menu">
+          <a href="/diseno-web-tenerife/" class="nav-drop-item" role="menuitem">
+            <span class="nav-drop-icon">🌐</span>
+            <div>
+              <div class="nav-drop-title">Diseño Web en Tenerife</div>
+              <div class="nav-drop-desc">Webs profesionales que convierten</div>
+            </div>
+          </a>
+          <a href="/seo-local-tenerife/" class="nav-drop-item" role="menuitem">
+            <span class="nav-drop-icon">📍</span>
+            <div>
+              <div class="nav-drop-title">SEO Local en Tenerife</div>
+              <div class="nav-drop-desc">Posicionamiento orgánico en Google</div>
+            </div>
+          </a>
+          <a href="/gestion-redes-sociales-tenerife/" class="nav-drop-item" role="menuitem">
+            <span class="nav-drop-icon">📲</span>
+            <div>
+              <div class="nav-drop-title">Redes Sociales</div>
+              <div class="nav-drop-desc">Gestión y contenido profesional</div>
+            </div>
+          </a>
+          <div class="nav-drop-divider"></div>
+          <a href="/branding-identidad-visual-tenerife/" class="nav-drop-item" role="menuitem">
+            <span class="nav-drop-icon">✦</span>
+            <div>
+              <div class="nav-drop-title">Branding e Identidad Visual</div>
+              <div class="nav-drop-desc">Logo, paleta y guía de estilo</div>
+            </div>
+          </a>
+          <a href="/marketing-digital-tenerife/" class="nav-drop-item" role="menuitem">
+            <span class="nav-drop-icon">📣</span>
+            <div>
+              <div class="nav-drop-title">Marketing Digital</div>
+              <div class="nav-drop-desc">Google Ads, Meta Ads y más</div>
+            </div>
+          </a>
+          <a href="/creacion-de-contenido/" class="nav-drop-item" role="menuitem">
+            <span class="nav-drop-icon">✍️</span>
+            <div>
+              <div class="nav-drop-title">Creación de Contenido</div>
+              <div class="nav-drop-desc">Foto, vídeo y copywriting</div>
+            </div>
+          </a>
+        </div>
+      </div>
+
+      <!-- ── Sectores ▼ ── -->
+      <div class="nav-drop-wrap" id="dropSectores">
+        <button class="nav-link nav-drop-btn" aria-expanded="false" aria-haspopup="true">
+          Sectores
+          <svg class="nav-chevron" width="12" height="12" viewBox="0 0 12 12" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="2 4 6 8 10 4"/></svg>
+        </button>
+        <div class="nav-drop" role="menu">
+          <a href="/web-inmobiliaria-tenerife/" class="nav-drop-item" role="menuitem">
+            <span class="nav-drop-icon">🏠</span>
+            <div>
+              <div class="nav-drop-title">Web Inmobiliaria</div>
+              <div class="nav-drop-desc">Diseño para agencias y portales</div>
+            </div>
+          </a>
+          <a href="/marketing-turistico-tenerife/" class="nav-drop-item" role="menuitem">
+            <span class="nav-drop-icon">✈️</span>
+            <div>
+              <div class="nav-drop-title">Marketing Turístico</div>
+              <div class="nav-drop-desc">Hoteles, apartamentos y turismo</div>
+            </div>
+          </a>
+        </div>
+      </div>
+
+      <a href="#portfolio" class="nav-link">Proyectos</a>
+      <a href="#process" class="nav-link">Proceso</a>
+      <a href="#testimonials" class="nav-link">Opiniones</a>
       <a href="#contact" class="nav-cta">Solicitar información</a>
+
     </nav>
-    <button class="nav-hamburger" id="hamburger" aria-label="Open menu">
+
+    <button class="nav-hamburger" id="hamburger" aria-label="Abrir menú" aria-expanded="false">
       <span></span><span></span><span></span>
     </button>
+
   </div>
 </header>
 
@@ -3207,7 +3879,10 @@ cursor: pointer;
           <span class="service-tag">WhatsApp</span>
           <span class="service-tag">Landing Pages</span>
         </div>
-        <a href="#contact" class="service-link">Pedir presupuesto <span class="arrow">→</span></a>
+        <div style="display:flex;align-items:center;gap:16px;flex-wrap:wrap;">
+          <a href="/diseno-web-tenerife/" class="service-link" style="color:rgba(255,255,255,0.8);">Ver más <span class="arrow">→</span></a>
+          <a href="#contact" class="service-link" data-service="Diseño de Página Web" style="color:var(--orange);">Pedir presupuesto <span class="arrow">→</span></a>
+        </div>
       </div>
 
       <div class="service-card reveal">
@@ -3219,7 +3894,7 @@ cursor: pointer;
           <span class="service-tag">Google Maps</span>
           <span class="service-tag">Palabras clave</span>
         </div>
-        <a href="#contact" class="service-link">Mejorar posición <span class="arrow">→</span></a>
+        <a href="#contact" class="service-link" data-service="Posicionamiento SEO">Mejorar posición <span class="arrow">→</span></a>
       </div>
 
       <div class="service-card reveal">
@@ -3231,7 +3906,7 @@ cursor: pointer;
           <span class="service-tag">Facebook</span>
           <span class="service-tag">TikTok</span>
         </div>
-        <a href="#contact" class="service-link">Activar redes <span class="arrow">→</span></a>
+        <a href="#contact" class="service-link" data-service="Gestión de Redes Sociales">Activar redes <span class="arrow">→</span></a>
       </div>
 
       <div class="service-card reveal">
@@ -3243,7 +3918,7 @@ cursor: pointer;
           <span class="service-tag">Meta Ads</span>
           <span class="service-tag">Analítica</span>
         </div>
-        <a href="#contact" class="service-link">Lanzar campaña <span class="arrow">→</span></a>
+        <a href="#contact" class="service-link" data-service="Marketing Digital / Publicidad">Lanzar campaña <span class="arrow">→</span></a>
       </div>
 
       <div class="service-card reveal">
@@ -3255,7 +3930,7 @@ cursor: pointer;
           <span class="service-tag">Vídeo</span>
           <span class="service-tag">Copywriting</span>
         </div>
-        <a href="#contact" class="service-link">Crear contenido <span class="arrow">→</span></a>
+        <a href="#contact" class="service-link" data-service="Creación de Contenido">Crear contenido <span class="arrow">→</span></a>
       </div>
 
       <div class="service-card reveal" style="background:var(--off-white);display:flex;flex-direction:column;align-items:center;justify-content:center;text-align:center;border:2px dashed rgba(4,34,114,0.15);">
@@ -3314,102 +3989,133 @@ cursor: pointer;
 <section class="portfolio" id="portfolio">
   <div class="container">
     <div class="portfolio-header">
-      <div>
-        <div class="section-label">Proyectos</div>
-        <h2 class="section-title">El Trabajo<br>Habla por Sí Solo</h2>
-      </div>
-      <div class="portfolio-filters">
-        <button class="filter-btn filter-btn--active" data-filter="all">Todos</button>
-        <button class="filter-btn" data-filter="web">Diseño Web</button>
-        <button class="filter-btn" data-filter="seo">SEO</button>
-        <button class="filter-btn" data-filter="social">Redes Sociales</button>
-        <button class="filter-btn" data-filter="brand">Branding</button>
-      </div>
+      <div class="section-label">Proyectos</div>
+      <h2 class="section-title">El trabajo habla<br>por sí solo</h2>
+      <p class="portfolio-sub">Servicios y muestras visuales pensados para negocios que quieren verse mejor y vender más online.</p>
     </div>
-    <div class="portfolio-grid">
 
-      <div class="port-card reveal" data-cat="web">
-        <div class="port-img-wrap">
-          <img src="https://placehold.co/800x600/042272/FFFFFF?text=Diseño+Web" alt="Diseño web restaurante" />
-          <div class="port-overlay">
-            <span class="port-overlay-tag">Ver proyecto →</span>
+    <div class="port-grid-wrap">
+
+      <!-- TOP ROW -->
+      <div class="port-row port-row--top">
+
+        <!-- CARD 1: Páginas Web (expandable) -->
+        <div class="port-main-card port-main-card--web reveal" id="portWebCard" role="button" aria-expanded="false" tabindex="0">
+          <div class="port-card-icon">🌐</div>
+          <div class="port-card-label">Diseño Web</div>
+          <div class="port-card-title">Páginas Web</div>
+          <div class="port-card-desc">Webs profesionales, rápidas y adaptadas a móvil. Diseñadas para convertir visitas en clientes reales desde el primer clic.</div>
+          <div style="display:flex;align-items:center;gap:10px;flex-wrap:wrap;">
+            <div class="port-expand-btn">
+              Ver proyectos <span class="port-expand-count">3</span>
+              <span class="port-expand-arrow">↓</span>
+            </div>
+            <a href="/diseno-web-tenerife/" class="port-card-cta" style="pointer-events:auto;" onclick="event.stopPropagation();">Ver página completa <span>→</span></a>
           </div>
         </div>
-        <div class="port-info">
-          <div class="port-cat">Diseño Web</div>
-          <div class="port-title">Web para Restaurante</div>
-          <div class="port-desc">Diseño profesional con carta digital, integración WhatsApp y formulario de reservas. Optimizada para móvil y Google.</div>
+
+        <!-- CARD 2: SEO Local -->
+        <div class="port-main-card reveal">
+          <div class="port-card-icon">📍</div>
+          <div class="port-card-label">Posicionamiento</div>
+          <div class="port-card-title">SEO Local</div>
+          <div class="port-card-desc">Optimización orientada a mejorar visibilidad en Google, búsquedas locales y captación de clientes en Tenerife.</div>
+          <a href="#contact" class="port-card-cta" data-service="Posicionamiento SEO">Mejorar posición <span>→</span></a>
+        </div>
+
+        <!-- CARD 3: Redes Sociales -->
+        <div class="port-main-card reveal">
+          <div class="port-card-icon">📲</div>
+          <div class="port-card-label">Social Media</div>
+          <div class="port-card-title">Redes Sociales</div>
+          <div class="port-card-desc">Gestión de contenido, diseño visual y publicaciones constantes para mejorar imagen, alcance y comunidad.</div>
+          <a href="#contact" class="port-card-cta" data-service="Gestión de Redes Sociales">Activar redes <span>→</span></a>
+        </div>
+
+      </div>
+
+      <!-- EXPANDABLE WEB PREVIEWS PANEL -->
+      <div class="port-web-panel" id="portWebPanel" aria-hidden="true">
+        <div class="port-web-panel-inner">
+
+          <!-- Preview 1: Física Tenerife -->
+          <div class="port-preview-card">
+            <div class="port-preview-img-wrap">
+              <img src="assets/previews/fisica-tenerife.png" alt="Física Tenerife" loading="lazy" />
+              <div class="port-preview-overlay">
+                <a href="https://fisica-tenerife-yjjijkqa5fmkamyp.builder-preview.com/" class="port-preview-view-link" target="_blank" rel="noopener">Ver diseño →</a>
+              </div>
+            </div>
+            <div class="port-preview-info">
+              <div class="port-preview-name">Física Tenerife</div>
+              <div class="port-preview-desc">Web con estructura clara, imagen profesional y enfoque en captar alumnos y transmitir confianza desde el primer vistazo.</div>
+              <a href="https://fisica-tenerife-yjjijkqa5fmkamyp.builder-preview.com/" class="port-preview-btn" target="_blank" rel="noopener">Ver diseño <span>→</span></a>
+            </div>
+          </div>
+
+          <!-- Preview 2: Hefesto Reformas -->
+          <div class="port-preview-card">
+            <div class="port-preview-img-wrap">
+              <img src="assets/previews/hefesto-reformas.png" alt="Hefesto Reformas y Servicios" loading="lazy" />
+              <div class="port-preview-overlay">
+                <a href="https://hefesto-reformas-y-servicios-v9au3lyqkeaxrpf5.builder-preview.com/" class="port-preview-view-link" target="_blank" rel="noopener">Ver diseño →</a>
+              </div>
+            </div>
+            <div class="port-preview-info">
+              <div class="port-preview-name">Hefesto Reformas y Servicios</div>
+              <div class="port-preview-desc">Propuesta visual con enfoque comercial, servicios bien organizados y contacto claro para convertir visitas en oportunidades reales.</div>
+              <a href="https://hefesto-reformas-y-servicios-v9au3lyqkeaxrpf5.builder-preview.com/" class="port-preview-btn" target="_blank" rel="noopener">Ver diseño <span>→</span></a>
+            </div>
+          </div>
+
+          <!-- Preview 3: Reformas Espinosa Sur -->
+          <div class="port-preview-card">
+            <div class="port-preview-img-wrap">
+              <img src="assets/previews/espinosa-sur.png" alt="Reformas Espinosa Sur" loading="lazy" />
+              <div class="port-preview-overlay">
+                <a href="https://reformas-espinosa-sur-9ajvdiexwk4y3959.builder-preview.com/" class="port-preview-view-link" target="_blank" rel="noopener">Ver diseño →</a>
+              </div>
+            </div>
+            <div class="port-preview-info">
+              <div class="port-preview-name">Reformas Espinosa Sur</div>
+              <div class="port-preview-desc">Diseño pensado para transmitir confianza, mostrar servicios de forma directa y facilitar la captación de clientes en Tenerife.</div>
+              <a href="https://reformas-espinosa-sur-9ajvdiexwk4y3959.builder-preview.com/" class="port-preview-btn" target="_blank" rel="noopener">Ver diseño <span>→</span></a>
+            </div>
+          </div>
+
         </div>
       </div>
 
-      <div class="port-card reveal" data-cat="seo">
-        <div class="port-img-wrap">
-          <img src="https://placehold.co/800x600/0B86AA/FFFFFF?text=SEO+Local" alt="SEO local Tenerife" />
-          <div class="port-overlay">
-            <span class="port-overlay-tag">Ver proyecto →</span>
-          </div>
-        </div>
-        <div class="port-info">
-          <div class="port-cat">SEO Local</div>
-          <div class="port-title">Posicionamiento Local en Tenerife</div>
-          <div class="port-desc">Optimización SEO completa para aparecer en las primeras posiciones de Google en búsquedas locales relevantes.</div>
-        </div>
-      </div>
+      <!-- BOTTOM ROW -->
+      <div class="port-row port-row--bottom">
 
-      <div class="port-card reveal" data-cat="social">
-        <div class="port-img-wrap">
-          <img src="https://placehold.co/800x600/F46224/FFFFFF?text=Redes+Sociales" alt="Gestión redes sociales" />
-          <div class="port-overlay">
-            <span class="port-overlay-tag">Ver proyecto →</span>
-          </div>
+        <!-- CARD 4: Identidad Visual / Branding -->
+        <div class="port-main-card reveal">
+          <div class="port-card-icon">✦</div>
+          <div class="port-card-label">Branding</div>
+          <div class="port-card-title">Identidad Visual y Branding</div>
+          <div class="port-card-desc">Diseño visual coherente para que tu negocio transmita profesionalidad, personalidad y una imagen sólida.</div>
+          <a href="#contact" class="port-card-cta" data-service="Creación de Contenido">Ver propuesta <span>→</span></a>
         </div>
-        <div class="port-info">
-          <div class="port-cat">Redes Sociales</div>
-          <div class="port-title">Gestión de Instagram y Facebook</div>
-          <div class="port-desc">Estrategia de contenido, diseño visual y publicaciones constantes para generar comunidad y atraer clientes.</div>
-        </div>
-      </div>
 
-      <div class="port-card reveal" data-cat="brand">
-        <div class="port-img-wrap">
-          <img src="https://placehold.co/800x600/021347/0B86AA?text=Identidad+Visual" alt="Branding identidad visual" />
-          <div class="port-overlay">
-            <span class="port-overlay-tag">Ver proyecto →</span>
-          </div>
+        <!-- CARD 5: Web Inmobiliaria -->
+        <div class="port-main-card reveal">
+          <div class="port-card-icon">🏠</div>
+          <div class="port-card-label">Sector Inmobiliario</div>
+          <div class="port-card-title">Web Inmobiliaria</div>
+          <div class="port-card-desc">Diseño y estructura digital pensados para mostrar propiedades, captar contactos y transmitir confianza.</div>
+          <a href="#contact" class="port-card-cta" data-service="Diseño de Página Web">Ver cómo funciona <span>→</span></a>
         </div>
-        <div class="port-info">
-          <div class="port-cat">Branding</div>
-          <div class="port-title">Identidad Visual para Negocio Local</div>
-          <div class="port-desc">Diseño de logotipo, colores corporativos y materiales visuales para dar una imagen profesional y coherente.</div>
-        </div>
-      </div>
 
-      <div class="port-card reveal" data-cat="web">
-        <div class="port-img-wrap">
-          <img src="https://placehold.co/800x600/042272/F46224?text=Web+Inmobiliaria" alt="Web inmobiliaria" />
-          <div class="port-overlay">
-            <span class="port-overlay-tag">Ver proyecto →</span>
-          </div>
+        <!-- CARD 6: Marketing Turístico -->
+        <div class="port-main-card reveal">
+          <div class="port-card-icon">✈️</div>
+          <div class="port-card-label">Sector Turístico</div>
+          <div class="port-card-title">Marketing Turístico</div>
+          <div class="port-card-desc">Estrategias orientadas a alojamientos, apartamentos vacacionales y negocios turísticos que quieren más visibilidad y reservas.</div>
+          <a href="#contact" class="port-card-cta" data-service="Marketing Digital / Publicidad">Más información <span>→</span></a>
         </div>
-        <div class="port-info">
-          <div class="port-cat">Diseño Web + SEO</div>
-          <div class="port-title">Portal Inmobiliario</div>
-          <div class="port-desc">Web con catálogo de propiedades, captación de leads y posicionamiento en Google para búsquedas inmobiliarias en Tenerife.</div>
-        </div>
-      </div>
 
-      <div class="port-card reveal" data-cat="seo">
-        <div class="port-img-wrap">
-          <img src="https://placehold.co/800x600/0A2FA0/FFFFFF?text=Marketing+Turístico" alt="Marketing turístico" />
-          <div class="port-overlay">
-            <span class="port-overlay-tag">Ver proyecto →</span>
-          </div>
-        </div>
-        <div class="port-info">
-          <div class="port-cat">Marketing Digital</div>
-          <div class="port-title">Apartamentos Turísticos</div>
-          <div class="port-desc">Estrategia digital completa para apartamento vacacional: web, SEO y redes sociales para aumentar reservas directas.</div>
-        </div>
       </div>
 
     </div>
@@ -3421,38 +4127,75 @@ cursor: pointer;
 ════════════════════════════════════════════════════ -->
 <section class="testimonials" id="testimonials">
   <div class="container">
+
     <div class="testimonials-header">
-      <div class="section-label">Lo que dicen nuestros clientes</div>
-      <h2 class="section-title section-title--white">La Satisfacción de<br>Nuestros Clientes lo Es Todo</h2>
-      <p class="section-sub section-sub--white" style="margin: 0 auto;">Trabajamos con compromiso y dedicación en cada proyecto. Si ya has trabajado con nosotros, te invitamos a compartir tu experiencia.</p>
+      <div class="section-label">Reseñas reales</div>
+      <h2 class="section-title section-title--white">Lo que dicen nuestros<br>clientes</h2>
+      <p class="section-sub section-sub--white" style="margin: 0 auto;">Opiniones reales de negocios que ya han trabajado con nosotros en Tenerife.</p>
     </div>
+
     <div class="testimonials-grid">
 
-      <div class="test-card reveal" style="display:flex;flex-direction:column;align-items:center;justify-content:center;text-align:center;border:1px dashed rgba(255,255,255,0.15);">
-        <div style="font-size:40px;margin-bottom:20px;">⭐</div>
-        <p class="test-quote" style="font-style:normal;text-align:center;">¿Ya has trabajado con nosotros? Tu opinión es muy importante. Ayuda a otros negocios a tomar la mejor decisión.</p>
-        <a href="https://g.page/r/review" class="btn btn-outline-orange" style="margin-top:8px;font-size:13px;padding:12px 22px;" target="_blank" rel="noopener">Dejar una reseña en Google</a>
-      </div>
-
-      <div class="test-card reveal">
+      <!-- RESEÑA 1: Resultados / Crecimiento -->
+      <div class="test-card test-card--growth reveal">
+        <div class="test-google-badge">
+          <span class="badge-dot"></span>
+          Reseña real de Google
+        </div>
         <div class="test-stars">★★★★★</div>
-        <p class="test-quote">Gran servicio de Marketing y publicidad. Profesionalidad y dedicación en cada proyecto. Muy recomendable para cualquier negocio local que quiera mejorar su presencia online.</p>
+        <div class="test-title">Crecimiento real en redes y negocio</div>
+        <p class="test-quote">Gran servicio de marketing y publicidad. El contenido profesional con cámara, dron e Insta360 ayudó a crecer la cuenta de TikTok en más de 12.000 seguidores reales y a mejorar la visibilidad del negocio de alquiler de autocaravanas en plataformas como Yescapa. Calidad, resultados y muy buena experiencia.</p>
+        <div class="test-badges">
+          <span class="test-badge test-badge--teal">+12.000 seguidores</span>
+          <span class="test-badge test-badge--teal">Vídeo · Dron · Insta360</span>
+          <span class="test-badge test-badge--navy">Marketing vacacional</span>
+        </div>
         <div class="test-author">
-          <div class="test-avatar">CL</div>
+          <div class="test-avatar test-avatar--teal">TL</div>
           <div>
-            <div class="test-name">Cliente verificado</div>
-            <div class="test-role">Negocio local · Tenerife</div>
+            <div class="test-name">Tenerife sin Límites</div>
+            <div class="test-role">Alquiler de autocaravanas · Tenerife</div>
           </div>
         </div>
       </div>
 
-      <div class="test-card reveal" style="display:flex;flex-direction:column;justify-content:center;align-items:center;text-align:center;gap:16px;">
-        <div style="font-size:36px;">💬</div>
-        <p style="font-size:15px;line-height:1.7;color:rgba(255,255,255,0.6);">¿Tienes dudas sobre algún servicio? Escríbenos y te asesoramos sin compromiso sobre qué necesita tu negocio.</p>
-        <a href="#contact" class="btn btn-primary" style="font-size:13px;padding:12px 24px;">Hablar con nosotros</a>
+      <!-- RESEÑA 2: Confianza / Profesional -->
+      <div class="test-card test-card--trust reveal">
+        <div class="test-google-badge">
+          <span class="badge-dot"></span>
+          Cliente real
+        </div>
+        <div class="test-stars">★★★★★</div>
+        <div class="test-title">Asesoramiento profesional y presencia digital</div>
+        <p class="test-quote">He recibido asesoramiento y ayuda con la creación de mi presencia digital y la experiencia ha sido muy positiva. El trabajo fue profesional, claro y transmite conocimiento real en marketing y desarrollo web. Muy buena base para seguir creciendo online.</p>
+        <div class="test-badges">
+          <span class="test-badge test-badge--orange">Asesoramiento estratégico</span>
+          <span class="test-badge test-badge--navy">Presencia digital</span>
+          <span class="test-badge test-badge--navy">Desarrollo web</span>
+        </div>
+        <div class="test-author">
+          <div class="test-avatar test-avatar--warm">AP</div>
+          <div>
+            <div class="test-name">Adalberto Pérez Rivero</div>
+            <div class="test-role">Profesor · Tenerife</div>
+          </div>
+        </div>
       </div>
 
     </div>
+
+    <div class="testimonials-cta">
+      <a href="https://www.google.com/maps/search/Agencia+Marketing+Digital+Tenerife+Ismark" class="btn-google" target="_blank" rel="noopener">
+        <svg class="btn-google-icon" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+          <path d="M22.56 12.25c0-.78-.07-1.53-.2-2.25H12v4.26h5.92c-.26 1.37-1.04 2.53-2.21 3.31v2.77h3.57c2.08-1.92 3.28-4.74 3.28-8.09z" fill="#4285F4"/>
+          <path d="M12 23c2.97 0 5.46-.98 7.28-2.66l-3.57-2.77c-.98.66-2.23 1.06-3.71 1.06-2.86 0-5.29-1.93-6.16-4.53H2.18v2.84C3.99 20.53 7.7 23 12 23z" fill="#34A853"/>
+          <path d="M5.84 14.09c-.22-.66-.35-1.36-.35-2.09s.13-1.43.35-2.09V7.07H2.18C1.43 8.55 1 10.22 1 12s.43 3.45 1.18 4.93l3.66-2.84z" fill="#FBBC05"/>
+          <path d="M12 5.38c1.62 0 3.06.56 4.21 1.64l3.15-3.15C17.45 2.09 14.97 1 12 1 7.7 1 3.99 3.47 2.18 7.07l3.66 2.84c.87-2.6 3.3-4.53 6.16-4.53z" fill="#EA4335"/>
+        </svg>
+        Ver más reseñas en Google
+      </a>
+    </div>
+
   </div>
 </section>
 
@@ -3542,17 +4285,10 @@ cursor: pointer;
   <div class="container contact-inner">
     <div class="contact-info">
       <div class="section-label">Contacto</div>
-      <h2 class="section-title">Hablemos de<br>Tu Negocio</h2>
-      <p class="section-sub" style="margin-top:16px;margin-bottom:40px;">Cuéntanos en qué podemos ayudarte. Te respondemos en menos de 24 horas con una propuesta adaptada a tu negocio.</p>
+      <h2 class="section-title">Cuéntanos qué<br>necesitas</h2>
+      <p class="section-sub" style="margin-top:16px;margin-bottom:40px;">Te respondemos con una propuesta clara en menos de 24 horas.</p>
 
       <div class="contact-items">
-        <div class="contact-item">
-          <div class="contact-item-icon bg-orange">📍</div>
-          <div class="contact-item-text">
-            <h4>Ubicación</h4>
-            <p>Tenerife, Islas Canarias, España</p>
-          </div>
-        </div>
         <div class="contact-item">
           <div class="contact-item-icon bg-blue">📧</div>
           <div class="contact-item-text">
@@ -3561,9 +4297,9 @@ cursor: pointer;
           </div>
         </div>
         <div class="contact-item">
-          <div class="contact-item-icon bg-navy">📞</div>
+          <div class="contact-item-icon bg-navy">💬</div>
           <div class="contact-item-text">
-            <h4>Teléfono / WhatsApp</h4>
+            <h4>WhatsApp</h4>
             <p>+34 622 034 355</p>
           </div>
         </div>
@@ -3572,27 +4308,17 @@ cursor: pointer;
 
     <div class="contact-form-wrap">
       <div class="form-header">
-        <h3>Envíanos un Mensaje</h3>
+        <h3>Cuéntanos qué necesitas</h3>
         <p>Consulta gratuita — te respondemos en menos de 24 horas.</p>
       </div>
       <form id="contactForm" novalidate>
-        <div class="form-row">
-          <div class="form-group">
-            <label for="fname">Nombre</label>
-            <input type="text" id="fname" name="fname" placeholder="Tu nombre" required />
-          </div>
-          <div class="form-group">
-            <label for="lname">Apellido</label>
-            <input type="text" id="lname" name="lname" placeholder="Tu apellido" />
-          </div>
+        <div class="form-group">
+          <label for="fname">Nombre</label>
+          <input type="text" id="fname" name="fname" placeholder="Tu nombre" required />
         </div>
         <div class="form-group">
-          <label for="email">Correo electrónico</label>
-          <input type="email" id="email" name="email" placeholder="tucorreo@empresa.com" required />
-        </div>
-        <div class="form-group">
-          <label for="phone">Teléfono / WhatsApp</label>
-          <input type="tel" id="phone" name="phone" placeholder="+34 600 000 000" />
+          <label for="contact-method">Email o WhatsApp</label>
+          <input type="text" id="contact-method" name="contact_method" placeholder="tucorreo@email.com o +34 600 000 000" required />
         </div>
         <div class="form-group">
           <label for="service">Servicio de interés</label>
@@ -3607,14 +4333,15 @@ cursor: pointer;
           </select>
         </div>
         <div class="form-group">
-          <label for="message">Cuéntanos sobre tu negocio</label>
-          <textarea id="message" name="message" placeholder="¿A qué se dedica tu negocio? ¿Cuáles son tus objetivos? ¿Qué necesitas mejorar?"></textarea>
+          <label for="message">¿Qué necesitas?</label>
+          <textarea id="message" name="message" placeholder="Cuéntanos brevemente sobre tu negocio y qué quieres mejorar." style="min-height:90px;"></textarea>
         </div>
         <div class="form-submit">
           <button type="submit" class="btn btn-primary">
-            Enviar mensaje
+            Recibir propuesta
             <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M22 2L11 13M22 2L15 22l-4-9-9-4 20-7z"/></svg>
           </button>
+          <p class="form-submit-note">Sin compromiso. Respuesta rápida y clara.</p>
         </div>
       </form>
     </div>
@@ -3649,7 +4376,7 @@ cursor: pointer;
       <div>
         <div class="footer-col-title">Servicios</div>
         <ul class="footer-links">
-          <li><a href="#services">Diseño de Páginas Web</a></li>
+          <li><a href="/diseno-web-tenerife/">Diseño de Páginas Web</a></li>
           <li><a href="#services">Posicionamiento SEO</a></li>
           <li><a href="#services">Gestión de Redes Sociales</a></li>
           <li><a href="#services">Marketing Digital</a></li>
@@ -3778,6 +4505,60 @@ cursor: pointer;
   window.addEventListener('resize', resize);
   render();
 })();
+</script>
+
+<script>
+// ── Portfolio: Páginas Web expand/collapse ──────────
+(function() {
+  var webCard = document.getElementById('portWebCard');
+  var webPanel = document.getElementById('portWebPanel');
+  if (!webCard || !webPanel) return;
+
+  function openPanel() {
+    webCard.classList.add('expanded');
+    webCard.setAttribute('aria-expanded', 'true');
+    webPanel.setAttribute('aria-hidden', 'false');
+    webPanel.classList.add('open');
+    webPanel.style.maxHeight = webPanel.scrollHeight + 'px';
+  }
+
+  function closePanel() {
+    webCard.classList.remove('expanded');
+    webCard.setAttribute('aria-expanded', 'false');
+    webPanel.setAttribute('aria-hidden', 'true');
+    webPanel.classList.remove('open');
+    webPanel.style.maxHeight = '0';
+  }
+
+  webCard.addEventListener('click', function(e) {
+    if (e.target.closest('a')) return; // don't block links inside
+    webCard.classList.contains('expanded') ? closePanel() : openPanel();
+  });
+
+  webCard.addEventListener('keydown', function(e) {
+    if (e.key === 'Enter' || e.key === ' ') {
+      e.preventDefault();
+      webCard.classList.contains('expanded') ? closePanel() : openPanel();
+    }
+  });
+})();
+
+// Preselect service in contact form when clicking service card links
+document.querySelectorAll('[data-service]').forEach(function(link) {
+  link.addEventListener('click', function(e) {
+    e.preventDefault();
+    var serviceValue = this.getAttribute('data-service');
+    var select = document.getElementById('service');
+    if (select && serviceValue) {
+      select.value = serviceValue;
+      select.dispatchEvent(new Event('change'));
+    }
+    var target = document.getElementById('contact');
+    if (target) {
+      target.scrollIntoView({ behavior: 'smooth', block: 'start' });
+    }
+  });
+});
 </script>
 </body>
 </html>

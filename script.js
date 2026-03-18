@@ -12,22 +12,57 @@ window.addEventListener('scroll', () => {
 const hamburger = document.getElementById('hamburger');
 const navLinks  = document.getElementById('navLinks');
 
-hamburger.addEventListener('click', () => {
-  const isOpen = navLinks.classList.toggle('open');
-  const s = hamburger.querySelectorAll('span');
-  s[0].style.transform = isOpen ? 'rotate(45deg) translate(5px, 5px)' : '';
-  s[1].style.opacity   = isOpen ? '0' : '';
-  s[2].style.transform = isOpen ? 'rotate(-45deg) translate(5px, -5px)' : '';
+function closeNav() {
+  navLinks.classList.remove('open');
+  hamburger.classList.remove('open');
+  hamburger.setAttribute('aria-expanded', 'false');
+  document.body.style.overflow = '';
+}
+
+function openNav() {
+  navLinks.classList.add('open');
+  hamburger.classList.add('open');
+  hamburger.setAttribute('aria-expanded', 'true');
+  document.body.style.overflow = 'hidden';
+}
+
+hamburger.addEventListener('click', (e) => {
+  e.stopPropagation();
+  navLinks.classList.contains('open') ? closeNav() : openNav();
 });
 
-navLinks.querySelectorAll('a').forEach(link => {
-  link.addEventListener('click', () => {
-    navLinks.classList.remove('open');
-    const s = hamburger.querySelectorAll('span');
-    s[0].style.transform = '';
-    s[1].style.opacity   = '';
-    s[2].style.transform = '';
+// Close when clicking a direct nav link (not a dropdown trigger)
+navLinks.querySelectorAll('a.nav-link, a.nav-drop-item, a.nav-cta').forEach(link => {
+  link.addEventListener('click', closeNav);
+});
+
+// Close when clicking outside
+document.addEventListener('click', (e) => {
+  if (navLinks.classList.contains('open') && !navLinks.contains(e.target) && e.target !== hamburger) {
+    closeNav();
+  }
+});
+
+/* ── DROPDOWN ACCORDION (mobile) ───────────────── */
+document.querySelectorAll('.nav-drop-btn').forEach(btn => {
+  btn.addEventListener('click', (e) => {
+    if (window.innerWidth > 900) return; // desktop uses CSS :hover
+    e.stopPropagation();
+    const wrap = btn.closest('.nav-drop-wrap');
+    const isOpen = wrap.classList.toggle('open');
+    btn.setAttribute('aria-expanded', isOpen);
+    // close siblings
+    document.querySelectorAll('.nav-drop-wrap').forEach(w => {
+      if (w !== wrap) { w.classList.remove('open'); w.querySelector('.nav-drop-btn').setAttribute('aria-expanded', 'false'); }
+    });
   });
+});
+
+// Close dropdowns when resizing to desktop
+window.addEventListener('resize', () => {
+  if (window.innerWidth > 900) {
+    document.querySelectorAll('.nav-drop-wrap').forEach(w => w.classList.remove('open'));
+  }
 });
 
 /* ── ACTIVE NAV ON SCROLL ──────────────────────── */
