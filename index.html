@@ -1087,8 +1087,10 @@ ul { list-style: none; }
   justify-content: center;
   margin-bottom: 24px;
   font-size: 24px;
+  color: var(--orange);
   transition: background 0.3s, transform 0.3s var(--spring);
 }
+.problem-icon svg { stroke: var(--orange); }
 .problem-card:hover .problem-icon {
   background: rgba(244,98,36,0.2);
   transform: scale(1.05);
@@ -1769,12 +1771,13 @@ ul { list-style: none; }
 }
 .service-card:hover .service-icon { transform: scale(1.1) rotate(-4deg); }
 
-.service-icon.ic-navy { background: rgba(4,34,114,0.08); }
-.service-icon.ic-blue { background: rgba(11,134,170,0.1); }
-.service-icon.ic-orange { background: rgba(244,98,36,0.1); }
-.service-icon.ic-teal { background: rgba(0,180,200,0.1); }
-.service-icon.ic-purple { background: rgba(130,80,200,0.1); }
-.service-icon.ic-white { background: rgba(255,255,255,0.12); }
+.service-icon.ic-navy { background: rgba(4,34,114,0.08); color: var(--navy); }
+.service-icon.ic-blue { background: rgba(11,134,170,0.1); color: var(--blue); }
+.service-icon.ic-orange { background: rgba(244,98,36,0.1); color: var(--orange); }
+.service-icon.ic-teal { background: rgba(0,180,200,0.1); color: #00b4c8; }
+.service-icon.ic-purple { background: rgba(130,80,200,0.1); color: #8250c8; }
+.service-icon.ic-white { background: rgba(255,255,255,0.12); color: rgba(255,255,255,0.85); }
+.service-icon svg { stroke: currentColor; }
 
 .service-title {
   font-family: var(--font-head);
@@ -2008,6 +2011,7 @@ ul { list-style: none; }
   align-items: center;
   justify-content: center;
   font-size: 20px;
+  color: var(--blue-light);
   margin-bottom: 18px;
   flex-shrink: 0;
   transition: background 0.25s, transform 0.3s var(--spring);
@@ -3822,21 +3826,21 @@ html.nav-open { overflow: hidden; }
         </button>
         <div class="nav-drop" role="menu">
           <a href="/diseno-web-tenerife/" class="nav-drop-item" role="menuitem">
-            <span class="nav-drop-icon">🌐</span>
+            <span class="nav-drop-icon"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><line x1="2" y1="12" x2="22" y2="12"/><path d="M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z"/></svg></span>
             <div>
               <div class="nav-drop-title">Diseño Web en Tenerife</div>
               <div class="nav-drop-desc">Webs profesionales que convierten</div>
             </div>
           </a>
           <a href="/seo-local-tenerife/" class="nav-drop-item" role="menuitem">
-            <span class="nav-drop-icon">📍</span>
+            <span class="nav-drop-icon"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg></span>
             <div>
               <div class="nav-drop-title">SEO Local en Tenerife</div>
               <div class="nav-drop-desc">Posicionamiento orgánico en Google</div>
             </div>
           </a>
           <a href="/gestion-redes-sociales-tenerife/" class="nav-drop-item" role="menuitem">
-            <span class="nav-drop-icon">📲</span>
+            <span class="nav-drop-icon"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="5" y="2" width="14" height="20" rx="2" ry="2"/><line x1="12" y1="18" x2="12.01" y2="18"/></svg></span>
             <div>
               <div class="nav-drop-title">Redes Sociales</div>
               <div class="nav-drop-desc">Gestión y contenido profesional</div>
@@ -3844,21 +3848,21 @@ html.nav-open { overflow: hidden; }
           </a>
           <div class="nav-drop-divider"></div>
           <a href="/branding-identidad-visual-tenerife/" class="nav-drop-item" role="menuitem">
-            <span class="nav-drop-icon">✦</span>
+            <span class="nav-drop-icon"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg></span>
             <div>
               <div class="nav-drop-title">Branding e Identidad Visual</div>
               <div class="nav-drop-desc">Logo, paleta y guía de estilo</div>
             </div>
           </a>
           <a href="/marketing-digital-tenerife/" class="nav-drop-item" role="menuitem">
-            <span class="nav-drop-icon">📣</span>
+            <span class="nav-drop-icon"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="23 6 13.5 15.5 8.5 10.5 1 18"/><polyline points="17 6 23 6 23 12"/></svg></span>
             <div>
               <div class="nav-drop-title">Marketing Digital</div>
               <div class="nav-drop-desc">Google Ads, Meta Ads y más</div>
             </div>
           </a>
           <a href="/creacion-de-contenido/" class="nav-drop-item" role="menuitem">
-            <span class="nav-drop-icon">✍️</span>
+            <span class="nav-drop-icon"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 19l7-7 3 3-7 7-3-3z"/><path d="M18 13l-1.5-7.5L2 2l3.5 14.5L13 18l5-5z"/><path d="M2 2l7.586 7.586"/><circle cx="11" cy="11" r="2"/></svg></span>
             <div>
               <div class="nav-drop-title">Creación de Contenido</div>
               <div class="nav-drop-desc">Foto, vídeo y copywriting</div>
@@ -3875,14 +3879,14 @@ html.nav-open { overflow: hidden; }
         </button>
         <div class="nav-drop" role="menu">
           <a href="/web-inmobiliaria-tenerife/" class="nav-drop-item" role="menuitem">
-            <span class="nav-drop-icon">🏠</span>
+            <span class="nav-drop-icon"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"/><polyline points="9 22 9 12 15 12 15 22"/></svg></span>
             <div>
               <div class="nav-drop-title">Web Inmobiliaria</div>
               <div class="nav-drop-desc">Diseño para agencias y portales</div>
             </div>
           </a>
           <a href="/marketing-turistico-tenerife/" class="nav-drop-item" role="menuitem">
-            <span class="nav-drop-icon">✈️</span>
+            <span class="nav-drop-icon"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M17.8 19.2L16 11l3.5-3.5C21 6 21.5 4 21 3c-1-.5-3 0-4.5 1.5L13 8 4.8 6.2c-.5-.1-.9.1-1.1.5l-.3.5c-.2.5-.1 1 .3 1.3L9 12l-2 3H4l-1 1 3 2 2 3 1-1v-3l3-2 3.5 5.3c.3.4.8.5 1.3.3l.5-.2c.4-.3.6-.7.5-1.2z"/></svg></span>
             <div>
               <div class="nav-drop-title">Marketing Turístico</div>
               <div class="nav-drop-desc">Hoteles, apartamentos y turismo</div>
@@ -4095,34 +4099,19 @@ html.nav-open { overflow: hidden; }
     </div>
     <div class="problem-grid">
       <div class="problem-card reveal">
-        <div class="problem-icon">🔍</div>
-        <h3 class="problem-title">No apareces en Google</h3>
-        <p class="problem-desc">Cuando alguien busca tu tipo de negocio en Tenerife, aparece la competencia. Tú estás invisible y perdes esos clientes cada día.</p>
+        <div class="problem-icon"><svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="11" cy="11" r="8"/><line x1="21" y1="21" x2="16.65" y2="16.65"/><line x1="8" y1="11" x2="14" y2="11"/></svg></div>
+        <h3 class="problem-title">Invisible en Google</h3>
+        <p class="problem-desc">El 92% de los clics van a la primera página de Google. Si tu negocio no está ahí, esos clientes los capta la competencia cada día.</p>
       </div>
       <div class="problem-card reveal">
-        <div class="problem-icon">💻</div>
-        <h3 class="problem-title">Sin web o con una web antigua</h3>
-        <p class="problem-desc">Una página web lenta, anticuada o inexistente genera desconfianza. La primera impresión de tu negocio ocurre en internet.</p>
+        <div class="problem-icon"><svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="3" width="20" height="14" rx="2" ry="2"/><line x1="8" y1="21" x2="16" y2="21"/><line x1="12" y1="17" x2="12" y2="21"/></svg></div>
+        <h3 class="problem-title">Web que no convierte</h3>
+        <p class="problem-desc">Una web lenta, anticuada o inexistente pierde el 53% de las visitas en menos de 3 segundos. La primera impresión ocurre online.</p>
       </div>
       <div class="problem-card reveal">
-        <div class="problem-icon">📉</div>
-        <h3 class="problem-title">La competencia te supera</h3>
-        <p class="problem-desc">Otros negocios locales con mejor presencia digital están captando a tus posibles clientes. Cada mes que pasa, la diferencia aumenta.</p>
-      </div>
-      <div class="problem-card reveal">
-        <div class="problem-icon">📲</div>
-        <h3 class="problem-title">Redes sociales sin estrategia</h3>
-        <p class="problem-desc">Publicar de forma irregular o no publicar nada transmite poca profesionalidad. Tus clientes esperan ver actividad real en tus perfiles.</p>
-      </div>
-      <div class="problem-card reveal">
-        <div class="problem-icon">💸</div>
-        <h3 class="problem-title">Inversión sin resultados</h3>
-        <p class="problem-desc">Gastar en publicidad sin una estrategia clara es tirar dinero. Sin una web que convierta y un mensaje definido, el retorno es mínimo.</p>
-      </div>
-      <div class="problem-card reveal">
-        <div class="problem-icon">🗺️</div>
-        <h3 class="problem-title">Sin hoja de ruta digital</h3>
-        <p class="problem-desc">Improvisar en redes o en Google no es una estrategia. Tu negocio necesita un plan claro para crecer de forma sostenida en internet.</p>
+        <div class="problem-icon"><svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="23 18 13.5 8.5 8.5 13.5 1 6"/><polyline points="17 18 23 18 23 12"/></svg></div>
+        <h3 class="problem-title">Sin estrategia digital</h3>
+        <p class="problem-desc">Publicar sin plan, invertir sin medir o no tener presencia activa online es regalar clientes a competidores que sí lo hacen bien.</p>
       </div>
     </div>
   </div>
@@ -4166,7 +4155,7 @@ html.nav-open { overflow: hidden; }
               </div>
             </div>
             <div class="sol-metric-item">
-              <span class="sol-metric-badge sol-badge-orange">✦</span>
+              <span class="sol-metric-badge sol-badge-orange"><svg width="10" height="10" viewBox="0 0 24 24" fill="currentColor"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg></span>
               <div>
                 <div class="sol-metric-val">32</div>
                 <div class="sol-metric-micro">Leads generados</div>
@@ -4296,7 +4285,7 @@ html.nav-open { overflow: hidden; }
     <div class="services-grid">
 
       <div class="service-card featured reveal">
-        <div class="service-icon ic-white">🌐</div>
+        <div class="service-icon ic-white"><svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><line x1="2" y1="12" x2="22" y2="12"/><path d="M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z"/></svg></div>
         <h3 class="service-title">Diseño de Páginas Web</h3>
         <p class="service-desc">Páginas web profesionales, rápidas y adaptadas a móvil. Diseñadas para transmitir confianza y captar clientes desde el primer clic, con integración de WhatsApp y formulario de contacto.</p>
         <div class="service-tags">
@@ -4312,7 +4301,7 @@ html.nav-open { overflow: hidden; }
       </div>
 
       <div class="service-card reveal">
-        <div class="service-icon ic-blue">🔍</div>
+        <div class="service-icon ic-blue"><svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="11" cy="11" r="8"/><line x1="21" y1="21" x2="16.65" y2="16.65"/></svg></div>
         <h3 class="service-title">Posicionamiento SEO Local</h3>
         <p class="service-desc">Optimizamos tu web para que aparezca en los primeros resultados de Google cuando alguien busca tu servicio en Tenerife. Más visitas orgánicas, sin pagar por cada clic.</p>
         <div class="service-tags">
@@ -4324,7 +4313,7 @@ html.nav-open { overflow: hidden; }
       </div>
 
       <div class="service-card reveal">
-        <div class="service-icon ic-orange">📱</div>
+        <div class="service-icon ic-orange"><svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="5" y="2" width="14" height="20" rx="2" ry="2"/><line x1="12" y1="18" x2="12.01" y2="18"/></svg></div>
         <h3 class="service-title">Gestión de Redes Sociales</h3>
         <p class="service-desc">Gestionamos tu Instagram, Facebook y TikTok con contenido profesional y constante. Conectamos con tu audiencia y construimos una comunidad real alrededor de tu marca.</p>
         <div class="service-tags">
@@ -4336,7 +4325,7 @@ html.nav-open { overflow: hidden; }
       </div>
 
       <div class="service-card reveal">
-        <div class="service-icon ic-navy">📣</div>
+        <div class="service-icon ic-navy"><svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="23 6 13.5 15.5 8.5 10.5 1 18"/><polyline points="17 6 23 6 23 12"/></svg></div>
         <h3 class="service-title">Marketing Digital</h3>
         <p class="service-desc">Campañas de publicidad en Google Ads y Meta Ads orientadas a resultados. Llegamos a tus clientes potenciales en el momento exacto en que buscan lo que ofreces.</p>
         <div class="service-tags">
@@ -4348,7 +4337,7 @@ html.nav-open { overflow: hidden; }
       </div>
 
       <div class="service-card reveal">
-        <div class="service-icon ic-teal">✍️</div>
+        <div class="service-icon ic-teal"><svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 19l7-7 3 3-7 7-3-3z"/><path d="M18 13l-1.5-7.5L2 2l3.5 14.5L13 18l5-5z"/><path d="M2 2l7.586 7.586"/><circle cx="11" cy="11" r="2"/></svg></div>
         <h3 class="service-title">Creación de Contenido</h3>
         <p class="service-desc">Fotografía, vídeo, textos y diseño gráfico que comunican el valor de tu negocio. Contenido visual de calidad para web y redes sociales que atrae y fideliza clientes.</p>
         <div class="service-tags">
@@ -4359,10 +4348,10 @@ html.nav-open { overflow: hidden; }
         <a href="#contact" class="service-link" data-service="Creación de Contenido">Crear contenido <span class="arrow">→</span></a>
       </div>
 
-      <div class="service-card reveal" style="background:var(--off-white);display:flex;flex-direction:column;align-items:center;justify-content:center;text-align:center;border:2px dashed rgba(4,34,114,0.15);">
-        <div style="font-size:36px;margin-bottom:16px;">💬</div>
-        <h3 class="service-title" style="font-size:17px;">¿No sabes por dónde empezar?</h3>
-        <p class="service-desc" style="font-size:14px;">Cuéntanos cómo es tu negocio y te damos una consulta gratuita. Sin compromisos, solo claridad sobre lo que necesitas.</p>
+      <div class="service-card reveal" style="background:linear-gradient(145deg, var(--navy) 0%, var(--ink) 100%);display:flex;flex-direction:column;align-items:center;justify-content:center;text-align:center;border-color:rgba(11,134,170,0.2);">
+        <div style="width:56px;height:56px;border-radius:16px;background:rgba(244,98,36,0.12);border:1px solid rgba(244,98,36,0.25);display:flex;align-items:center;justify-content:center;margin-bottom:28px;"><svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="var(--orange)" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 11.5a8.38 8.38 0 0 1-.9 3.8 8.5 8.5 0 0 1-7.6 4.7 8.38 8.38 0 0 1-3.8-.9L3 21l1.9-5.7a8.38 8.38 0 0 1-.9-3.8 8.5 8.5 0 0 1 4.7-7.6 8.38 8.38 0 0 1 3.8-.9h.5a8.48 8.48 0 0 1 8 8v.5z"/></svg></div>
+        <h3 class="service-title" style="font-size:17px;color:var(--white);">¿No sabes por dónde empezar?</h3>
+        <p class="service-desc" style="font-size:14px;color:rgba(255,255,255,0.55);">Cuéntanos cómo es tu negocio y te orientamos sin compromiso.</p>
         <a href="#contact" class="btn btn-primary" style="margin-top:20px;font-size:13px;padding:12px 22px;">Consulta gratuita</a>
       </div>
 
@@ -4373,38 +4362,11 @@ html.nav-open { overflow: hidden; }
 <!-- ════════════════════════════════════════════════════
      INDUSTRIES
 ════════════════════════════════════════════════════ -->
-<section class="industries" id="industries">
+<section class="industries" id="industries" style="padding:80px 0;">
   <div class="container">
-    <div class="industries-header">
-      <div class="section-label">Sectores que atendemos</div>
-      <h2 class="section-title">Conocemos Tu Sector.<br>Conocemos a Tus Clientes.</h2>
-      <p class="section-sub" style="margin-top:16px;">Experiencia trabajando con los sectores más importantes de la economía local de Tenerife.</p>
-    </div>
-    <div class="industries-grid">
-      <div class="industry-card reveal">
-        <span class="industry-emoji">🍽️</span>
-        <div class="industry-name">Restaurantes y Hostelería</div>
-      </div>
-      <div class="industry-card reveal">
-        <span class="industry-emoji">🏨</span>
-        <div class="industry-name">Hoteles y Turismo</div>
-      </div>
-      <div class="industry-card reveal">
-        <span class="industry-emoji">🏡</span>
-        <div class="industry-name">Inmobiliarias</div>
-      </div>
-      <div class="industry-card reveal">
-        <span class="industry-emoji">🏖️</span>
-        <div class="industry-name">Apartamentos Turísticos</div>
-      </div>
-      <div class="industry-card reveal">
-        <span class="industry-emoji">🛍️</span>
-        <div class="industry-name">Comercio Local</div>
-      </div>
-      <div class="industry-card reveal">
-        <span class="industry-emoji">💼</span>
-        <div class="industry-name">Empresas de Servicios</div>
-      </div>
+    <div style="text-align:center;max-width:700px;margin:0 auto;">
+      <div class="section-label">Sectores</div>
+      <p style="font-size:15px;line-height:1.7;color:var(--text-muted);">Hostelería · Hoteles y turismo · Inmobiliarias · Apartamentos turísticos · Comercio local · Empresas de servicios</p>
     </div>
   </div>
 </section>
@@ -4427,7 +4389,7 @@ html.nav-open { overflow: hidden; }
 
         <!-- CARD 1: Páginas Web (expandable) -->
         <div class="port-main-card port-main-card--web reveal" id="portWebCard" role="button" aria-expanded="false" tabindex="0">
-          <div class="port-card-icon">🌐</div>
+          <div class="port-card-icon"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><line x1="2" y1="12" x2="22" y2="12"/><path d="M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z"/></svg></div>
           <div class="port-card-label">Diseño Web</div>
           <div class="port-card-title">Páginas Web</div>
           <div class="port-card-desc">Webs profesionales, rápidas y adaptadas a móvil. Diseñadas para convertir visitas en clientes reales desde el primer clic.</div>
@@ -4442,7 +4404,7 @@ html.nav-open { overflow: hidden; }
 
         <!-- CARD 2: SEO Local -->
         <div class="port-main-card reveal">
-          <div class="port-card-icon">📍</div>
+          <div class="port-card-icon"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg></div>
           <div class="port-card-label">Posicionamiento</div>
           <div class="port-card-title">SEO Local</div>
           <div class="port-card-desc">Optimización orientada a mejorar visibilidad en Google, búsquedas locales y captación de clientes en Tenerife.</div>
@@ -4451,7 +4413,7 @@ html.nav-open { overflow: hidden; }
 
         <!-- CARD 3: Redes Sociales (expandable) -->
         <div class="port-main-card port-main-card--social reveal" id="portSocialCard" role="button" aria-expanded="false" tabindex="0">
-          <div class="port-card-icon">📲</div>
+          <div class="port-card-icon"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="5" y="2" width="14" height="20" rx="2" ry="2"/><line x1="12" y1="18" x2="12.01" y2="18"/></svg></div>
           <div class="port-card-label">Social Media</div>
           <div class="port-card-title">Redes Sociales</div>
           <div class="port-card-desc">Gestión de contenido, diseño visual y publicaciones constantes para mejorar imagen, alcance y comunidad.</div>
@@ -4583,7 +4545,7 @@ html.nav-open { overflow: hidden; }
           <!-- Caso 3: Placeholder -->
           <div class="port-preview-card port-preview-card--placeholder">
             <div class="port-preview-placeholder-body">
-              <div class="port-preview-placeholder-icon">✦</div>
+              <div class="port-preview-placeholder-icon"><svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg></div>
               <div class="port-preview-placeholder-text">Tú podrías ser<br>el próximo</div>
               <a href="#contact" class="port-preview-btn" data-service="Gestión de Redes Sociales" onclick="event.stopPropagation();">Hablemos <span>→</span></a>
             </div>
@@ -4597,29 +4559,38 @@ html.nav-open { overflow: hidden; }
 
         <!-- CARD 4: Identidad Visual / Branding -->
         <div class="port-main-card reveal">
-          <div class="port-card-icon">✦</div>
+          <div class="port-card-icon"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg></div>
           <div class="port-card-label">Branding</div>
           <div class="port-card-title">Identidad Visual y Branding</div>
           <div class="port-card-desc">Diseño visual coherente para que tu negocio transmita profesionalidad, personalidad y una imagen sólida.</div>
-          <a href="#contact" class="port-card-cta" data-service="Creación de Contenido">Ver propuesta <span>→</span></a>
+          <div style="display:flex;align-items:center;gap:10px;flex-wrap:wrap;">
+            <a href="#contact" class="port-card-cta" data-service="Creación de Contenido">Solicitar información <span>→</span></a>
+            <span style="font-size:10px;font-weight:600;letter-spacing:0.08em;text-transform:uppercase;color:rgba(255,255,255,0.3);font-family:var(--font-body);">Casos próximamente</span>
+          </div>
         </div>
 
         <!-- CARD 5: Web Inmobiliaria -->
         <div class="port-main-card reveal">
-          <div class="port-card-icon">🏠</div>
+          <div class="port-card-icon"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"/><polyline points="9 22 9 12 15 12 15 22"/></svg></div>
           <div class="port-card-label">Sector Inmobiliario</div>
           <div class="port-card-title">Web Inmobiliaria</div>
           <div class="port-card-desc">Diseño y estructura digital pensados para mostrar propiedades, captar contactos y transmitir confianza.</div>
-          <a href="#contact" class="port-card-cta" data-service="Diseño de Página Web">Ver cómo funciona <span>→</span></a>
+          <div style="display:flex;align-items:center;gap:10px;flex-wrap:wrap;">
+            <a href="#contact" class="port-card-cta" data-service="Diseño de Página Web">Solicitar información <span>→</span></a>
+            <span style="font-size:10px;font-weight:600;letter-spacing:0.08em;text-transform:uppercase;color:rgba(255,255,255,0.3);font-family:var(--font-body);">Casos próximamente</span>
+          </div>
         </div>
 
         <!-- CARD 6: Marketing Turístico -->
         <div class="port-main-card reveal">
-          <div class="port-card-icon">✈️</div>
+          <div class="port-card-icon"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M17.8 19.2L16 11l3.5-3.5C21 6 21.5 4 21 3c-1-.5-3 0-4.5 1.5L13 8 4.8 6.2c-.5-.1-.9.1-1.1.5l-.3.5c-.2.5-.1 1 .3 1.3L9 12l-2 3H4l-1 1 3 2 2 3 1-1v-3l3-2 3.5 5.3c.3.4.8.5 1.3.3l.5-.2c.4-.3.6-.7.5-1.2z"/></svg></div>
           <div class="port-card-label">Sector Turístico</div>
           <div class="port-card-title">Marketing Turístico</div>
           <div class="port-card-desc">Estrategias orientadas a alojamientos, apartamentos vacacionales y negocios turísticos que quieren más visibilidad y reservas.</div>
-          <a href="#contact" class="port-card-cta" data-service="Marketing Digital / Publicidad">Más información <span>→</span></a>
+          <div style="display:flex;align-items:center;gap:10px;flex-wrap:wrap;">
+            <a href="#contact" class="port-card-cta" data-service="Marketing Digital / Publicidad">Solicitar información <span>→</span></a>
+            <span style="font-size:10px;font-weight:600;letter-spacing:0.08em;text-transform:uppercase;color:rgba(255,255,255,0.3);font-family:var(--font-body);">Casos próximamente</span>
+          </div>
         </div>
 
       </div>
@@ -4688,6 +4659,48 @@ html.nav-open { overflow: hidden; }
         </div>
       </div>
 
+      <!-- RESEÑA 3: Placeholder — sustituir con reseña real -->
+      <div class="test-card test-card--growth reveal">
+        <div class="test-google-badge">
+          <span class="badge-dot"></span>
+          Reseña real de Google
+        </div>
+        <div class="test-stars">★★★★★</div>
+        <div class="test-title"><!-- TODO: Título de la reseña --></div>
+        <p class="test-quote"><!-- TODO: Pegar aquí la reseña real de Google --></p>
+        <div class="test-badges">
+          <!-- TODO: Añadir badges con resultados -->
+        </div>
+        <div class="test-author">
+          <div class="test-avatar test-avatar--teal">··</div>
+          <div>
+            <div class="test-name"><!-- TODO: Nombre del cliente --></div>
+            <div class="test-role"><!-- TODO: Sector · Tenerife --></div>
+          </div>
+        </div>
+      </div>
+
+      <!-- RESEÑA 4: Placeholder — sustituir con reseña real -->
+      <div class="test-card test-card--trust reveal">
+        <div class="test-google-badge">
+          <span class="badge-dot"></span>
+          Cliente real
+        </div>
+        <div class="test-stars">★★★★★</div>
+        <div class="test-title"><!-- TODO: Título de la reseña --></div>
+        <p class="test-quote"><!-- TODO: Pegar aquí la reseña real de Google --></p>
+        <div class="test-badges">
+          <!-- TODO: Añadir badges con resultados -->
+        </div>
+        <div class="test-author">
+          <div class="test-avatar test-avatar--warm">··</div>
+          <div>
+            <div class="test-name"><!-- TODO: Nombre del cliente --></div>
+            <div class="test-role"><!-- TODO: Sector · Tenerife --></div>
+          </div>
+        </div>
+      </div>
+
     </div>
 
     <div class="testimonials-cta">
@@ -4720,7 +4733,7 @@ html.nav-open { overflow: hidden; }
       <div class="process-step reveal">
         <div class="step-num">
           01
-          <div class="step-icon">🔍</div>
+          <div class="step-icon"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="var(--navy)" stroke-width="2.5" stroke-linecap="round"><circle cx="11" cy="11" r="8"/><line x1="21" y1="21" x2="16.65" y2="16.65"/></svg></div>
         </div>
         <h3 class="step-title">Análisis</h3>
         <p class="step-desc">Estudiamos tu negocio, tu competencia y tu situación actual en internet. Sin suposiciones, todo basado en datos reales de tu mercado en Tenerife.</p>
@@ -4729,7 +4742,7 @@ html.nav-open { overflow: hidden; }
       <div class="process-step reveal">
         <div class="step-num">
           02
-          <div class="step-icon">🗺️</div>
+          <div class="step-icon"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="var(--navy)" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polygon points="1 6 1 22 8 18 16 22 23 18 23 2 16 6 8 2 1 6"/><line x1="8" y1="2" x2="8" y2="18"/><line x1="16" y1="6" x2="16" y2="22"/></svg></div>
         </div>
         <h3 class="step-title">Estrategia</h3>
         <p class="step-desc">Diseñamos un plan digital personalizado con objetivos claros, servicios priorizados y plazos concretos adaptados a tu sector y presupuesto.</p>
@@ -4738,7 +4751,7 @@ html.nav-open { overflow: hidden; }
       <div class="process-step reveal">
         <div class="step-num">
           03
-          <div class="step-icon">⚡</div>
+          <div class="step-icon"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="var(--navy)" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polygon points="13 2 3 14 12 14 11 22 21 10 12 10 13 2"/></svg></div>
         </div>
         <h3 class="step-title">Ejecución</h3>
         <p class="step-desc">Ponemos en marcha todo el plan: diseñamos la web, optimizamos el SEO, creamos el contenido y activamos las campañas con precisión y rapidez.</p>
@@ -4747,7 +4760,7 @@ html.nav-open { overflow: hidden; }
       <div class="process-step reveal">
         <div class="step-num">
           04
-          <div class="step-icon">📈</div>
+          <div class="step-icon"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="var(--navy)" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="23 6 13.5 15.5 8.5 10.5 1 18"/><polyline points="17 6 23 6 23 12"/></svg></div>
         </div>
         <h3 class="step-title">Crecimiento</h3>
         <p class="step-desc">Medimos los resultados, optimizamos lo que funciona y seguimos mejorando. Te informamos de todo con reportes claros y comunicación directa.</p>
@@ -4763,7 +4776,7 @@ html.nav-open { overflow: hidden; }
 <section class="final-cta">
   <div class="container">
     <div class="final-cta-inner">
-      <div class="cta-badge">🚀 Plazas disponibles este mes</div>
+      <div class="cta-badge"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="flex-shrink:0;"><path d="M4.5 16.5c-1.5 1.26-2 5-2 5s3.74-.5 5-2c.71-.84.7-2.13-.09-2.91a2.18 2.18 0 0 0-2.91-.09z"/><path d="M12 15l-3-3a22 22 0 0 1 2-3.95A12.88 12.88 0 0 1 22 2c0 2.72-.78 7.5-6 11a22.35 22.35 0 0 1-4 2z"/><path d="M9 12H4s.55-3.03 2-4c1.62-1.08 5 0 5 0"/><path d="M12 15v5s3.03-.55 4-2c1.08-1.62 0-5 0-5"/></svg> Plazas disponibles este mes</div>
       <h2 class="final-cta-title">¿Listo para que Tu Negocio<br>Crezca <span class="accent">en Internet?</span></h2>
       <p class="final-cta-sub">Da el primer paso hoy. Cuéntanos cómo es tu negocio y te explicamos sin compromiso qué podemos hacer por ti en Tenerife.</p>
       <div class="cta-actions">
@@ -4772,7 +4785,7 @@ html.nav-open { overflow: hidden; }
           <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
         </a>
         <a href="https://wa.me/34622034355" class="btn btn-ghost" style="font-size:15px;padding:17px 30px;" target="_blank" rel="noopener">
-          💬 Escribir por WhatsApp
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 11.5a8.38 8.38 0 0 1-.9 3.8 8.5 8.5 0 0 1-7.6 4.7 8.38 8.38 0 0 1-3.8-.9L3 21l1.9-5.7a8.38 8.38 0 0 1-.9-3.8 8.5 8.5 0 0 1 4.7-7.6 8.38 8.38 0 0 1 3.8-.9h.5a8.48 8.48 0 0 1 8 8v.5z"/></svg> Escribir por WhatsApp
         </a>
       </div>
       <div class="cta-trust-line">
@@ -4796,14 +4809,14 @@ html.nav-open { overflow: hidden; }
 
       <div class="contact-items">
         <div class="contact-item">
-          <div class="contact-item-icon bg-blue">📧</div>
+          <div class="contact-item-icon bg-blue"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="var(--blue)" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg></div>
           <div class="contact-item-text">
             <h4>Email</h4>
-            <p>Ismarklazarosac@gmail.com</p>
+            <p>hola@marketingdigitaltenerife.com</p>
           </div>
         </div>
         <div class="contact-item">
-          <div class="contact-item-icon bg-navy">💬</div>
+          <div class="contact-item-icon bg-navy"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="var(--navy)" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 11.5a8.38 8.38 0 0 1-.9 3.8 8.5 8.5 0 0 1-7.6 4.7 8.38 8.38 0 0 1-3.8-.9L3 21l1.9-5.7a8.38 8.38 0 0 1-.9-3.8 8.5 8.5 0 0 1 4.7-7.6 8.38 8.38 0 0 1 3.8-.9h.5a8.48 8.48 0 0 1 8 8v.5z"/></svg></div>
           <div class="contact-item-text">
             <h4>WhatsApp</h4>
             <p>+34 622 034 355</p>
@@ -4871,11 +4884,11 @@ html.nav-open { overflow: hidden; }
         </div>
         <p class="footer-tagline">Tu equipo de marketing digital en Tenerife. Convertimos negocios locales en referentes online.</p>
         <div class="footer-socials">
-          <a href="#" class="social-btn" aria-label="Instagram">📷</a>
-          <a href="#" class="social-btn" aria-label="Facebook">📘</a>
-          <a href="#" class="social-btn" aria-label="LinkedIn">💼</a>
-          <a href="#" class="social-btn" aria-label="TikTok">🎵</a>
-          <a href="#" class="social-btn" aria-label="WhatsApp">💬</a>
+          <a href="#" class="social-btn" aria-label="Instagram"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="rgba(255,255,255,0.7)" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="2" width="20" height="20" rx="5" ry="5"/><path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"/><line x1="17.5" y1="6.5" x2="17.51" y2="6.5"/></svg></a>
+          <a href="#" class="social-btn" aria-label="Facebook"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="rgba(255,255,255,0.7)" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M18 2h-3a5 5 0 0 0-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 0 1 1-1h3z"/></svg></a>
+          <a href="#" class="social-btn" aria-label="LinkedIn"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="rgba(255,255,255,0.7)" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6z"/><rect x="2" y="9" width="4" height="12"/><circle cx="4" cy="4" r="2"/></svg></a>
+          <a href="#" class="social-btn" aria-label="TikTok"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="rgba(255,255,255,0.7)" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M9 12a4 4 0 1 0 4 4V4a5 5 0 0 0 5 5"/></svg></a>
+          <a href="https://wa.me/34622034355" class="social-btn" aria-label="WhatsApp" target="_blank" rel="noopener"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="rgba(255,255,255,0.7)" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 11.5a8.38 8.38 0 0 1-.9 3.8 8.5 8.5 0 0 1-7.6 4.7 8.38 8.38 0 0 1-3.8-.9L3 21l1.9-5.7a8.38 8.38 0 0 1-.9-3.8 8.5 8.5 0 0 1 4.7-7.6 8.38 8.38 0 0 1 3.8-.9h.5a8.48 8.48 0 0 1 8 8v.5z"/></svg></a>
         </div>
       </div>
 
@@ -4914,11 +4927,11 @@ html.nav-open { overflow: hidden; }
     </div>
 
     <div class="footer-bottom">
-      <p class="footer-copy">© 2026 Marketing Digital Tenerife · All rights reserved · Made with ❤️ in Tenerife</p>
+      <p class="footer-copy">© 2026 Marketing Digital Tenerife · Todos los derechos reservados</p>
       <div class="footer-legal">
-        <a href="#">Privacy Policy</a>
-        <a href="#">Cookie Policy</a>
-        <a href="#">Legal Notice</a>
+        <a href="#">Política de Privacidad</a>
+        <a href="#">Política de Cookies</a>
+        <a href="#">Aviso Legal</a>
       </div>
     </div>
   </div>

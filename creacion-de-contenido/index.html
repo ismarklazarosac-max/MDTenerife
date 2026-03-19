@@ -201,6 +201,7 @@ ul { list-style: none; }
 .nav-drop-item { display: flex; align-items: center; gap: 12px; padding: 11px 12px; border-radius: 12px; color: rgba(255,255,255,0.72); text-decoration: none; transition: background 0.16s var(--ease), color 0.16s; }
 .nav-drop-item:hover { background: rgba(255,255,255,0.07); color: var(--white); }
 .nav-drop-item:hover .nav-drop-icon { background: rgba(11,134,170,0.2); border-color: rgba(11,134,170,0.35); }
+.nav-drop-icon svg { stroke: currentColor; }
 .nav-drop-item.active-item { background: rgba(196,98,45,0.12); color: var(--white); }
 .nav-drop-item.active-item .nav-drop-icon { background: rgba(196,98,45,0.20); border-color: rgba(196,98,45,0.38); }
 .nav-drop-icon { width: 34px; height: 34px; border-radius: 9px; background: rgba(255,255,255,0.06); border: 1px solid rgba(255,255,255,0.08); display: flex; align-items: center; justify-content: center; font-size: 15px; flex-shrink: 0; transition: background 0.16s, border-color 0.16s; }
@@ -533,7 +534,15 @@ ul { list-style: none; }
   .footer-bottom { flex-direction: column; align-items: flex-start; }
   .cta-actions { flex-direction: column; align-items: center; }
 }
-  </style>
+  .why-card-icon svg { stroke: currentColor; }
+.problem-icon svg { stroke: currentColor; }
+.include-card-icon svg { stroke: currentColor; }
+.type-card-icon-wrap svg { stroke: currentColor; }
+.benefit-card-icon svg { stroke: currentColor; }
+.trust-sector-icon svg { stroke: currentColor; }
+.related-card-icon svg { stroke: currentColor; }
+.footer-social-link svg { stroke: currentColor; }
+</style>
 </head>
 <body>
 
@@ -560,28 +569,28 @@ ul { list-style: none; }
         </button>
         <div class="nav-drop" role="menu">
           <a href="/diseno-web-tenerife/" class="nav-drop-item" role="menuitem">
-            <span class="nav-drop-icon">🌐</span>
+            <span class="nav-drop-icon"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><line x1="2" y1="12" x2="22" y2="12"/><path d="M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z"/></svg></span>
             <span><div class="nav-drop-title">Diseño Web en Tenerife</div><div class="nav-drop-desc">Webs profesionales que convierten</div></span>
           </a>
           <a href="/seo-local-tenerife/" class="nav-drop-item" role="menuitem">
-            <span class="nav-drop-icon">📍</span>
+            <span class="nav-drop-icon"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg></span>
             <span><div class="nav-drop-title">SEO Local en Tenerife</div><div class="nav-drop-desc">Posicionamiento orgánico en Google</div></span>
           </a>
           <a href="/gestion-redes-sociales-tenerife/" class="nav-drop-item" role="menuitem">
-            <span class="nav-drop-icon">📲</span>
+            <span class="nav-drop-icon"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="5" y="2" width="14" height="20" rx="2" ry="2"/><line x1="12" y1="18" x2="12.01" y2="18"/></svg></span>
             <span><div class="nav-drop-title">Redes Sociales</div><div class="nav-drop-desc">Gestión y contenido profesional</div></span>
           </a>
           <div class="nav-drop-divider"></div>
           <a href="/branding-identidad-visual-tenerife/" class="nav-drop-item" role="menuitem">
-            <span class="nav-drop-icon">✦</span>
+            <span class="nav-drop-icon"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg></span>
             <span><div class="nav-drop-title">Branding e Identidad Visual</div><div class="nav-drop-desc">Logo, paleta y guía de estilo</div></span>
           </a>
           <a href="/marketing-digital-tenerife/" class="nav-drop-item" role="menuitem">
-            <span class="nav-drop-icon">📣</span>
+            <span class="nav-drop-icon"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="m3 11 18-5v12L3 14v-3z"/><path d="M11.6 16.8a3 3 0 1 1-5.8-1.6"/></svg></span>
             <span><div class="nav-drop-title">Marketing Digital</div><div class="nav-drop-desc">Estrategia digital para negocios</div></span>
           </a>
           <a href="/creacion-de-contenido/" class="nav-drop-item active-item" role="menuitem">
-            <span class="nav-drop-icon">📸</span>
+            <span class="nav-drop-icon"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M23 19a2 2 0 0 1-2 2H3a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h4l2-3h6l2 3h4a2 2 0 0 1 2 2z"/><circle cx="12" cy="13" r="4"/></svg></span>
             <span><div class="nav-drop-title">Creación de Contenido</div><div class="nav-drop-desc">Foto, vídeo y piezas visuales</div></span>
           </a>
         </div>
@@ -594,11 +603,11 @@ ul { list-style: none; }
         </button>
         <div class="nav-drop" role="menu">
           <a href="/web-inmobiliaria-tenerife/" class="nav-drop-item" role="menuitem">
-            <span class="nav-drop-icon">🏠</span>
+            <span class="nav-drop-icon"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="m3 9 9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"/><polyline points="9 22 9 12 15 12 15 22"/></svg></span>
             <span><div class="nav-drop-title">Web Inmobiliaria</div><div class="nav-drop-desc">Diseño para agencias y portales</div></span>
           </a>
           <a href="/marketing-turistico-tenerife/" class="nav-drop-item" role="menuitem">
-            <span class="nav-drop-icon">✈️</span>
+            <span class="nav-drop-icon"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M17.8 19.2 16 11l3.5-3.5C21 6 21.5 4 21 3c-1-.5-3 0-4.5 1.5L13 8 4.8 6.2c-.5-.1-.9.1-1.1.5l-.3.5c-.2.5-.1 1 .3 1.3L9 12l-2 3H4l-1 1 3 2 2 3 1-1v-3l3-2 3.5 5.3c.3.4.8.5 1.3.3l.5-.2c.4-.3.6-.7.5-1.2z"/></svg></span>
             <span><div class="nav-drop-title">Marketing Turístico</div><div class="nav-drop-desc">Hoteles, apartamentos y turismo</div></span>
           </a>
         </div>
@@ -756,21 +765,21 @@ ul { list-style: none; }
       <div class="why-cards-col">
         <div class="why-card reveal">
           <div class="why-card-header">
-            <div class="why-card-icon">🌐</div>
+            <div class="why-card-icon"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><line x1="2" y1="12" x2="22" y2="12"/><path d="M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z"/></svg></div>
             <div class="why-card-title">Tu web necesita imágenes que transmitan nivel</div>
           </div>
           <div class="why-card-body">Una web bien diseñada con fotos mediocres pierde credibilidad inmediatamente. Las imágenes son lo primero que se procesa. Si no convencen, el diseño da igual.</div>
         </div>
         <div class="why-card reveal">
           <div class="why-card-header">
-            <div class="why-card-icon">📲</div>
+            <div class="why-card-icon"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="5" y="2" width="14" height="20" rx="2" ry="2"/><line x1="12" y1="18" x2="12.01" y2="18"/></svg></div>
             <div class="why-card-title">Las redes sociales exigen material constante y coherente</div>
           </div>
           <div class="why-card-body">No basta con publicar. Si el contenido no tiene calidad visual, refuerza una percepción de marca que puede ser peor que no publicar nada. La constancia sin nivel hace daño.</div>
         </div>
         <div class="why-card reveal">
           <div class="why-card-header">
-            <div class="why-card-icon">🎯</div>
+            <div class="why-card-icon"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><circle cx="12" cy="12" r="6"/><circle cx="12" cy="12" r="2"/></svg></div>
             <div class="why-card-title">El contenido de calidad trabaja solo, de forma continua</div>
           </div>
           <div class="why-card-body">Una buena fotografía o un vídeo bien producido se puede reutilizar en web, redes, Google Business, presentaciones y comunicaciones durante meses. La inversión se amortiza sola.</div>
@@ -799,7 +808,7 @@ ul { list-style: none; }
 
         <div class="problem-list">
           <div class="problem-item reveal">
-            <div class="problem-icon">📷</div>
+            <div class="problem-icon"><svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M23 19a2 2 0 0 1-2 2H3a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h4l2-3h6l2 3h4a2 2 0 0 1 2 2z"/><circle cx="12" cy="13" r="4"/></svg></div>
             <div class="problem-text">
               <strong>Tu negocio se ve peor online de lo que es en realidad.</strong>
               Lo que ofreces es bueno, pero las imágenes que tienes no lo transmiten. El cliente juzga antes de llegar.
@@ -834,7 +843,7 @@ ul { list-style: none; }
             </div>
           </div>
           <div class="problem-item reveal">
-            <div class="problem-icon">🎬</div>
+            <div class="problem-icon"><svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polygon points="23 7 16 12 23 17 23 7"/><rect x="1" y="5" width="15" height="14" rx="2" ry="2"/></svg></div>
             <div class="problem-text">
               <strong>No tienes vídeo ni reels y lo notas.</strong>
               El contenido en movimiento es el que más alcance tiene. No tenerlo es quedar fuera de la conversación visual.
@@ -898,12 +907,12 @@ ul { list-style: none; }
 
     <div class="includes-grid">
       <div class="include-card reveal">
-        <div class="include-card-icon">📸</div>
+        <div class="include-card-icon"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M23 19a2 2 0 0 1-2 2H3a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h4l2-3h6l2 3h4a2 2 0 0 1 2 2z"/><circle cx="12" cy="13" r="4"/></svg></div>
         <div class="include-card-title">Fotografía de negocio y producto</div>
         <div class="include-card-desc">Sesiones en tu local, espacio o entorno. Fotos de ambiente, detalle, equipo y producto con edición profesional. Material listo para usar en web, redes sociales y Google Business.</div>
       </div>
       <div class="include-card reveal">
-        <div class="include-card-icon">🎬</div>
+        <div class="include-card-icon"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polygon points="23 7 16 12 23 17 23 7"/><rect x="1" y="5" width="15" height="14" rx="2" ry="2"/></svg></div>
         <div class="include-card-title">Vídeo corto de presentación</div>
         <div class="include-card-desc">Vídeo de entre 30 segundos y 2 minutos para presentar tu negocio, servicio o espacio. Ideal para web, perfil de empresa, redes o presentaciones comerciales. Rodado y editado con criterio.</div>
       </div>
@@ -918,12 +927,12 @@ ul { list-style: none; }
         <div class="include-card-desc">Fotografías en proporción y resolución óptima para cada sección de tu web. Cabeceras, galerías, banners, fondos. Con criterio compositivo para que encajen con el diseño sin forzar.</div>
       </div>
       <div class="include-card reveal">
-        <div class="include-card-icon">✦</div>
+        <div class="include-card-icon"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg></div>
         <div class="include-card-title">Piezas visuales de marca</div>
         <div class="include-card-desc">Contenido gráfico para comunicar tus servicios, valores o propuesta. Piezas de diseño editorial adaptadas a tus colores, tipografía y estilo. Para que tu marca se vea igual en todos los canales.</div>
       </div>
       <div class="include-card reveal">
-        <div class="include-card-icon">📋</div>
+        <div class="include-card-icon"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M16 4h2a2 2 0 0 1 2 2v14a2 2 0 0 1-2 2H6a2 2 0 0 1-2-2V6a2 2 0 0 1 2-2h2"/><rect x="8" y="2" width="8" height="4" rx="1" ry="1"/></svg></div>
         <div class="include-card-title">Planificación de contenido</div>
         <div class="include-card-desc">Antes de producir, definimos qué contenido necesitas, en qué formatos y para qué canales. La planificación previa es lo que hace que una jornada de producción genere el máximo material útil.</div>
       </div>
@@ -948,7 +957,7 @@ ul { list-style: none; }
       <div class="type-card reveal">
         <div class="type-card-bg"></div>
         <div class="type-card-content">
-          <div class="type-card-icon-wrap">📸</div>
+          <div class="type-card-icon-wrap"><svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M23 19a2 2 0 0 1-2 2H3a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h4l2-3h6l2 3h4a2 2 0 0 1 2 2z"/><circle cx="12" cy="13" r="4"/></svg></div>
           <div class="type-card-bottom">
             <div class="type-card-name">Fotografía</div>
             <div class="type-card-desc">Espacio, producto, equipo. Para web y redes.</div>
@@ -960,7 +969,7 @@ ul { list-style: none; }
       <div class="type-card reveal">
         <div class="type-card-bg"></div>
         <div class="type-card-content">
-          <div class="type-card-icon-wrap">🎬</div>
+          <div class="type-card-icon-wrap"><svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polygon points="23 7 16 12 23 17 23 7"/><rect x="1" y="5" width="15" height="14" rx="2" ry="2"/></svg></div>
           <div class="type-card-bottom">
             <div class="type-card-name">Vídeo</div>
             <div class="type-card-desc">Presentación de negocio, servicio o equipo.</div>
@@ -984,7 +993,7 @@ ul { list-style: none; }
       <div class="type-card reveal">
         <div class="type-card-bg"></div>
         <div class="type-card-content">
-          <div class="type-card-icon-wrap">✦</div>
+          <div class="type-card-icon-wrap"><svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg></div>
           <div class="type-card-bottom">
             <div class="type-card-name">Marca</div>
             <div class="type-card-desc">Piezas editoriales con tu identidad visual.</div>
@@ -1025,7 +1034,7 @@ ul { list-style: none; }
 
     <div class="benefits-grid">
       <div class="benefit-card reveal">
-        <div class="benefit-card-icon">🏆</div>
+        <div class="benefit-card-icon"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M6 9H4.5a2.5 2.5 0 0 1 0-5H6"/><path d="M18 9h1.5a2.5 2.5 0 0 0 0-5H18"/><path d="M4 22h16"/><path d="M10 14.66V17c0 .55-.47.98-.97 1.21C7.85 18.75 7 20.24 7 22"/><path d="M14 14.66V17c0 .55.47.98.97 1.21C16.15 18.75 17 20.24 17 22"/><path d="M18 2H6v7a6 6 0 0 0 12 0V2Z"/></svg></div>
         <div class="benefit-card-title">Tu negocio transmite el nivel que merece</div>
         <div class="benefit-card-desc">El cliente forma su primera impresión en segundos. Un contenido cuidado comunica profesionalidad antes de que nadie lea una sola línea de texto.</div>
       </div>
@@ -1040,17 +1049,17 @@ ul { list-style: none; }
         <div class="benefit-card-desc">Mismo nivel visual en Instagram, web, Google Business y presentaciones comerciales. Tu negocio se ve igual de bien donde sea que te encuentren.</div>
       </div>
       <div class="benefit-card reveal">
-        <div class="benefit-card-icon">💬</div>
+        <div class="benefit-card-icon"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"/></svg></div>
         <div class="benefit-card-title">Más confianza antes del primer contacto</div>
         <div class="benefit-card-desc">El contenido de calidad responde preguntas visuales antes de que el cliente las haga: ¿cómo es el local? ¿cómo trabajan? ¿qué nivel tienen?</div>
       </div>
       <div class="benefit-card reveal">
-        <div class="benefit-card-icon">⚡</div>
+        <div class="benefit-card-icon"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polygon points="13 2 3 14 12 14 11 22 21 10 12 10 13 2"/></svg></div>
         <div class="benefit-card-title">Contenido que convierte, no solo que gusta</div>
         <div class="benefit-card-desc">Fotos y vídeos bien producidos no son decoración. Son herramientas de captación. Un buen vídeo de presentación puede hacer más que meses de publicaciones sin criterio.</div>
       </div>
       <div class="benefit-card reveal">
-        <div class="benefit-card-icon">📍</div>
+        <div class="benefit-card-icon"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg></div>
         <div class="benefit-card-title">Pensado para negocios en Tenerife</div>
         <div class="benefit-card-desc">Conocemos el contexto local. Trabajamos con restaurantes, alojamientos, tiendas y marcas personales. Entendemos qué tipo de contenido funciona en cada sector aquí.</div>
       </div>
@@ -1113,17 +1122,17 @@ ul { list-style: none; }
 
     <div class="trust-sectors">
       <div class="trust-sector reveal">
-        <div class="trust-sector-icon">🍽️</div>
+        <div class="trust-sector-icon"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M3 2v7c0 1.1.9 2 2 2h4a2 2 0 0 0 2-2V2"/><path d="M7 2v20"/><path d="M21 15V2v0a5 5 0 0 0-5 5v6c0 1.1.9 2 2 2h3zm0 0v7"/></svg></div>
         <div class="trust-sector-name">Restaurantes y hostelería</div>
         <div class="trust-sector-desc">Platos, ambiente, equipo. Contenido que llena mesas.</div>
       </div>
       <div class="trust-sector reveal">
-        <div class="trust-sector-icon">🏨</div>
+        <div class="trust-sector-icon"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="4" y="2" width="16" height="20" rx="2" ry="2"/><path d="M9 22v-4h6v4"/><path d="M8 6h.01"/><path d="M16 6h.01"/><path d="M12 6h.01"/><path d="M12 10h.01"/><path d="M12 14h.01"/><path d="M16 10h.01"/><path d="M16 14h.01"/><path d="M8 10h.01"/><path d="M8 14h.01"/></svg></div>
         <div class="trust-sector-name">Alojamientos turísticos</div>
         <div class="trust-sector-desc">Habitaciones, vistas, experiencia. Lo que convierte reservas.</div>
       </div>
       <div class="trust-sector reveal">
-        <div class="trust-sector-icon">🧑‍💼</div>
+        <div class="trust-sector-icon"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6z"/><rect x="2" y="9" width="4" height="12"/><circle cx="4" cy="4" r="2"/></svg></div>
         <div class="trust-sector-name">Marcas personales</div>
         <div class="trust-sector-desc">Foto de perfil, vídeo de presentación, piezas de autoridad.</div>
       </div>
@@ -1148,19 +1157,19 @@ ul { list-style: none; }
 
     <div class="related-grid">
       <a href="/gestion-redes-sociales-tenerife/" class="related-card reveal">
-        <div class="related-card-icon">📲</div>
+        <div class="related-card-icon"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="5" y="2" width="14" height="20" rx="2" ry="2"/><line x1="12" y1="18" x2="12.01" y2="18"/></svg></div>
         <div class="related-card-title">Gestión de Redes Sociales</div>
         <div class="related-card-desc">Si el contenido es el material, la gestión es la estrategia. Unimos los dos para que tus redes tengan nivel y constancia a la vez.</div>
         <div class="related-card-link">Ver servicio <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M5 12h14M12 5l7 7-7 7"/></svg></div>
       </a>
       <a href="/diseno-web-tenerife/" class="related-card reveal">
-        <div class="related-card-icon">🌐</div>
+        <div class="related-card-icon"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><line x1="2" y1="12" x2="22" y2="12"/><path d="M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z"/></svg></div>
         <div class="related-card-title">Diseño Web en Tenerife</div>
         <div class="related-card-desc">Una web bien diseñada con contenido visual de calidad es la combinación que más impacto tiene en la primera impresión de tu negocio online.</div>
         <div class="related-card-link">Ver servicio <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M5 12h14M12 5l7 7-7 7"/></svg></div>
       </a>
       <a href="/branding-identidad-visual-tenerife/" class="related-card reveal">
-        <div class="related-card-icon">✦</div>
+        <div class="related-card-icon"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg></div>
         <div class="related-card-title">Branding e Identidad Visual</div>
         <div class="related-card-desc">El contenido visual cobra mucho más fuerza cuando existe una identidad de marca definida detrás. Logo, colores y guía de estilo como base.</div>
         <div class="related-card-link">Ver servicio <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M5 12h14M12 5l7 7-7 7"/></svg></div>
@@ -1299,9 +1308,9 @@ ul { list-style: none; }
         </div>
         <p class="footer-tagline">Diseño web, SEO, redes sociales, branding y contenido para negocios en Tenerife.</p>
         <div class="footer-socials">
-          <a href="#" class="footer-social-link" aria-label="Instagram">📸</a>
-          <a href="#" class="footer-social-link" aria-label="LinkedIn">💼</a>
-          <a href="#" class="footer-social-link" aria-label="Facebook">📘</a>
+          <a href="#" class="footer-social-link" aria-label="Instagram"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="2" width="20" height="20" rx="5" ry="5"/><path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"/><line x1="17.5" y1="6.5" x2="17.51" y2="6.5"/></svg></a>
+          <a href="#" class="footer-social-link" aria-label="LinkedIn"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6z"/><rect x="2" y="9" width="4" height="12"/><circle cx="4" cy="4" r="2"/></svg></a>
+          <a href="#" class="footer-social-link" aria-label="Facebook"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M18 2h-3a5 5 0 0 0-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 0 1 1-1h3z"/></svg></a>
         </div>
       </div>
 
@@ -1343,7 +1352,7 @@ ul { list-style: none; }
     </div>
 
     <div class="footer-bottom">
-      <div class="footer-copy">© 2025 Marketing Digital Tenerife. Todos los derechos reservados.</div>
+      <div class="footer-copy">© 2026 Marketing Digital Tenerife · Todos los derechos reservados · Hecho en Tenerife</div>
       <div class="footer-legal">
         <a href="#">Privacidad</a>
         <a href="#">Cookies</a>
