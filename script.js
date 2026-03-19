@@ -11,19 +11,35 @@ window.addEventListener('scroll', () => {
 /* ── HAMBURGER MENU ────────────────────────────── */
 const hamburger = document.getElementById('hamburger');
 const navLinks  = document.getElementById('navLinks');
+const navInner  = document.querySelector('.nav-inner');
+
+/*  FIX: On mobile, move #navLinks to <body> so position:fixed is
+    relative to the viewport — not to .nav-header which can create
+    a containing block via backdrop-filter / transforms.
+    On close, move it back into the header for desktop layout. */
+
+function isMobile() { return window.innerWidth <= 640; }
 
 function closeNav() {
   navLinks.classList.remove('open');
   hamburger.classList.remove('open');
   hamburger.setAttribute('aria-expanded', 'false');
-  document.body.style.overflow = '';
+  document.documentElement.classList.remove('nav-open');
+  // Move nav back into header for desktop flex layout
+  if (navLinks.parentNode === document.body) {
+    navInner.insertBefore(navLinks, hamburger);
+  }
 }
 
 function openNav() {
+  // Move nav to <body> so fixed positioning works from viewport
+  if (isMobile() && navLinks.parentNode !== document.body) {
+    document.body.appendChild(navLinks);
+  }
   navLinks.classList.add('open');
   hamburger.classList.add('open');
   hamburger.setAttribute('aria-expanded', 'true');
-  document.body.style.overflow = 'hidden';
+  document.documentElement.classList.add('nav-open');
 }
 
 hamburger.addEventListener('click', (e) => {
@@ -43,10 +59,17 @@ document.addEventListener('click', (e) => {
   }
 });
 
+// If window resizes to desktop while menu is open, close it and restore nav
+window.addEventListener('resize', () => {
+  if (window.innerWidth > 640 && navLinks.classList.contains('open')) {
+    closeNav();
+  }
+});
+
 /* ── DROPDOWN ACCORDION (mobile) ───────────────── */
 document.querySelectorAll('.nav-drop-btn').forEach(btn => {
   btn.addEventListener('click', (e) => {
-    if (window.innerWidth > 900) return; // desktop uses CSS :hover
+    if (window.innerWidth > 640) return; // desktop uses CSS :hover
     e.stopPropagation();
     const wrap = btn.closest('.nav-drop-wrap');
     const isOpen = wrap.classList.toggle('open');
@@ -156,27 +179,22 @@ window.addEventListener('DOMContentLoaded', () => {
   if (typeof gsap === 'undefined') return;
 
   // ── 1. SET INITIAL HIDDEN STATES ──────────────────
-  // Done via gsap.set() so GSAP controls all state;
-  // the CSS `animation: none` rules prevent CSS from
-  // overriding these initial values.
   gsap.set('.hero-badge',       { opacity: 0, y: -14 });
   gsap.set('.hero-title-inner', { yPercent: 110, opacity: 0 });
   gsap.set('.hero-desc',        { opacity: 0, y: 24 });
   gsap.set('.hero-actions',     { opacity: 0, y: 18 });
-  gsap.set('.hero-stats',       { opacity: 0, y: 14 });
+  gsap.set('.hero-proof',       { opacity: 0, y: 14 });
   gsap.set('.hero-visual',      { opacity: 0, x: 36 });
 
   // ── 2. ENTRY TIMELINE ─────────────────────────────
   const heroTl = gsap.timeline({ delay: 0.08 });
 
-  // Badge drops in from above
   heroTl.to('.hero-badge', {
     opacity: 1, y: 0,
     duration: 0.55,
     ease: 'power2.out'
   });
 
-  // Title: each line rises from clip mask — premium reveal
   heroTl.to('.hero-title-inner', {
     yPercent: 0, opacity: 1,
     duration: 0.82,
@@ -184,28 +202,24 @@ window.addEventListener('DOMContentLoaded', () => {
     ease: 'power4.out'
   }, '-=0.22');
 
-  // Subtitle fades up softly
   heroTl.to('.hero-desc', {
     opacity: 1, y: 0,
     duration: 0.65,
     ease: 'power2.out'
   }, '-=0.40');
 
-  // CTA buttons rise in together
   heroTl.to('.hero-actions', {
     opacity: 1, y: 0,
     duration: 0.60,
     ease: 'power2.out'
   }, '-=0.42');
 
-  // Stats enter last, slightly delayed
-  heroTl.to('.hero-stats', {
+  heroTl.to('.hero-proof', {
     opacity: 1, y: 0,
     duration: 0.55,
     ease: 'power2.out'
   }, '-=0.36');
 
-  // Visual panel slides in from right, overlapping with stats
   heroTl.to('.hero-visual', {
     opacity: 1, x: 0,
     duration: 0.90,
@@ -313,76 +327,3 @@ if (contactForm) {
     }, 1600);
   });
 }
-/* ── GSAP HERO PREMIUM ANIMATION ─────────────────── */
-window.addEventListener('DOMContentLoaded', () => {
-  if (typeof gsap === 'undefined') return;
-
-  // 1. ESTADOS INICIALES — GSAP oculta los elementos
-  //    antes de que el browser los pinte visibles
-  gsap.set('.hero-badge',       { opacity: 0, y: -14 });
-  gsap.set('.hero-title-inner', { yPercent: 110, opacity: 0 });
-  gsap.set('.hero-desc',        { opacity: 0, y: 24 });
-  gsap.set('.hero-actions',     { opacity: 0, y: 18 });
-  gsap.set('.hero-stats',       { opacity: 0, y: 14 });
-  gsap.set('.hero-visual',      { opacity: 0, x: 36 });
-
-  // 2. TIMELINE DE ENTRADA
-  const heroTl = gsap.timeline({ delay: 0.08 });
-
-  heroTl.to('.hero-badge', {           // Badge cae desde arriba
-    opacity: 1, y: 0,
-    duration: 0.55, ease: 'power2.out'
-  });
-  heroTl.to('.hero-title-inner', {     // Título: reveal línea a línea
-    yPercent: 0, opacity: 1,
-    duration: 0.82, stagger: 0.13,
-    ease: 'power4.out'
-  }, '-=0.22');
-  heroTl.to('.hero-desc', {            // Subtítulo fade-up suave
-    opacity: 1, y: 0,
-    duration: 0.65, ease: 'power2.out'
-  }, '-=0.40');
-  heroTl.to('.hero-actions', {         // CTA sube
-    opacity: 1, y: 0,
-    duration: 0.60, ease: 'power2.out'
-  }, '-=0.42');
-  heroTl.to('.hero-stats', {           // Stats entran últimas
-    opacity: 1, y: 0,
-    duration: 0.55, ease: 'power2.out'
-  }, '-=0.36');
-  heroTl.to('.hero-visual', {          // Panel visual desde derecha
-    opacity: 1, x: 0,
-    duration: 0.90, ease: 'power3.out'
-  }, '<-0.60');
-
-  // 3. FONDO — pulso breathing sobre los orbs existentes
-  gsap.to('.hero-spotlight', {
-    scale: 1.20, opacity: 0.80,
-    duration: 4.5, yoyo: true, repeat: -1, ease: 'sine.inOut'
-  });
-  gsap.to('.glow-orb-a', {
-    scale: 1.14,
-    duration: 6.0, yoyo: true, repeat: -1, ease: 'sine.inOut'
-  });
-  gsap.to('.glow-orb-b', {
-    scale: 1.10, opacity: 0.85,
-    duration: 7.5, yoyo: true, repeat: -1, ease: 'sine.inOut', delay: 1.8
-  });
-  gsap.to('.glow-orb-c', {
-    scale: 1.25, opacity: 0.55,
-    duration: 5.5, yoyo: true, repeat: -1, ease: 'sine.inOut', delay: 1.1
-  });
-
-  // 4. HOVER MICROANIMACIÓN — botón CTA
-  const ctaBtn = document.querySelector('.hero-actions .btn-primary');
-  if (ctaBtn) {
-    ctaBtn.addEventListener('mouseenter', () =>
-      gsap.to(ctaBtn, { scale: 1.046, duration: 0.28, ease: 'power2.out' }));
-    ctaBtn.addEventListener('mouseleave', () =>
-      gsap.to(ctaBtn, { scale: 1, duration: 0.34, ease: 'power3.out' }));
-    ctaBtn.addEventListener('mousedown', () =>
-      gsap.to(ctaBtn, { scale: 0.968, duration: 0.10, ease: 'power2.in' }));
-    ctaBtn.addEventListener('mouseup', () =>
-      gsap.to(ctaBtn, { scale: 1.03, duration: 0.22, ease: 'back.out(2.5)' }));
-  }
-});

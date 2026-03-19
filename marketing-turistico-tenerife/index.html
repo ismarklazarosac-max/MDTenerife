@@ -640,8 +640,11 @@ ul { list-style: none; }
 @media (max-width: 900px) {
   .sp-related-grid { grid-template-columns: repeat(2,1fr); }
   .footer-grid { grid-template-columns: 1fr 1fr; }
+  /* FIX: Move backdrop-filter to ::before so nav-links position:fixed works */
+  .nav-header { backdrop-filter: none !important; -webkit-backdrop-filter: none !important; }
+  .nav-header::before { content: ''; position: absolute; inset: 0; z-index: -1; pointer-events: none; background: inherit; backdrop-filter: blur(20px); -webkit-backdrop-filter: blur(20px); }
   .nav-hamburger { display: flex; }
-  .nav-links { display: none; flex-direction: column; position: fixed; top: 0; left: 0; right: 0; bottom: 0; background: rgba(2,11,30,0.98); backdrop-filter: blur(20px); -webkit-backdrop-filter: blur(20px); padding: 88px 24px 40px; overflow-y: auto; z-index: 1000; gap: 2px; justify-content: flex-start; align-items: stretch; }
+  .nav-links { display: none; flex-direction: column; position: fixed; top: 0; left: 0; right: 0; bottom: 0; background: rgba(2,11,30,0.98); backdrop-filter: blur(24px); -webkit-backdrop-filter: blur(24px); padding: 88px 24px 40px; overflow-y: auto; z-index: 9999; gap: 2px; justify-content: flex-start; align-items: stretch; }
   .nav-links.open { display: flex; }
   .nav-link { font-size: 15px; padding: 13px 16px; width: 100%; justify-content: space-between; border-radius: 12px; }
   .nav-cta { margin: 12px 0 0 0 !important; padding: 14px 20px !important; border-radius: 14px !important; justify-content: center; }
@@ -711,7 +714,7 @@ ul { list-style: none; }
             <span class="nav-drop-icon">✦</span>
             <span><div class="nav-drop-title">Branding e Identidad Visual</div><div class="nav-drop-desc">Logo, paleta y guía de estilo</div></span>
           </a>
-          <a href="/marketing-digital/" class="nav-drop-item" role="menuitem">
+          <a href="/marketing-digital-tenerife/" class="nav-drop-item" role="menuitem">
             <span class="nav-drop-icon">📣</span>
             <span><div class="nav-drop-title">Marketing Digital</div><div class="nav-drop-desc">Google Ads, Meta Ads y más</div></span>
           </a>
