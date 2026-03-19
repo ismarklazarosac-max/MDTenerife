@@ -1,0 +1,3783 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Marketing Digital Tenerife | Diseño Web, SEO y Redes Sociales en Tenerife</title>
+  <meta name="description" content="Diseño de páginas web, posicionamiento SEO local y gestión de redes sociales para negocios en Tenerife. Más clientes, más visibilidad online." />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700;800;900&family=Poppins:wght@400;500;600;700&display=swap">
+  <style>
+/* ═══════════════════════════════════════════════════════
+   MARKETING DIGITAL TENERIFE — Premium Redesign
+   Colors: #020B1E · #042272 · #0B86AA · #F46224
+   Fonts: Montserrat + Poppins
+═══════════════════════════════════════════════════════ */
+
+*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+:root {
+  --ink:        #020B1E;
+  --navy:       #042272;
+  --navy-mid:   #0A2FA0;
+  --blue:       #0B86AA;
+  --blue-light: #2AAECE;
+  --orange:     #F46224;
+  --orange-dark:#C94E1A;
+  --white:      #FFFFFF;
+  --off-white:  #F8FAFF;
+  --gray-light: #EFF3FB;
+  --gray-mid:   #94A3B8;
+  --gray-dark:  #475569;
+  --text:       #0F1C3F;
+  --text-muted: #64748B;
+
+  --font-head: 'Montserrat', sans-serif;
+  --font-body: 'Poppins', sans-serif;
+
+  --r-sm:  8px;
+  --r-md:  14px;
+  --r-lg:  22px;
+  --r-xl:  32px;
+
+  --sh-navy-sm: 0 2px 16px rgba(4,34,114,0.10);
+  --sh-navy-md: 0 8px 40px rgba(4,34,114,0.15);
+  --sh-navy-lg: 0 24px 64px rgba(4,34,114,0.20);
+  --sh-orange:  0 8px 32px rgba(244,98,36,0.35);
+
+  --ease: cubic-bezier(0.4, 0, 0.2, 1);
+  --spring: cubic-bezier(0.34, 1.56, 0.64, 1);
+}
+
+html { scroll-behavior: smooth; }
+
+body {
+  font-family: var(--font-body);
+  color: var(--text);
+  background: var(--white);
+  line-height: 1.6;
+  overflow-x: hidden;
+  -webkit-font-smoothing: antialiased;
+}
+
+img { max-width: 100%; display: block; }
+a { text-decoration: none; color: inherit; }
+ul { list-style: none; }
+
+/* ── UTILITY ─────────────────────────────────────── */
+.container {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 28px;
+}
+
+.section-label {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  font-family: var(--font-body);
+  font-size: 11px;
+  font-weight: 600;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: var(--orange);
+  margin-bottom: 20px;
+}
+.section-label::before {
+  content: '';
+  display: block;
+  width: 24px;
+  height: 2px;
+  background: var(--orange);
+  border-radius: 2px;
+}
+
+.section-title {
+  font-family: var(--font-head);
+  font-weight: 800;
+  font-size: clamp(32px, 4.5vw, 52px);
+  line-height: 1.08;
+  letter-spacing: -0.025em;
+  color: var(--text);
+}
+
+.section-title--white { color: var(--white); }
+
+.section-sub {
+  font-size: 17px;
+  line-height: 1.75;
+  color: var(--text-muted);
+  max-width: 560px;
+}
+
+.section-sub--white { color: rgba(255,255,255,0.72); }
+
+.btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  font-family: var(--font-head);
+  font-size: 14px;
+  font-weight: 700;
+  letter-spacing: 0.01em;
+  padding: 15px 30px;
+  border-radius: 50px;
+  border: none;
+  cursor: pointer;
+  transition: transform 0.25s var(--spring), box-shadow 0.25s var(--ease), background 0.2s var(--ease);
+  white-space: nowrap;
+}
+
+.btn-primary {
+  background: var(--orange);
+  color: var(--white);
+  box-shadow: var(--sh-orange);
+}
+.btn-primary:hover {
+  background: var(--orange-dark);
+  transform: translateY(-2px);
+  box-shadow: 0 14px 40px rgba(244,98,36,0.45);
+}
+.btn-primary:active { transform: translateY(0); }
+
+.btn-ghost {
+  background: transparent;
+  color: var(--white);
+  border: 1.5px solid rgba(255,255,255,0.35);
+  backdrop-filter: blur(8px);
+}
+.btn-ghost:hover {
+  background: rgba(255,255,255,0.10);
+  border-color: rgba(255,255,255,0.65);
+  transform: translateY(-2px);
+}
+
+.btn-ghost-dark {
+  background: transparent;
+  color: var(--navy);
+  border: 1.5px solid rgba(4,34,114,0.3);
+}
+.btn-ghost-dark:hover {
+  background: var(--navy);
+  color: var(--white);
+  transform: translateY(-2px);
+  box-shadow: var(--sh-navy-md);
+}
+
+.btn-outline-orange {
+  background: transparent;
+  color: var(--orange);
+  border: 1.5px solid var(--orange);
+}
+.btn-outline-orange:hover {
+  background: var(--orange);
+  color: var(--white);
+  transform: translateY(-2px);
+  box-shadow: var(--sh-orange);
+}
+
+/* ── NOISE TEXTURE ──────────────────────────────── */
+.noise::after {
+  content: '';
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+  opacity: 0.035;
+  background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E");
+  background-size: 180px;
+}
+
+/* ════════════════════════════════════════════════════
+   NAVIGATION
+════════════════════════════════════════════════════ */
+.nav-header {
+  position: fixed;
+  top: 0; left: 0; right: 0;
+  z-index: 1000;
+  padding: 22px 0;
+  transition: padding 0.3s var(--ease), background 0.3s var(--ease), box-shadow 0.3s var(--ease);
+}
+
+.nav-header.scrolled {
+  padding: 14px 0;
+  background: rgba(2, 11, 30, 0.92);
+  backdrop-filter: blur(20px);
+  -webkit-backdrop-filter: blur(20px);
+  box-shadow: 0 1px 0 rgba(255,255,255,0.06);
+}
+
+.nav-inner {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 32px;
+}
+
+.nav-logo {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  flex-shrink: 0;
+}
+
+.logo-img {
+  width: 52px;
+  height: 52px;
+  object-fit: contain;
+  filter: drop-shadow(0 2px 8px rgba(11,134,170,0.4));
+}
+
+.nav-brand-text { display: flex; flex-direction: column; line-height: 1.1; }
+.brand-mdt {
+  font-family: var(--font-head);
+  font-size: 17px;
+  font-weight: 800;
+  color: var(--white);
+  letter-spacing: 0.04em;
+}
+.brand-sub {
+  font-family: var(--font-body);
+  font-size: 10px;
+  font-weight: 400;
+  color: rgba(255,255,255,0.55);
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+}
+
+.nav-links {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+}
+
+.nav-links a {
+  font-family: var(--font-head);
+  font-size: 13px;
+  font-weight: 600;
+  color: rgba(255,255,255,0.72);
+  padding: 8px 12px;
+  border-radius: 8px;
+  transition: color 0.2s, background 0.2s;
+  letter-spacing: 0.01em;
+}
+.nav-links a:hover { color: var(--white); background: rgba(255,255,255,0.08); }
+.nav-links a.active { color: var(--white); }
+
+.nav-links .nav-cta {
+  background: var(--orange);
+  color: var(--white);
+  padding: 10px 22px;
+  border-radius: 50px;
+  margin-left: 8px;
+  box-shadow: var(--sh-orange);
+  transition: background 0.2s, transform 0.2s var(--spring), box-shadow 0.2s;
+}
+.nav-links .nav-cta:hover {
+  background: var(--orange-dark);
+  transform: translateY(-1px);
+  box-shadow: 0 10px 30px rgba(244,98,36,0.45);
+}
+
+.nav-hamburger {
+  display: none;
+  flex-direction: column;
+  gap: 5px;
+  background: none;
+  border: none;
+  cursor: pointer;
+  padding: 8px;
+  z-index: 1010;
+}
+.nav-hamburger span {
+  display: block;
+  width: 22px;
+  height: 2px;
+  background: var(--white);
+  border-radius: 2px;
+  transition: transform 0.25s var(--ease), opacity 0.25s;
+}
+
+/* ════════════════════════════════════════════════════
+   HERO
+════════════════════════════════════════════════════ */
+.hero {
+  position: relative;
+  min-height: 100vh;
+  display: flex;
+  align-items: center;
+  overflow: hidden;
+  background: var(--ink);
+  padding-top: 100px;
+}
+
+.hero-bg {
+  position: absolute;
+  inset: 0;
+  z-index: 0;
+}
+
+/* Deep layered gradient */
+.hero-bg::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background:
+    radial-gradient(ellipse 80% 60% at 70% 40%, rgba(11,134,170,0.18) 0%, transparent 65%),
+    radial-gradient(ellipse 60% 70% at 20% 80%, rgba(4,34,114,0.45) 0%, transparent 60%),
+    radial-gradient(ellipse 50% 50% at 85% 85%, rgba(244,98,36,0.08) 0%, transparent 50%),
+    linear-gradient(135deg, #020B1E 0%, #041130 40%, #020820 100%);
+}
+
+/* Grid lines */
+.hero-bg::after {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background-image:
+    linear-gradient(rgba(255,255,255,0.025) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(255,255,255,0.025) 1px, transparent 1px);
+  background-size: 72px 72px;
+  mask-image: radial-gradient(ellipse 80% 80% at 50% 50%, black, transparent);
+}
+
+.orb-1, .orb-2, .orb-3 {
+  position: absolute;
+  border-radius: 50%;
+  filter: blur(80px);
+  pointer-events: none;
+  will-change: transform;
+}
+.orb-1 {
+  width: 500px; height: 500px;
+  background: radial-gradient(circle, rgba(11,134,170,0.22), transparent 70%);
+  top: -10%; right: 5%;
+}
+.orb-2 {
+  width: 400px; height: 400px;
+  background: radial-gradient(circle, rgba(4,34,114,0.35), transparent 70%);
+  bottom: 5%; left: -5%;
+}
+.orb-3 {
+  width: 280px; height: 280px;
+  background: radial-gradient(circle, rgba(244,98,36,0.12), transparent 70%);
+  top: 40%; right: 15%;
+}
+
+.hero-inner {
+  position: relative;
+  z-index: 2;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 64px;
+  align-items: center;
+  width: 100%;
+}
+
+.hero-content { max-width: 600px; }
+
+.hero-badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  background: rgba(244,98,36,0.12);
+  border: 1px solid rgba(244,98,36,0.3);
+  border-radius: 50px;
+  padding: 7px 16px;
+  margin-bottom: 28px;
+  font-family: var(--font-body);
+  font-size: 12px;
+  font-weight: 500;
+  color: var(--orange);
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  animation: fadeInDown 0.8s var(--ease) 0.1s both;
+}
+.hero-badge .dot {
+  width: 6px; height: 6px;
+  background: var(--orange);
+  border-radius: 50%;
+  animation: pulse 2s ease-in-out infinite;
+}
+
+@keyframes pulse {
+  0%, 100% { opacity: 1; transform: scale(1); }
+  50% { opacity: 0.5; transform: scale(0.8); }
+}
+
+.hero-title {
+  font-family: var(--font-head);
+  font-weight: 900;
+  font-size: clamp(44px, 6vw, 74px);
+  line-height: 1.04;
+  letter-spacing: -0.03em;
+  color: var(--white);
+  margin-bottom: 24px;
+  animation: fadeInUp 0.9s var(--ease) 0.2s both;
+}
+
+.hero-title .accent {
+  background: linear-gradient(120deg, var(--blue-light), var(--orange) 80%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+
+.hero-desc {
+  font-size: 18px;
+  line-height: 1.75;
+  color: rgba(255,255,255,0.65);
+  margin-bottom: 40px;
+  animation: fadeInUp 0.9s var(--ease) 0.35s both;
+}
+
+.hero-actions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 14px;
+  margin-bottom: 56px;
+  animation: fadeInUp 0.9s var(--ease) 0.45s both;
+}
+
+.hero-stats {
+  display: flex;
+  gap: 0;
+  animation: fadeInUp 0.9s var(--ease) 0.55s both;
+}
+
+.hero-stat {
+  padding-right: 32px;
+  margin-right: 32px;
+  border-right: 1px solid rgba(255,255,255,0.1);
+}
+.hero-stat:last-child { padding-right: 0; margin-right: 0; border-right: none; }
+
+.hero-stat-num {
+  font-family: var(--font-head);
+  font-size: 30px;
+  font-weight: 800;
+  color: var(--white);
+  line-height: 1;
+  margin-bottom: 4px;
+}
+.hero-stat-num span { color: var(--orange); }
+.hero-stat-label {
+  font-size: 12px;
+  color: rgba(255,255,255,0.45);
+  font-weight: 400;
+  letter-spacing: 0.02em;
+}
+
+/* Hero visual panel */
+.hero-visual {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  position: relative;
+  animation: fadeInRight 1s var(--ease) 0.3s both;
+}
+
+.hero-mockup {
+  position: relative;
+  width: 100%;
+  max-width: 520px;
+}
+
+.mockup-browser {
+  background: rgba(255,255,255,0.05);
+  border: 1px solid rgba(255,255,255,0.1);
+  border-radius: 16px;
+  overflow: hidden;
+  backdrop-filter: blur(20px);
+  box-shadow:
+    0 40px 80px rgba(2,11,30,0.5),
+    0 0 0 1px rgba(255,255,255,0.05),
+    inset 0 1px 0 rgba(255,255,255,0.1);
+}
+
+.mockup-bar {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  padding: 12px 16px;
+  background: rgba(255,255,255,0.04);
+  border-bottom: 1px solid rgba(255,255,255,0.08);
+}
+
+.mockup-dot {
+  width: 10px; height: 10px;
+  border-radius: 50%;
+}
+.mockup-dot:nth-child(1) { background: #FF5F57; }
+.mockup-dot:nth-child(2) { background: #FFBD2E; }
+.mockup-dot:nth-child(3) { background: #28C840; }
+
+.mockup-url {
+  flex: 1;
+  background: rgba(255,255,255,0.06);
+  border-radius: 6px;
+  height: 22px;
+  margin-left: 8px;
+  display: flex;
+  align-items: center;
+  padding: 0 10px;
+  gap: 6px;
+}
+.mockup-url-dot {
+  width: 6px; height: 6px;
+  background: #28C840;
+  border-radius: 50%;
+}
+.mockup-url-text {
+  font-size: 10px;
+  color: rgba(255,255,255,0.4);
+  font-family: var(--font-body);
+}
+
+.mockup-screen {
+  aspect-ratio: 16/10;
+  background:
+    linear-gradient(135deg, rgba(4,34,114,0.6) 0%, rgba(2,11,30,0.8) 100%);
+  position: relative;
+  overflow: hidden;
+  display: grid;
+  grid-template-rows: auto 1fr;
+}
+
+.mock-nav-bar {
+  height: 36px;
+  background: rgba(255,255,255,0.04);
+  border-bottom: 1px solid rgba(255,255,255,0.06);
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  padding: 0 16px;
+}
+.mock-nav-logo {
+  width: 22px; height: 10px;
+  background: linear-gradient(90deg, var(--blue), var(--orange));
+  border-radius: 3px;
+}
+.mock-nav-links {
+  display: flex;
+  gap: 10px;
+  margin-left: auto;
+}
+.mock-nav-link {
+  width: 28px; height: 6px;
+  background: rgba(255,255,255,0.12);
+  border-radius: 3px;
+}
+
+.mock-hero-area {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 12px;
+  padding: 18px;
+  align-items: center;
+}
+.mock-text-block { display: flex; flex-direction: column; gap: 7px; }
+.mock-headline {
+  height: 10px;
+  border-radius: 3px;
+  background: linear-gradient(90deg, rgba(255,255,255,0.7), rgba(255,255,255,0.4));
+  width: 90%;
+}
+.mock-headline-2 {
+  height: 10px;
+  border-radius: 3px;
+  background: linear-gradient(90deg, rgba(255,255,255,0.7), rgba(255,255,255,0.3));
+  width: 70%;
+}
+.mock-body-line {
+  height: 6px;
+  border-radius: 2px;
+  background: rgba(255,255,255,0.2);
+  width: 100%;
+  margin-top: 4px;
+}
+.mock-body-line.short { width: 75%; }
+.mock-cta-btn {
+  width: 80px;
+  height: 22px;
+  border-radius: 11px;
+  background: var(--orange);
+  margin-top: 10px;
+  opacity: 0.9;
+}
+.mock-img-block {
+  aspect-ratio: 1;
+  border-radius: 8px;
+  background: linear-gradient(135deg, rgba(11,134,170,0.3), rgba(244,98,36,0.2));
+  border: 1px solid rgba(255,255,255,0.1);
+}
+
+/* Floating badges on hero visual */
+.hero-float-badge {
+  position: absolute;
+  background: rgba(255,255,255,0.96);
+  border-radius: 12px;
+  padding: 11px 16px;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  box-shadow: 0 16px 40px rgba(2,11,30,0.35), 0 0 0 1px rgba(255,255,255,0.5);
+  animation: floatY 3s ease-in-out infinite;
+}
+.hero-float-badge:nth-child(2) { animation-delay: -1.5s; }
+.hero-float-badge:nth-child(3) { animation-delay: -0.8s; }
+
+@keyframes floatY {
+  0%, 100% { transform: translateY(0); }
+  50% { transform: translateY(-8px); }
+}
+
+.badge-icon {
+  width: 36px; height: 36px;
+  border-radius: 8px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 18px;
+  flex-shrink: 0;
+}
+.badge-icon.green { background: rgba(34,197,94,0.15); }
+.badge-icon.blue { background: rgba(11,134,170,0.15); }
+.badge-icon.orange { background: rgba(244,98,36,0.15); }
+
+.badge-text-wrap { display: flex; flex-direction: column; }
+.badge-main {
+  font-family: var(--font-head);
+  font-size: 14px;
+  font-weight: 700;
+  color: var(--text);
+  line-height: 1.1;
+}
+.badge-sub {
+  font-size: 11px;
+  color: var(--text-muted);
+  font-family: var(--font-body);
+}
+
+.float-badge-1 { top: -20px; left: -40px; }
+.float-badge-2 { bottom: 30px; left: -50px; }
+.float-badge-3 { top: 50%; right: -40px; transform: translateY(-50%); }
+
+.hero-scroll-hint {
+  position: absolute;
+  bottom: 36px;
+  left: 50%;
+  transform: translateX(-50%);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 8px;
+  z-index: 2;
+  animation: fadeInUp 1s var(--ease) 1s both;
+}
+.scroll-line {
+  width: 1px;
+  height: 48px;
+  background: linear-gradient(to bottom, rgba(255,255,255,0.5), transparent);
+  animation: scrollPulse 2s ease-in-out infinite;
+}
+@keyframes scrollPulse {
+  0%, 100% { opacity: 0.4; transform: scaleY(1); }
+  50% { opacity: 1; transform: scaleY(1.15); }
+}
+.scroll-label {
+  font-size: 10px;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: rgba(255,255,255,0.3);
+  font-family: var(--font-body);
+}/* ────────────────────────────────────────────────
+   HERO — PREMIUM ANIMATION UPGRADES
+──────────────────────────────────────────────── */
+
+/* ────────────────────────────────────────────────
+   HERO — PREMIUM ANIMATION UPGRADES
+──────────────────────────────────────────────── */
+
+/* 1. Per-line headline clip reveal (replaces the bulk fadeInUp) */
+.hero-title { animation: none; }
+
+.hero-title-line {
+  display: block;
+  overflow: hidden;
+  padding-bottom: 0.06em; /* prevent descender clip */
+}
+.hero-title-inner {
+  display: block;
+  animation: heroLineUp 0.85s cubic-bezier(0.16, 1, 0.3, 1) both;
+}
+.hero-title-line:nth-child(1) .hero-title-inner { animation-delay: 0.20s; }
+.hero-title-line:nth-child(2) .hero-title-inner { animation-delay: 0.34s; }
+.hero-title-line:nth-child(3) .hero-title-inner { animation-delay: 0.48s; }
+
+@keyframes heroLineUp {
+  from { transform: translateY(108%); opacity: 0; }
+  to   { transform: translateY(0);    opacity: 1; }
+}
+
+/* 2. Mockup continuous float */
+.hero-mockup {
+  animation: mockupFloat 7s ease-in-out infinite;
+  will-change: transform;
+}
+@keyframes mockupFloat {
+  0%, 100% { transform: translateY(0);     }
+  50%       { transform: translateY(-14px); }
+}
+
+/* 3. Perspective context for tilt (JS-driven) */
+.hero-visual        { perspective: 1400px; }
+.mockup-browser     { will-change: transform; }
+
+/* 4. Button shimmer sweep (hero CTA only) */
+.hero-actions .btn-primary {
+  position: relative;
+  overflow: hidden;
+  isolation: isolate;
+}
+.hero-actions .btn-primary::after {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(
+    105deg,
+    transparent 25%,
+    rgba(255,255,255,0.26) 50%,
+    transparent 75%
+  );
+  transform: translateX(-120%) skewX(-20deg);
+  pointer-events: none;
+  z-index: 1;
+}
+.hero-actions .btn-primary:hover::after {
+  transform: translateX(220%) skewX(-20deg);
+  transition: transform 0.65s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+
+/* 2. Mockup continuous float */
+.hero-mockup {
+  animation: mockupFloat 7s ease-in-out infinite;
+  will-change: transform;
+}
+@keyframes mockupFloat {
+  0%, 100% { transform: translateY(0);     }
+  50%       { transform: translateY(-14px); }
+}
+
+/* 3. Perspective context for tilt (JS-driven) */
+.hero-visual        { perspective: 1400px; }
+.mockup-browser     { will-change: transform; }
+
+/* 4. Button shimmer sweep (hero CTA only) */
+.hero-actions .btn-primary {
+  position: relative;
+  overflow: hidden;
+  isolation: isolate;
+}
+.hero-actions .btn-primary::after {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(
+    105deg,
+    transparent 25%,
+    rgba(255,255,255,0.26) 50%,
+    transparent 75%
+  );
+  transform: translateX(-120%) skewX(-20deg);
+  pointer-events: none;
+  z-index: 1;
+}
+.hero-actions .btn-primary:hover::after {
+  transform: translateX(220%) skewX(-20deg);
+  transition: transform 0.65s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+
+/* ════════════════════════════════════════════════════
+   TRUST BAR
+════════════════════════════════════════════════════ */
+.trust-bar {
+  background: var(--off-white);
+  border-top: 1px solid rgba(4,34,114,0.07);
+  border-bottom: 1px solid rgba(4,34,114,0.07);
+  padding: 28px 0;
+}
+
+.trust-inner {
+  display: flex;
+  align-items: center;
+  gap: 32px;
+  flex-wrap: wrap;
+  justify-content: center;
+}
+
+.trust-label {
+  font-size: 12px;
+  font-weight: 600;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: var(--gray-mid);
+  flex-shrink: 0;
+  padding-right: 32px;
+  border-right: 1px solid rgba(4,34,114,0.1);
+}
+
+.trust-logos {
+  display: flex;
+  align-items: center;
+  gap: 36px;
+  flex-wrap: wrap;
+  justify-content: center;
+}
+
+.trust-logo {
+  font-family: var(--font-head);
+  font-size: 14px;
+  font-weight: 700;
+  color: var(--gray-mid);
+  letter-spacing: 0.04em;
+  transition: color 0.2s;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+.trust-logo:hover { color: var(--navy); }
+.trust-logo-icon {
+  width: 28px; height: 28px;
+  background: var(--gray-light);
+  border-radius: 6px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 14px;
+  transition: background 0.2s;
+}
+.trust-logo:hover .trust-logo-icon { background: rgba(4,34,114,0.08); }
+
+/* ════════════════════════════════════════════════════
+   PROBLEM SECTION
+════════════════════════════════════════════════════ */
+.problem {
+  background: var(--ink);
+  padding: 120px 0;
+  position: relative;
+  overflow: hidden;
+}
+
+.problem::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background:
+    radial-gradient(ellipse 50% 60% at 80% 20%, rgba(11,134,170,0.12) 0%, transparent 60%),
+    radial-gradient(ellipse 40% 50% at 10% 80%, rgba(4,34,114,0.4) 0%, transparent 55%);
+}
+
+.problem-header {
+  text-align: center;
+  margin-bottom: 64px;
+  position: relative;
+  z-index: 1;
+}
+
+.problem-header .section-title {
+  color: var(--white);
+  max-width: 640px;
+  margin: 0 auto 16px;
+}
+
+.problem-header .section-sub { color: rgba(255,255,255,0.55); margin: 0 auto; }
+
+.problem-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 24px;
+  position: relative;
+  z-index: 1;
+}
+
+.problem-card {
+  background: rgba(255,255,255,0.04);
+  border: 1px solid rgba(255,255,255,0.08);
+  border-radius: var(--r-lg);
+  padding: 36px 32px;
+  transition: background 0.3s var(--ease), border-color 0.3s var(--ease), transform 0.35s var(--spring);
+  position: relative;
+  overflow: hidden;
+}
+
+.problem-card::before {
+  content: '';
+  position: absolute;
+  top: 0; left: 0; right: 0;
+  height: 1px;
+  background: linear-gradient(90deg, transparent, rgba(244,98,36,0.4), transparent);
+  opacity: 0;
+  transition: opacity 0.3s;
+}
+
+.problem-card:hover {
+  background: rgba(255,255,255,0.07);
+  border-color: rgba(244,98,36,0.25);
+  transform: translateY(-4px);
+}
+.problem-card:hover::before { opacity: 1; }
+
+.problem-icon {
+  width: 52px; height: 52px;
+  border-radius: 14px;
+  background: rgba(244,98,36,0.12);
+  border: 1px solid rgba(244,98,36,0.2);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-bottom: 24px;
+  font-size: 24px;
+  transition: background 0.3s, transform 0.3s var(--spring);
+}
+.problem-card:hover .problem-icon {
+  background: rgba(244,98,36,0.2);
+  transform: scale(1.05);
+}
+
+.problem-title {
+  font-family: var(--font-head);
+  font-size: 18px;
+  font-weight: 700;
+  color: var(--white);
+  margin-bottom: 12px;
+  line-height: 1.3;
+}
+
+.problem-desc {
+  font-size: 15px;
+  line-height: 1.7;
+  color: rgba(255,255,255,0.5);
+}
+
+/* ════════════════════════════════════════════════════
+   SOLUTION SECTION
+════════════════════════════════════════════════════ */
+.solution {
+  padding: 120px 0;
+  background: var(--white);
+}
+
+.solution-inner {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 80px;
+  align-items: center;
+}
+
+.solution-visual {
+  position: relative;
+  order: -1;
+}
+
+.solution-card-stack {
+  position: relative;
+  height: 480px;
+}
+
+.sol-card {
+  position: absolute;
+  border-radius: var(--r-lg);
+  overflow: hidden;
+  box-shadow: var(--sh-navy-lg);
+}
+
+.sol-card-main {
+  inset: 0;
+  background: linear-gradient(135deg, var(--navy) 0%, var(--ink) 100%);
+  display: flex;
+  flex-direction: column;
+  padding: 36px;
+  gap: 20px;
+}
+
+.sol-card-accent {
+  right: -24px;
+  bottom: -24px;
+  width: 200px;
+  background: var(--orange);
+  padding: 24px;
+  border-radius: var(--r-lg);
+}
+
+.sol-metric {
+  font-family: var(--font-head);
+  font-size: 36px;
+  font-weight: 800;
+  color: var(--white);
+  line-height: 1;
+}
+.sol-metric-label {
+  font-size: 13px;
+  color: rgba(255,255,255,0.7);
+  font-family: var(--font-body);
+  margin-top: 4px;
+}
+
+.sol-chart {
+  display: flex;
+  align-items: flex-end;
+  gap: 8px;
+  height: 70px;
+  margin-top: auto;
+}
+.sol-bar {
+  flex: 1;
+  border-radius: 4px;
+  background: rgba(255,255,255,0.15);
+  min-height: 20%;
+  transition: height 0.3s;
+}
+.sol-bar.active { background: var(--orange); }
+.sol-bar.blue { background: var(--blue); }
+
+.sol-card-small {
+  top: 24px;
+  right: -32px;
+  width: 180px;
+  background: var(--white);
+  padding: 20px;
+  border: 1px solid var(--gray-light);
+  box-shadow: var(--sh-navy-md);
+}
+
+.sol-small-icon { font-size: 24px; margin-bottom: 8px; }
+.sol-small-num {
+  font-family: var(--font-head);
+  font-size: 22px;
+  font-weight: 800;
+  color: var(--navy);
+}
+.sol-small-label { font-size: 11px; color: var(--text-muted); font-family: var(--font-body); }
+/* ────────────────────────────────────────────────────
+   SOLUTION — Premium overrides
+──────────────────────────────────────────────────── */
+
+/* Main card: deeper gradient, refined palette */
+.sol-card-main {
+  background: linear-gradient(150deg, #051a5e 0%, #020c30 55%, #010820 100%);
+  padding: 32px;
+  gap: 22px;
+}
+
+/* Hero metric block */
+.sol-hero-metric {
+  padding-bottom: 18px;
+  border-bottom: 1px solid rgba(255,255,255,0.06);
+}
+
+.sol-hero-metric .sol-metric {
+  font-size: 52px;
+  font-weight: 800;
+  letter-spacing: -0.04em;
+  line-height: 1;
+  background: linear-gradient(135deg, #ffffff 50%, rgba(244,98,36,0.75) 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+
+.sol-hero-metric .sol-metric-label {
+  font-size: 11.5px;
+  color: rgba(255,255,255,0.38);
+  letter-spacing: 0.01em;
+  margin-top: 7px;
+  line-height: 1.4;
+}
+
+/* Secondary metrics 2×2 grid */
+.sol-metrics-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 14px;
+  padding-bottom: 18px;
+  border-bottom: 1px solid rgba(255,255,255,0.06);
+}
+
+.sol-metric-item {
+  display: flex;
+  align-items: flex-start;
+  gap: 9px;
+}
+
+.sol-metric-badge {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 22px;
+  height: 22px;
+  border-radius: 6px;
+  font-size: 10px;
+  flex-shrink: 0;
+  margin-top: 3px;
+  font-weight: 700;
+}
+
+.sol-badge-up   { background: rgba(16,185,129,0.15); color: #34d399; }
+.sol-badge-blue { background: rgba(11,134,170,0.15); color: #2AAECE; }
+.sol-badge-orange { background: rgba(244,98,36,0.15); color: var(--orange); }
+
+.sol-metric-val {
+  font-family: var(--font-head);
+  font-size: 15px;
+  font-weight: 700;
+  color: #ffffff;
+  line-height: 1.2;
+  letter-spacing: -0.01em;
+}
+
+.sol-metric-micro {
+  font-size: 10px;
+  color: rgba(255,255,255,0.3);
+  font-family: var(--font-body);
+  margin-top: 1px;
+  line-height: 1.3;
+}
+
+/* Chart bars */
+.sol-chart {
+  height: 52px;
+  gap: 5px;
+}
+
+.sol-bar {
+  border-radius: 3px;
+  background: rgba(255,255,255,0.07);
+}
+
+/* Small float card */
+.sol-card-small {
+  background: #ffffff;
+  border: 1px solid rgba(4,34,114,0.08);
+  box-shadow:
+    0 20px 48px rgba(4,34,114,0.13),
+    0 2px 8px rgba(4,34,114,0.07);
+  padding: 20px;
+  width: 166px;
+}
+
+.sol-small-icon-block {
+  width: 34px;
+  height: 34px;
+  border-radius: 9px;
+  background: var(--off-white);
+  border: 1px solid rgba(4,34,114,0.08);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-bottom: 10px;
+}
+
+.sol-small-num {
+  font-size: 24px;
+  font-weight: 800;
+  color: var(--navy);
+  letter-spacing: -0.02em;
+  line-height: 1.1;
+}
+
+.sol-small-label {
+  font-size: 10.5px;
+  color: var(--text-muted);
+  line-height: 1.45;
+  margin-top: 3px;
+}
+
+/* Accent float card (orange +94%) */
+.sol-card-accent {
+  background: linear-gradient(135deg, var(--orange) 0%, var(--orange-dark) 100%);
+  box-shadow: 0 12px 32px rgba(244,98,36,0.32), 0 2px 8px rgba(244,98,36,0.2);
+  padding: 20px 22px;
+  right: -20px;
+  bottom: -20px;
+  width: 180px;
+}
+
+/* Right column: tighter title */
+.solution-content .section-title {
+  letter-spacing: -0.025em;
+  line-height: 1.15;
+}
+
+/* sol-point cards — premium */
+.sol-point {
+  padding: 20px 22px;
+  gap: 16px;
+  border: 1px solid rgba(4,34,114,0.07);
+  border-radius: 16px;
+  background: #fff;
+  box-shadow: 0 1px 4px rgba(4,34,114,0.04);
+  transition: border-color 0.25s, box-shadow 0.25s, transform 0.25s var(--spring);
+}
+
+.sol-point:hover {
+  border-color: rgba(4,34,114,0.15);
+  box-shadow: 0 8px 28px rgba(4,34,114,0.10), 0 1px 4px rgba(4,34,114,0.05);
+  transform: translateX(6px);
+}
+
+/* SVG icon container */
+.sol-point-icon {
+  width: 42px;
+  height: 42px;
+  border-radius: 11px;
+  background: var(--off-white);
+  border: 1px solid rgba(4,34,114,0.07);
+  color: var(--navy);
+  font-size: 0;
+  transition: background 0.25s, color 0.25s, transform 0.25s var(--spring), border-color 0.25s;
+}
+
+.sol-point:hover .sol-point-icon {
+  background: rgba(11,134,170,0.09);
+  color: var(--blue);
+  border-color: rgba(11,134,170,0.14);
+  transform: scale(1.07);
+}
+
+.sol-point-text h4 {
+  font-size: 15px;
+  font-weight: 700;
+  letter-spacing: -0.01em;
+  color: var(--ink);
+  margin-bottom: 5px;
+}
+
+.sol-point-text p {
+  font-size: 13.5px;
+  line-height: 1.62;
+  color: var(--text-muted);
+}
+
+.solution-points {
+  gap: 10px;
+  margin-top: 34px;
+}
+
+
+
+.solution-points {
+  display: flex;
+  flex-direction: column;
+  gap: 24px;
+  margin-top: 40px;
+}
+
+.sol-point {
+  display: flex;
+  gap: 18px;
+  align-items: flex-start;
+  padding: 24px;
+  border-radius: var(--r-md);
+  border: 1px solid var(--gray-light);
+  transition: border-color 0.3s, box-shadow 0.3s, transform 0.3s var(--spring);
+}
+.sol-point:hover {
+  border-color: rgba(4,34,114,0.2);
+  box-shadow: var(--sh-navy-sm);
+  transform: translateX(4px);
+}
+
+.sol-point-icon {
+  width: 44px; height: 44px;
+  border-radius: 12px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 20px;
+  flex-shrink: 0;
+  background: var(--gray-light);
+  transition: background 0.3s, transform 0.3s var(--spring);
+}
+.sol-point:hover .sol-point-icon {
+  background: rgba(11,134,170,0.12);
+  transform: scale(1.08);
+}
+
+.sol-point-text h4 {
+  font-family: var(--font-head);
+  font-size: 16px;
+  font-weight: 700;
+  color: var(--text);
+  margin-bottom: 4px;
+}
+.sol-point-text p {
+  font-size: 14px;
+  line-height: 1.65;
+  color: var(--text-muted);
+}/* ────────────────────────────────────────────────────
+   SOLUTION — Premium overrides
+──────────────────────────────────────────────────── */
+
+/* Main card: deeper gradient, refined palette */
+.sol-card-main {
+  background: linear-gradient(150deg, #051a5e 0%, #020c30 55%, #010820 100%);
+  padding: 32px;
+  gap: 22px;
+}
+
+/* Hero metric block */
+.sol-hero-metric {
+  padding-bottom: 18px;
+  border-bottom: 1px solid rgba(255,255,255,0.06);
+}
+
+.sol-hero-metric .sol-metric {
+  font-size: 52px;
+  font-weight: 800;
+  letter-spacing: -0.04em;
+  line-height: 1;
+  background: linear-gradient(135deg, #ffffff 50%, rgba(244,98,36,0.75) 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+
+.sol-hero-metric .sol-metric-label {
+  font-size: 11.5px;
+  color: rgba(255,255,255,0.38);
+  letter-spacing: 0.01em;
+  margin-top: 7px;
+  line-height: 1.4;
+}
+
+/* Secondary metrics 2×2 grid */
+.sol-metrics-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 14px;
+  padding-bottom: 18px;
+  border-bottom: 1px solid rgba(255,255,255,0.06);
+}
+
+.sol-metric-item {
+  display: flex;
+  align-items: flex-start;
+  gap: 9px;
+}
+
+.sol-metric-badge {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 22px;
+  height: 22px;
+  border-radius: 6px;
+  font-size: 10px;
+  flex-shrink: 0;
+  margin-top: 3px;
+  font-weight: 700;
+}
+
+.sol-badge-up   { background: rgba(16,185,129,0.15); color: #34d399; }
+.sol-badge-blue { background: rgba(11,134,170,0.15); color: #2AAECE; }
+.sol-badge-orange { background: rgba(244,98,36,0.15); color: var(--orange); }
+
+.sol-metric-val {
+  font-family: var(--font-head);
+  font-size: 15px;
+  font-weight: 700;
+  color: #ffffff;
+  line-height: 1.2;
+  letter-spacing: -0.01em;
+}
+
+.sol-metric-micro {
+  font-size: 10px;
+  color: rgba(255,255,255,0.3);
+  font-family: var(--font-body);
+  margin-top: 1px;
+  line-height: 1.3;
+}
+
+/* Chart bars */
+.sol-chart {
+  height: 52px;
+  gap: 5px;
+}
+
+.sol-bar {
+  border-radius: 3px;
+  background: rgba(255,255,255,0.07);
+}
+
+/* Small float card */
+.sol-card-small {
+  background: #ffffff;
+  border: 1px solid rgba(4,34,114,0.08);
+  box-shadow:
+    0 20px 48px rgba(4,34,114,0.13),
+    0 2px 8px rgba(4,34,114,0.07);
+  padding: 20px;
+  width: 166px;
+}
+
+.sol-small-icon-block {
+  width: 34px;
+  height: 34px;
+  border-radius: 9px;
+  background: var(--off-white);
+  border: 1px solid rgba(4,34,114,0.08);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-bottom: 10px;
+}
+
+.sol-small-num {
+  font-size: 24px;
+  font-weight: 800;
+  color: var(--navy);
+  letter-spacing: -0.02em;
+  line-height: 1.1;
+}
+
+.sol-small-label {
+  font-size: 10.5px;
+  color: var(--text-muted);
+  line-height: 1.45;
+  margin-top: 3px;
+}
+
+/* Accent float card (orange +94%) */
+.sol-card-accent {
+  background: linear-gradient(135deg, var(--orange) 0%, var(--orange-dark) 100%);
+  box-shadow: 0 12px 32px rgba(244,98,36,0.32), 0 2px 8px rgba(244,98,36,0.2);
+  padding: 20px 22px;
+  right: -20px;
+  bottom: -20px;
+  width: 180px;
+}
+
+/* Right column: tighter title */
+.solution-content .section-title {
+  letter-spacing: -0.025em;
+  line-height: 1.15;
+}
+
+/* sol-point cards — premium */
+.sol-point {
+  padding: 20px 22px;
+  gap: 16px;
+  border: 1px solid rgba(4,34,114,0.07);
+  border-radius: 16px;
+  background: #fff;
+  box-shadow: 0 1px 4px rgba(4,34,114,0.04);
+  transition: border-color 0.25s, box-shadow 0.25s, transform 0.25s var(--spring);
+}
+
+.sol-point:hover {
+  border-color: rgba(4,34,114,0.15);
+  box-shadow: 0 8px 28px rgba(4,34,114,0.10), 0 1px 4px rgba(4,34,114,0.05);
+  transform: translateX(6px);
+}
+
+/* SVG icon container */
+.sol-point-icon {
+  width: 42px;
+  height: 42px;
+  border-radius: 11px;
+  background: var(--off-white);
+  border: 1px solid rgba(4,34,114,0.07);
+  color: var(--navy);
+  font-size: 0;
+  transition: background 0.25s, color 0.25s, transform 0.25s var(--spring), border-color 0.25s;
+}
+
+.sol-point:hover .sol-point-icon {
+  background: rgba(11,134,170,0.09);
+  color: var(--blue);
+  border-color: rgba(11,134,170,0.14);
+  transform: scale(1.07);
+}
+
+.sol-point-text h4 {
+  font-size: 15px;
+  font-weight: 700;
+  letter-spacing: -0.01em;
+  color: var(--ink);
+  margin-bottom: 5px;
+}
+
+.sol-point-text p {
+  font-size: 13.5px;
+  line-height: 1.62;
+  color: var(--text-muted);
+}
+
+.solution-points {
+  gap: 10px;
+  margin-top: 34px;
+}
+
+
+/* ════════════════════════════════════════════════════
+   SERVICES
+════════════════════════════════════════════════════ */
+.services {
+  padding: 120px 0;
+  background: var(--off-white);
+  position: relative;
+  overflow: hidden;
+}
+
+.services::before {
+  content: '';
+  position: absolute;
+  top: 0; left: 0; right: 0; bottom: 0;
+  background:
+    radial-gradient(ellipse 60% 50% at 90% 10%, rgba(11,134,170,0.06) 0%, transparent 60%),
+    radial-gradient(ellipse 50% 50% at 0% 90%, rgba(244,98,36,0.04) 0%, transparent 55%);
+  pointer-events: none;
+}
+
+.services-header {
+  text-align: center;
+  max-width: 600px;
+  margin: 0 auto 64px;
+  position: relative;
+  z-index: 1;
+}
+
+.services-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 24px;
+  position: relative;
+  z-index: 1;
+}
+
+.service-card {
+  background: var(--white);
+  border: 1px solid rgba(4,34,114,0.07);
+  border-radius: var(--r-lg);
+  padding: 40px 32px;
+  position: relative;
+  overflow: hidden;
+  cursor: pointer;
+  transition: transform 0.35s var(--spring), box-shadow 0.35s var(--ease), border-color 0.3s;
+}
+
+.service-card::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  border-radius: var(--r-lg);
+  background: linear-gradient(135deg, rgba(11,134,170,0.05), rgba(244,98,36,0.03));
+  opacity: 0;
+  transition: opacity 0.3s;
+}
+
+.service-card::after {
+  content: '';
+  position: absolute;
+  bottom: 0; left: 0; right: 0;
+  height: 3px;
+  background: linear-gradient(90deg, var(--blue), var(--orange));
+  transform: scaleX(0);
+  transform-origin: left;
+  transition: transform 0.4s var(--ease);
+  border-radius: 0 0 2px 2px;
+}
+
+.service-card:hover {
+  transform: translateY(-6px);
+  box-shadow: var(--sh-navy-lg);
+  border-color: rgba(11,134,170,0.15);
+}
+.service-card:hover::before { opacity: 1; }
+.service-card:hover::after { transform: scaleX(1); }
+
+.service-card.featured {
+  background: linear-gradient(145deg, var(--navy) 0%, var(--ink) 100%);
+  border-color: transparent;
+}
+.service-card.featured .service-title { color: var(--white); }
+.service-card.featured .service-desc { color: rgba(255,255,255,0.6); }
+.service-card.featured .service-link { color: var(--orange); }
+
+.service-icon {
+  width: 56px; height: 56px;
+  border-radius: 16px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 26px;
+  margin-bottom: 28px;
+  transition: transform 0.35s var(--spring);
+}
+.service-card:hover .service-icon { transform: scale(1.1) rotate(-4deg); }
+
+.service-icon.ic-navy { background: rgba(4,34,114,0.08); }
+.service-icon.ic-blue { background: rgba(11,134,170,0.1); }
+.service-icon.ic-orange { background: rgba(244,98,36,0.1); }
+.service-icon.ic-teal { background: rgba(0,180,200,0.1); }
+.service-icon.ic-purple { background: rgba(130,80,200,0.1); }
+.service-icon.ic-white { background: rgba(255,255,255,0.12); }
+
+.service-title {
+  font-family: var(--font-head);
+  font-size: 19px;
+  font-weight: 700;
+  color: var(--text);
+  margin-bottom: 12px;
+  line-height: 1.25;
+}
+
+.service-desc {
+  font-size: 14.5px;
+  line-height: 1.7;
+  color: var(--text-muted);
+  margin-bottom: 28px;
+}
+
+.service-tags {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 6px;
+  margin-bottom: 28px;
+}
+.service-tag {
+  font-size: 11px;
+  font-weight: 600;
+  font-family: var(--font-body);
+  padding: 4px 10px;
+  border-radius: 50px;
+  background: var(--gray-light);
+  color: var(--gray-dark);
+  letter-spacing: 0.02em;
+  transition: background 0.2s, color 0.2s;
+}
+.service-card:hover .service-tag {
+  background: rgba(11,134,170,0.08);
+  color: var(--blue);
+}
+.service-card.featured .service-tag {
+  background: rgba(255,255,255,0.1);
+  color: rgba(255,255,255,0.6);
+}
+
+.service-link {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  font-family: var(--font-head);
+  font-size: 13px;
+  font-weight: 700;
+  color: var(--blue);
+  transition: gap 0.25s var(--spring), color 0.2s;
+  letter-spacing: 0.01em;
+}
+.service-link .arrow {
+  transition: transform 0.25s var(--spring);
+}
+.service-card:hover .service-link { gap: 10px; }
+.service-card:hover .service-link .arrow { transform: translateX(3px); }
+
+/* ════════════════════════════════════════════════════
+   INDUSTRIES
+════════════════════════════════════════════════════ */
+.industries {
+  padding: 120px 0;
+  background: var(--white);
+}
+
+.industries-header {
+  text-align: center;
+  max-width: 600px;
+  margin: 0 auto 64px;
+}
+
+.industries-grid {
+  display: grid;
+  grid-template-columns: repeat(6, 1fr);
+  gap: 16px;
+}
+
+.industry-card {
+  border: 1px solid var(--gray-light);
+  border-radius: var(--r-lg);
+  padding: 32px 20px;
+  text-align: center;
+  cursor: pointer;
+  transition: border-color 0.3s, background 0.3s, transform 0.35s var(--spring), box-shadow 0.35s var(--ease);
+  position: relative;
+  overflow: hidden;
+}
+
+.industry-card::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(135deg, rgba(4,34,114,0.04), rgba(11,134,170,0.03));
+  opacity: 0;
+  transition: opacity 0.3s;
+}
+
+.industry-card:hover {
+  border-color: rgba(4,34,114,0.2);
+  background: var(--off-white);
+  transform: translateY(-4px);
+  box-shadow: var(--sh-navy-md);
+}
+.industry-card:hover::before { opacity: 1; }
+
+.industry-emoji {
+  font-size: 36px;
+  margin-bottom: 14px;
+  display: block;
+  transition: transform 0.35s var(--spring);
+}
+.industry-card:hover .industry-emoji { transform: scale(1.15); }
+
+.industry-name {
+  font-family: var(--font-head);
+  font-size: 13px;
+  font-weight: 700;
+  color: var(--text);
+  letter-spacing: 0.01em;
+  line-height: 1.3;
+}
+.industry-card:hover .industry-name { color: var(--navy); }
+
+/* ════════════════════════════════════════════════════
+   PORTFOLIO
+════════════════════════════════════════════════════ */
+.portfolio {
+  padding: 120px 0;
+  background: var(--off-white);
+  position: relative;
+  overflow: hidden;
+}
+
+.portfolio-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-end;
+  margin-bottom: 48px;
+  gap: 32px;
+}
+
+.portfolio-filters {
+  display: flex;
+  gap: 8px;
+  flex-wrap: wrap;
+}
+
+.filter-btn {
+  font-family: var(--font-head);
+  font-size: 12px;
+  font-weight: 600;
+  padding: 9px 18px;
+  border-radius: 50px;
+  border: 1.5px solid var(--gray-light);
+  background: var(--white);
+  color: var(--gray-dark);
+  cursor: pointer;
+  letter-spacing: 0.02em;
+  transition: all 0.25s var(--ease);
+}
+.filter-btn:hover {
+  border-color: rgba(4,34,114,0.2);
+  color: var(--navy);
+}
+.filter-btn--active {
+  background: var(--navy);
+  color: var(--white);
+  border-color: var(--navy);
+  box-shadow: var(--sh-navy-sm);
+}
+
+.portfolio-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 24px;
+}
+
+.port-card {
+  border-radius: var(--r-lg);
+  overflow: hidden;
+  background: var(--white);
+  box-shadow: var(--sh-navy-sm);
+  transition: transform 0.35s var(--spring), box-shadow 0.35s var(--ease), opacity 0.3s, scale 0.3s;
+ cursor: pointer;
+}
+.port-card:hover {
+  transform: translateY(-6px);
+  box-shadow: var(--sh-navy-lg);
+}
+
+.port-img-wrap {
+  position: relative;
+  aspect-ratio: 4/3;
+  overflow: hidden;
+}
+
+.port-img-wrap img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: transform 0.5s var(--ease);
+}
+.port-card:hover .port-img-wrap img { transform: scale(1.06); }
+
+.port-overlay {
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(to top, rgba(2,11,30,0.75) 0%, rgba(2,11,30,0.1) 60%, transparent 100%);
+  display: flex;
+  align-items: flex-end;
+  padding: 20px;
+  opacity: 0;
+  transition: opacity 0.35s var(--ease);
+}
+.port-card:hover .port-overlay { opacity: 1; }
+
+.port-overlay-tag {
+  font-size: 11px;
+  font-weight: 600;
+  font-family: var(--font-body);
+  color: var(--white);
+  background: rgba(255,255,255,0.15);
+  backdrop-filter: blur(8px);
+  border: 1px solid rgba(255,255,255,0.2);
+  padding: 5px 12px;
+  border-radius: 50px;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+}
+
+.port-info {
+  padding: 22px 24px;
+}
+
+.port-cat {
+  font-size: 11px;
+  font-weight: 600;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: var(--orange);
+  margin-bottom: 6px;
+  font-family: var(--font-body);
+}
+
+.port-title {
+  font-family: var(--font-head);
+  font-size: 17px;
+  font-weight: 700;
+  color: var(--text);
+  margin-bottom: 8px;
+}
+
+.port-desc {
+  font-size: 13.5px;
+  color: var(--text-muted);
+  line-height: 1.6;
+}
+
+/* ════════════════════════════════════════════════════
+   TESTIMONIALS
+════════════════════════════════════════════════════ */
+.testimonials {
+  padding: 120px 0;
+  background: var(--ink);
+  position: relative;
+  overflow: hidden;
+}
+
+.testimonials::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background:
+    radial-gradient(ellipse 60% 50% at 30% 20%, rgba(11,134,170,0.1) 0%, transparent 60%),
+    radial-gradient(ellipse 50% 60% at 80% 80%, rgba(4,34,114,0.4) 0%, transparent 55%);
+}
+
+.testimonials-header {
+  text-align: center;
+  max-width: 560px;
+  margin: 0 auto 64px;
+  position: relative;
+  z-index: 1;
+}
+
+.testimonials-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 24px;
+  position: relative;
+  z-index: 1;
+}
+
+.test-card {
+  background: rgba(255,255,255,0.05);
+  border: 1px solid rgba(255,255,255,0.09);
+  border-radius: var(--r-lg);
+  padding: 36px 32px;
+  transition: background 0.3s, border-color 0.3s, transform 0.35s var(--spring);
+}
+.test-card:hover {
+  background: rgba(255,255,255,0.08);
+  border-color: rgba(255,255,255,0.16);
+  transform: translateY(-4px);
+}
+
+.test-stars {
+  display: flex;
+  gap: 4px;
+  margin-bottom: 20px;
+  color: var(--orange);
+  font-size: 16px;
+}
+
+.test-quote {
+  font-size: 15.5px;
+  line-height: 1.75;
+  color: rgba(255,255,255,0.7);
+  margin-bottom: 28px;
+  font-style: italic;
+}
+
+.test-quote::before {
+  content: '"';
+  display: block;
+  font-family: Georgia, serif;
+  font-size: 56px;
+  color: rgba(244,98,36,0.3);
+  line-height: 0.8;
+  margin-bottom: 14px;
+  font-style: normal;
+}
+
+.test-author {
+  display: flex;
+  align-items: center;
+  gap: 14px;
+  padding-top: 24px;
+  border-top: 1px solid rgba(255,255,255,0.07);
+}
+
+.test-avatar {
+  width: 46px; height: 46px;
+  border-radius: 50%;
+  object-fit: cover;
+  border: 2px solid rgba(255,255,255,0.1);
+  background: linear-gradient(135deg, var(--navy), var(--blue));
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-family: var(--font-head);
+  font-size: 16px;
+  font-weight: 700;
+  color: var(--white);
+  flex-shrink: 0;
+}
+
+.test-name {
+  font-family: var(--font-head);
+  font-size: 15px;
+  font-weight: 700;
+  color: var(--white);
+  margin-bottom: 2px;
+}
+.test-role {
+  font-size: 12.5px;
+  color: rgba(255,255,255,0.4);
+  font-family: var(--font-body);
+}
+
+/* ════════════════════════════════════════════════════
+   PROCESS
+════════════════════════════════════════════════════ */
+.process {
+  padding: 120px 0;
+  background: var(--white);
+}
+
+.process-header {
+  text-align: center;
+  max-width: 580px;
+  margin: 0 auto 72px;
+}
+
+.process-steps {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 32px;
+  position: relative;
+}
+
+.process-steps::before {
+  content: '';
+  position: absolute;
+  top: 36px;
+  left: calc(12.5% + 20px);
+  right: calc(12.5% + 20px);
+  height: 1px;
+  background: linear-gradient(90deg, var(--blue), var(--orange));
+  opacity: 0.3;
+  z-index: 0;
+}
+
+.process-step {
+  position: relative;
+  z-index: 1;
+  text-align: center;
+  padding: 0 12px;
+}
+
+.step-num {
+  width: 72px; height: 72px;
+  border-radius: 50%;
+  background: var(--white);
+  border: 2px solid var(--gray-light);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-family: var(--font-head);
+  font-size: 20px;
+  font-weight: 800;
+  color: var(--text-muted);
+  margin: 0 auto 28px;
+  transition: border-color 0.3s, color 0.3s, background 0.3s, box-shadow 0.3s, transform 0.35s var(--spring);
+  position: relative;
+}
+
+.process-step:hover .step-num {
+  border-color: var(--blue);
+  color: var(--white);
+  background: var(--navy);
+  box-shadow: var(--sh-navy-md);
+  transform: scale(1.08);
+}
+
+.step-icon {
+  font-size: 22px;
+  position: absolute;
+  top: -12px;
+  right: -8px;
+  background: var(--white);
+  border-radius: 50%;
+  width: 32px; height: 32px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 16px;
+  box-shadow: var(--sh-navy-sm);
+  opacity: 0;
+  transform: scale(0);
+  transition: opacity 0.3s, transform 0.3s var(--spring);
+}
+.process-step:hover .step-icon { opacity: 1; transform: scale(1); }
+
+.step-title {
+  font-family: var(--font-head);
+  font-size: 18px;
+  font-weight: 700;
+  color: var(--text);
+  margin-bottom: 12px;
+}
+
+.step-desc {
+  font-size: 14.5px;
+  line-height: 1.7;
+  color: var(--text-muted);
+}
+
+/* ════════════════════════════════════════════════════
+   FINAL CTA
+════════════════════════════════════════════════════ */
+.final-cta {
+  padding: 120px 0;
+  background: var(--ink);
+  position: relative;
+  overflow: hidden;
+}
+
+.final-cta::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background:
+    radial-gradient(ellipse 70% 70% at 50% 50%, rgba(11,134,170,0.14) 0%, transparent 60%),
+    radial-gradient(ellipse 40% 50% at 85% 20%, rgba(244,98,36,0.1) 0%, transparent 55%),
+    radial-gradient(ellipse 40% 50% at 15% 80%, rgba(4,34,114,0.5) 0%, transparent 55%);
+}
+
+.final-cta-inner {
+  position: relative;
+  z-index: 1;
+  text-align: center;
+  max-width: 760px;
+  margin: 0 auto;
+}
+
+.cta-badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  background: rgba(244,98,36,0.12);
+  border: 1px solid rgba(244,98,36,0.25);
+  border-radius: 50px;
+  padding: 8px 18px;
+  font-size: 12px;
+  font-weight: 600;
+  color: var(--orange);
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  margin-bottom: 28px;
+  font-family: var(--font-body);
+}
+
+.final-cta-title {
+  font-family: var(--font-head);
+  font-weight: 900;
+  font-size: clamp(40px, 5.5vw, 64px);
+  line-height: 1.06;
+  letter-spacing: -0.03em;
+  color: var(--white);
+  margin-bottom: 22px;
+}
+.final-cta-title .accent {
+  background: linear-gradient(120deg, var(--blue-light), var(--orange));
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+
+.final-cta-sub {
+  font-size: 18px;
+  line-height: 1.7;
+  color: rgba(255,255,255,0.6);
+  margin-bottom: 48px;
+}
+
+.cta-actions {
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+  gap: 14px;
+  margin-bottom: 52px;
+}
+
+.cta-trust-line {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 24px;
+  flex-wrap: wrap;
+}
+
+.cta-trust-item {
+  display: flex;
+  align-items: center;
+  gap: 7px;
+  font-size: 13px;
+  color: rgba(255,255,255,0.45);
+  font-family: var(--font-body);
+}
+.cta-trust-item .check {
+  width: 18px; height: 18px;
+  border-radius: 50%;
+  background: rgba(34,197,94,0.15);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 10px;
+  color: #22C55E;
+  flex-shrink: 0;
+}
+
+/* ════════════════════════════════════════════════════
+   CONTACT SECTION
+════════════════════════════════════════════════════ */
+#contact {
+  padding: 120px 0;
+  background: var(--off-white);
+  position: relative;
+}
+
+.contact-inner {
+  display: grid;
+  grid-template-columns: 1fr 1.2fr;
+  gap: 80px;
+  align-items: start;
+}
+
+
+.contact-info .section-title { margin-bottom: 16px; }
+.contact-info .section-sub { margin-bottom: 40px; }
+
+.contact-items {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+
+.contact-item {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+  padding: 20px;
+  background: var(--white);
+  border: 1px solid var(--gray-light);
+  border-radius: var(--r-md);
+  transition: border-color 0.3s, box-shadow 0.3s;
+}
+.contact-item:hover {
+  border-color: rgba(4,34,114,0.15);
+  box-shadow: var(--sh-navy-sm);
+}
+
+.contact-item-icon {
+  width: 44px; height: 44px;
+  border-radius: 12px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 20px;
+  flex-shrink: 0;
+}
+.contact-item-icon.bg-navy { background: rgba(4,34,114,0.08); }
+.contact-item-icon.bg-orange { background: rgba(244,98,36,0.08); }
+.contact-item-icon.bg-blue { background: rgba(11,134,170,0.08); }
+
+.contact-item-text h4 {
+  font-family: var(--font-head);
+  font-size: 13px;
+  font-weight: 700;
+  color: var(--text-muted);
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  margin-bottom: 3px;
+}
+.contact-item-text p {
+  font-size: 15px;
+  color: var(--text);
+  font-weight: 500;
+  font-family: var(--font-body);
+}
+
+.contact-form-wrap {
+  background: var(--white);
+  border: 1px solid rgba(4,34,114,0.08);
+  border-radius: var(--r-xl);
+  padding: 44px;
+  box-shadow: var(--sh-navy-md);
+}
+
+.form-header {
+  margin-bottom: 32px;
+}
+.form-header h3 {
+  font-family: var(--font-head);
+  font-size: 22px;
+  font-weight: 800;
+  color: var(--text);
+  margin-bottom: 6px;
+}
+.form-header p {
+  font-size: 14px;
+  color: var(--text-muted);
+}
+
+.form-row {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 16px;
+}
+
+.form-group {
+  display: flex;
+  flex-direction: column;
+  gap: 7px;
+  margin-bottom: 18px;
+}
+
+.form-group label {
+  font-size: 12px;
+  font-weight: 600;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  color: var(--gray-dark);
+  font-family: var(--font-body);
+}
+
+.form-group input,
+.form-group select,
+.form-group textarea {
+  font-family: var(--font-body);
+  font-size: 15px;
+  color: var(--text);
+  background: var(--off-white);
+  border: 1.5px solid var(--gray-light);
+  border-radius: var(--r-md);
+  padding: 13px 16px;
+  outline: none;
+  transition: border-color 0.25s, box-shadow 0.25s, background 0.25s;
+  appearance: none;
+-webkit-appearance: none;
+cursor: pointer;
+}
+.form-group input::placeholder,
+.form-group textarea::placeholder { color: var(--gray-mid); }
+.form-group input:focus,
+.form-group select:focus,
+.form-group textarea:focus {
+  border-color: var(--blue);
+  background: var(--white);
+  box-shadow: 0 0 0 3px rgba(11,134,170,0.1);
+}
+
+.form-group textarea { resize: vertical; min-height: 110px; }
+
+.form-submit .btn {
+  width: 100%;
+  justify-content: center;
+  font-size: 15px;
+  padding: 17px 32px;
+}
+
+/* ════════════════════════════════════════════════════
+   FOOTER
+════════════════════════════════════════════════════ */
+.footer {
+  background: var(--ink);
+  padding: 80px 0 0;
+  position: relative;
+  overflow: hidden;
+}
+
+.footer::before {
+  content: '';
+  position: absolute;
+  top: 0; left: 0; right: 0;
+  height: 1px;
+  background: linear-gradient(90deg, transparent, rgba(11,134,170,0.3), rgba(244,98,36,0.3), transparent);
+}
+
+.footer-grid {
+  display: grid;
+  grid-template-columns: 2fr 1fr 1fr 1.4fr;
+  gap: 60px;
+  padding-bottom: 64px;
+  border-bottom: 1px solid rgba(255,255,255,0.06);
+}
+
+.footer-brand {
+  font-weight: 600;
+  font-size: 18px;
+  color: var(--white);
+}
+.footer-logo-wrap {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  margin-bottom: 20px;
+}
+.footer-logo-img {
+  width: 46px; height: 46px;
+  object-fit: contain;
+  filter: drop-shadow(0 2px 8px rgba(11,134,170,0.4));
+}
+.footer-brand-name {
+  font-family: var(--font-head);
+  font-size: 15px;
+  font-weight: 800;
+  color: var(--white);
+  letter-spacing: 0.04em;
+}
+.footer-brand-sub {
+  font-size: 10px;
+  color: rgba(255,255,255,0.35);
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+}
+
+.footer-tagline {
+  font-size: 14.5px;
+  line-height: 1.7;
+  color: rgba(255,255,255,0.45);
+  margin-bottom: 28px;
+  max-width: 280px;
+}
+
+.footer-socials {
+  display: flex;
+  gap: 10px;
+}
+.social-btn {
+  width: 38px; height: 38px;
+  border-radius: 10px;
+  background: rgba(255,255,255,0.06);
+  border: 1px solid rgba(255,255,255,0.08);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 16px;
+  text-decoration: none;
+  transition: background 0.2s, border-color 0.2s, transform 0.25s var(--spring);
+}
+.social-btn:hover {
+  background: rgba(255,255,255,0.12);
+  border-color: rgba(255,255,255,0.2);
+  transform: translateY(-2px);
+}
+
+.footer-col-title {
+  font-family: var(--font-head);
+  font-size: 12px;
+  font-weight: 700;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: rgba(255,255,255,0.4);
+  margin-bottom: 20px;
+}
+
+.footer-links {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+.footer-links a {
+  font-size: 14.5px;
+  color: rgba(255,255,255,0.55);
+  font-family: var(--font-body);
+  transition: color 0.2s, transform 0.2s;
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+}
+.footer-links a:hover { color: var(--white); transform: translateX(3px); }
+.footer-links a::before { content: '→'; font-size: 12px; opacity: 0; transform: translateX(-4px); transition: opacity 0.2s, transform 0.2s; }
+.footer-links a:hover::before { opacity: 1; transform: translateX(0); }
+
+
+.footer-newsletter-form {
+  display: flex;
+  gap: 8px;
+  margin-top: 16px;
+}
+.footer-newsletter-form input {
+  flex: 1;
+  background: rgba(255,255,255,0.06);
+  border: 1px solid rgba(255,255,255,0.1);
+  border-radius: 10px;
+  padding: 12px 14px;
+  color: var(--white);
+  font-size: 13px;
+  font-family: var(--font-body);
+  outline: none;
+  transition: border-color 0.2s;
+}
+.footer-newsletter-form input::placeholder { color: rgba(255,255,255,0.3); }
+.footer-newsletter-form input:focus { border-color: rgba(244,98,36,0.5); }
+.footer-newsletter-form button {
+  background: var(--orange);
+  border: none;
+  border-radius: 10px;
+  padding: 12px 16px;
+  color: var(--white);
+  font-size: 14px;
+  cursor: pointer;
+  transition: background 0.2s, transform 0.2s var(--spring);
+  flex-shrink: 0;
+}
+.footer-newsletter-form button:hover {
+  background: var(--orange-dark);
+  transform: translateY(-1px);
+}
+
+.footer-bottom {
+  padding: 24px 0;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 16px;
+  flex-wrap: wrap;
+}
+
+.footer-copy {
+  font-size: 13px;
+  color: rgba(255,255,255,0.3);
+  font-family: var(--font-body);
+}
+.footer-copy a { color: rgba(255,255,255,0.5); transition: color 0.2s; }
+.footer-copy a:hover { color: var(--white); }
+
+.footer-legal {
+  display: flex;
+  gap: 20px;
+  flex-wrap: wrap;
+}
+.footer-legal a {
+  font-size: 12.5px;
+  color: rgba(255,255,255,0.3);
+  font-family: var(--font-body);
+  transition: color 0.2s;
+}
+.footer-legal a:hover { color: rgba(255,255,255,0.7); }
+
+/* ════════════════════════════════════════════════════
+   ANIMATIONS
+════════════════════════════════════════════════════ */
+@keyframes fadeInUp {
+  from { opacity: 0; transform: translateY(24px); }
+  to   { opacity: 1; transform: translateY(0); }
+}
+@keyframes fadeInDown {
+  from { opacity: 0; transform: translateY(-16px); }
+  to   { opacity: 1; transform: translateY(0); }
+}
+@keyframes fadeInRight {
+  from { opacity: 0; transform: translateX(32px); }
+  to   { opacity: 1; transform: translateX(0); }
+}
+
+.reveal {
+  opacity: 0;
+  transform: translateY(28px);
+  transition: opacity 0.6s var(--ease), transform 0.6s var(--ease);
+}
+.reveal.visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+/* ════════════════════════════════════════════════════
+   RESPONSIVE
+════════════════════════════════════════════════════ */
+@media (max-width: 1100px) {
+  .industries-grid { grid-template-columns: repeat(3, 1fr); }
+  .footer-grid { grid-template-columns: 1fr 1fr; gap: 40px; }
+}
+
+@media (max-width: 900px) {
+  .hero-inner { grid-template-columns: 1fr; gap: 48px; text-align: center; }
+  .hero-visual { display: none; }
+  .hero-stats { justify-content: center; }
+  .hero-actions { justify-content: center; }
+
+  .solution-inner { grid-template-columns: 1fr; }
+  .solution-visual { display: none; }
+
+  .services-grid { grid-template-columns: repeat(2, 1fr); }
+  .problem-grid { grid-template-columns: repeat(2, 1fr); }
+  .testimonials-grid { grid-template-columns: 1fr; }
+  .process-steps { grid-template-columns: repeat(2, 1fr); }
+  .process-steps::before { display: none; }
+  .portfolio-grid { grid-template-columns: repeat(2, 1fr); }
+  .portfolio-header { flex-direction: column; align-items: flex-start; }
+  .contact-inner { grid-template-columns: 1fr; gap: 48px; }
+}
+
+@media (max-width: 640px) {
+  .container { padding: 0 20px; }
+
+  .nav-links { display: none; flex-direction: column; position: fixed; inset: 0; background: rgba(2,11,30,0.97); backdrop-filter: blur(20px); padding: 100px 28px 40px; gap: 4px; z-index: 1005; }
+  .nav-links.open { display: flex; }
+  .nav-links a { font-size: 18px; padding: 14px 16px; border-radius: 12px; color: rgba(255,255,255,0.8); }
+  .nav-links .nav-cta { margin-top: 16px; text-align: center; justify-content: center; }
+  .nav-hamburger { display: flex; }
+
+  .services-grid { grid-template-columns: 1fr; }
+  .problem-grid { grid-template-columns: 1fr; }
+  .industries-grid { grid-template-columns: repeat(2, 1fr); }
+  .process-steps { grid-template-columns: 1fr; }
+  .portfolio-grid { grid-template-columns: 1fr; }
+  .footer-grid { grid-template-columns: 1fr; gap: 32px; }
+  .form-row { grid-template-columns: 1fr; }
+  .hero-stat { padding-right: 18px; margin-right: 18px; }
+  .hero-stats { gap: 0; }
+
+  .contact-form-wrap { padding: 28px 20px; }
+
+  .section-title { font-size: clamp(28px, 7vw, 42px); }
+}/* ════════════════════════════════════════════════════
+   HERO — SaaS PREMIUM BACKGROUND SYSTEM
+   Style reference: Stripe / Vercel / Linear / Framer
+   CSS-only · no libraries · fully GPU-composited
+════════════════════════════════════════════════════ */
+
+
+/* ── 1. CSS-ANIMATED GLOW ORBS ──────────────────────
+   Three large blurred radial gradients drifting in
+   slow organic paths via keyframes. These are separate
+   from the JS mouse-parallax orbs (orb-1/2/3) so the
+   background always feels alive even without mouse input.
+──────────────────────────────────────────────────── */
+.glow-orb {
+  position: absolute;
+  border-radius: 50%;
+  filter: blur(110px);
+  pointer-events: none;
+  will-change: transform;       /* promote to own compositor layer */
+}
+
+/* Teal — drifts across the top-right quadrant */
+.glow-orb-a {
+  width: 640px; height: 640px;
+  background: radial-gradient(circle, rgba(11,134,170,0.13), transparent 70%);
+  top: -15%; right: 5%;
+  animation: glowDriftA 20s ease-in-out infinite;
+}
+
+/* Deep navy — drifts through bottom-left */
+.glow-orb-b {
+  width: 500px; height: 500px;
+  background: radial-gradient(circle, rgba(4,34,114,0.22), transparent 70%);
+  bottom: -10%; left: 10%;
+  animation: glowDriftB 26s ease-in-out infinite;
+}
+
+/* Warm orange accent — very subtle, center-left */
+.glow-orb-c {
+  width: 360px; height: 360px;
+  background: radial-gradient(circle, rgba(244,98,36,0.07), transparent 70%);
+  top: 30%; left: -5%;
+  animation: glowDriftC 18s ease-in-out infinite;
+}
+
+@keyframes glowDriftA {
+  0%, 100% { transform: translate(  0px,   0px) scale(1.00); }
+  33%       { transform: translate(-50px,  40px) scale(1.06); }
+  66%       { transform: translate( 35px, -25px) scale(0.97); }
+}
+@keyframes glowDriftB {
+  0%, 100% { transform: translate(  0px,   0px) scale(1.00); }
+  40%       { transform: translate( 45px, -55px) scale(1.05); }
+  72%       { transform: translate(-30px,  25px) scale(0.98); }
+}
+@keyframes glowDriftC {
+  0%, 100% { transform: translate( 0px,  0px) scale(1.00); }
+  50%       { transform: translate(30px, 40px) scale(1.08); }
+}
+
+
+/* ── 2. FLOATING PARTICLES ──────────────────────────
+   Tiny dots rise continuously from bottom to top.
+   overflow:hidden on .hero-bg contains them inside
+   the section. Each particle has a unique speed and
+   starting delay so they never move in sync.
+──────────────────────────────────────────────────── */
+.hero-particles {
+  position: absolute;
+  inset: 0;
+  overflow: hidden;
+  pointer-events: none;
+}
+
+.particle {
+  position: absolute;
+  bottom: -6px;
+  border-radius: 50%;
+  opacity: 0;
+  animation: particleRise linear infinite;
+  will-change: transform, opacity;
+}
+
+/* — Individual particle: size · position · color · timing — */
+.particle:nth-child(1)  { width:2px; height:2px; left: 7%;  background:rgba(255,255,255,0.55); animation-duration:14s; animation-delay:   0s; }
+.particle:nth-child(2)  { width:1px; height:1px; left:14%;  background:rgba(11,134,170,0.80);  animation-duration:19s; animation-delay:  -4s; }
+.particle:nth-child(3)  { width:2px; height:2px; left:22%;  background:rgba(255,255,255,0.40); animation-duration:12s; animation-delay:  -8s; }
+.particle:nth-child(4)  { width:1px; height:1px; left:29%;  background:rgba(255,255,255,0.30); animation-duration:21s; animation-delay:  -2s; }
+.particle:nth-child(5)  { width:2px; height:2px; left:37%;  background:rgba(11,134,170,0.60);  animation-duration:16s; animation-delay:  -6s; }
+.particle:nth-child(6)  { width:1px; height:1px; left:46%;  background:rgba(255,255,255,0.35); animation-duration:24s; animation-delay: -11s; }
+.particle:nth-child(7)  { width:2px; height:2px; left:54%;  background:rgba(255,255,255,0.50); animation-duration:15s; animation-delay:  -3s; }
+.particle:nth-child(8)  { width:1px; height:1px; left:62%;  background:rgba(11,134,170,0.70);  animation-duration:18s; animation-delay:  -7s; }
+.particle:nth-child(9)  { width:3px; height:3px; left:70%;  background:rgba(255,255,255,0.20); animation-duration:13s; animation-delay:  -1s; }
+.particle:nth-child(10) { width:1px; height:1px; left:77%;  background:rgba(255,255,255,0.40); animation-duration:20s; animation-delay:  -5s; }
+.particle:nth-child(11) { width:2px; height:2px; left:84%;  background:rgba(11,134,170,0.50);  animation-duration:17s; animation-delay: -10s; }
+.particle:nth-child(12) { width:1px; height:1px; left:91%;  background:rgba(255,255,255,0.30); animation-duration:22s; animation-delay:  -9s; }
+.particle:nth-child(13) { width:2px; height:2px; left: 3%;  background:rgba(255,255,255,0.45); animation-duration:16s; animation-delay: -13s; }
+.particle:nth-child(14) { width:1px; height:1px; left:97%;  background:rgba(11,134,170,0.65);  animation-duration:25s; animation-delay: -15s; }
+
+@keyframes particleRise {
+  0%   { transform: translateY(0);       opacity: 0; } /* start invisible at bottom  */
+  8%   {                                 opacity: 1; } /* fade in quickly             */
+  88%  {                                 opacity: 1; } /* stay visible during journey */
+  100% { transform: translateY(-100vh);  opacity: 0; } /* fade out at top             */
+}
+
+
+/* ── 3. MOCKUP SPOTLIGHT ────────────────────────────
+   A radial glow positioned over the right half of the
+   hero — behind the browser mockup. It breathes gently
+   via scale + opacity to make the visual feel elevated
+   and lit from within, like Vercel's hero lighting.
+──────────────────────────────────────────────────── */
+.hero-spotlight {
+  position: absolute;
+  right: -2%;
+  top: 50%;
+  transform: translateY(-50%);
+  width: 52%;
+  height: 85%;
+  background: radial-gradient(
+    ellipse 55% 55% at 55% 50%,
+    rgba(11,134,170,0.09)  0%,
+    rgba( 4, 34,114,0.07) 45%,
+    transparent           75%
+  );
+  pointer-events: none;
+  will-change: opacity, transform;
+  animation: spotlightBreath 9s ease-in-out infinite;
+}
+
+@keyframes spotlightBreath {
+  0%, 100% { opacity: 0.65; transform: translateY(-50%) scale(1.00); }
+  50%       { opacity: 1.00; transform: translateY(-52%) scale(1.05); }
+}
+
+
+/* ── 4. GRAIN / NOISE TEXTURE ───────────────────────
+   SVG fractal noise tiled as a CSS background, then
+   composited with mix-blend-mode:overlay. Opacity at
+   0.030 — nearly invisible individually, but adds the
+   subtle tactile quality that separates polished SaaS
+   designs from flat ones (used by Stripe, Linear).
+──────────────────────────────────────────────────── */
+.hero-grain {
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+  opacity: 0.030;
+  background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.85' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E");
+  background-size: 180px 180px;
+  mix-blend-mode: overlay;
+}
+
+
+/* ═══════════════════════════════════════════════════════
+   GSAP HERO — disable CSS entry animations so GSAP owns
+   the sequencing. Initial states set via gsap.set() in JS.
+   These rules prevent the CSS keyframe from firing first.
+════════════════════════════════════════════════════════ */
+.hero-badge       { animation: none !important; }
+.hero-title-inner { animation: none !important; }
+.hero-desc        { animation: none !important; }
+.hero-actions     { animation: none !important; }
+.hero-stats       { animation: none !important; }
+.hero-visual      { animation: none !important; }
+
+/* CTA hover — prevent layout shift; transform is GPU-composited */
+.hero-actions .btn-primary { transform-origin: center; }
+/* ═══════════════════════════════════════════════════════
+   GSAP HERO — disable CSS entry animations so GSAP owns
+   the sequencing. Initial states set via gsap.set() in JS.
+════════════════════════════════════════════════════════ */
+.hero-badge       { animation: none !important; }
+.hero-title-inner { animation: none !important; }
+.hero-desc        { animation: none !important; }
+.hero-actions     { animation: none !important; }
+.hero-stats       { animation: none !important; }
+.hero-visual      { animation: none !important; }
+
+/* CTA hover — prevent layout shift; transform is GPU-composited */
+.hero-actions .btn-primary { transform-origin: center; }
+
+/* ── WAVY BACKGROUND CANVAS ─────────────────────────── */
+#hero-waves {
+  position: absolute;
+  inset: 0;
+  z-index: 1;
+  pointer-events: none;
+  opacity: 1;
+}
+
+  </style>
+</head>
+<body>
+
+<!-- ════════════════════════════════════════════════════
+     NAVIGATION
+════════════════════════════════════════════════════ -->
+<header class="nav-header" id="navbar">
+  <div class="container nav-inner">
+    <a href="#" class="nav-logo">
+      <img src="BRANDING/LOGO.png" alt="MDT" class="logo-img" />
+      <span class="nav-brand-text">
+        <span class="brand-mdt">MDT</span>
+        <span class="brand-sub">Marketing Digital Tenerife</span>
+      </span>
+    </a>
+    <nav class="nav-links" id="navLinks">
+      <a href="#services">Servicios</a>
+      <a href="#industries">Sectores</a>
+      <a href="#portfolio">Proyectos</a>
+      <a href="#process">Proceso</a>
+      <a href="#testimonials">Opiniones</a>
+      <a href="#contact" class="nav-cta">Solicitar información</a>
+    </nav>
+    <button class="nav-hamburger" id="hamburger" aria-label="Open menu">
+      <span></span><span></span><span></span>
+    </button>
+  </div>
+</header>
+
+<!-- ════════════════════════════════════════════════════
+     HERO
+════════════════════════════════════════════════════ -->
+<section class="hero" id="home">
+  <div class="hero-bg">
+    <div class="orb-1"></div>
+    <div class="orb-2"></div>
+    <div class="orb-3"></div>
+  </div>    <!-- ── CSS-ANIMATED GLOW ORBS ───────────────────────────
+         Slow-drifting blurred masses, independent from the
+         JS mouse-parallax orbs. Always animate on their own.
+    ────────────────────────────────────────────────────── -->
+    <div class="glow-orb glow-orb-a" aria-hidden="true"></div>
+    <div class="glow-orb glow-orb-b" aria-hidden="true"></div>
+    <div class="glow-orb glow-orb-c" aria-hidden="true"></div>
+
+    <!-- ── FLOATING PARTICLES ───────────────────────────────
+         14 tiny dots rise from bottom to top at different
+         speeds and delays. Contained by overflow:hidden.
+    ────────────────────────────────────────────────────── -->
+    <div class="hero-particles" aria-hidden="true">
+      <div class="particle"></div>
+      <div class="particle"></div>
+      <div class="particle"></div>
+      <div class="particle"></div>
+      <div class="particle"></div>
+      <div class="particle"></div>
+      <div class="particle"></div>
+      <div class="particle"></div>
+      <div class="particle"></div>
+      <div class="particle"></div>
+      <div class="particle"></div>
+      <div class="particle"></div>
+      <div class="particle"></div>
+      <div class="particle"></div>
+    </div>
+
+    <!-- ── MOCKUP SPOTLIGHT ─────────────────────────────────
+         Soft radial glow behind the right visual panel.
+         Breathes slowly to add energy behind the mockup.
+    ────────────────────────────────────────────────────── -->
+    <div class="hero-spotlight" aria-hidden="true"></div>
+
+    <!-- ── GRAIN / NOISE TEXTURE ────────────────────────────
+         SVG fractal noise tiled at low opacity.
+         Same technique as Stripe / Linear for depth.
+    ────────────────────────────────────────────────────── -->
+    <div class="hero-grain" aria-hidden="true"></div>
+
+  <!-- ── WAVY BACKGROUND ──────────────────────────────────
+       Canvas-based simplex-noise wave animation.
+       Sits between the gradient layer and hero content.
+  ────────────────────────────────────────────────────── -->
+  <canvas id="hero-waves" aria-hidden="true"></canvas>
+
+  <div class="container hero-inner">
+    <div class="hero-content">
+      <div class="hero-badge">
+        <span class="dot"></span>
+        Agencia Digital · Tenerife
+      </div>
+      <h1 class="hero-title">
+        <span class="hero-title-line"><span class="hero-title-inner">Tu Negocio,</span></span>
+        <span class="hero-title-line"><span class="hero-title-inner">Donde Tus</span></span>
+        <span class="hero-title-line"><span class="hero-title-inner"><span class="accent">Clientes Buscan</span></span></span>
+      </h1>
+      <p class="hero-desc">
+        Diseñamos tu página web, posicionamos tu negocio en Google y gestionamos tus redes sociales para que más clientes en Tenerife te encuentren a ti antes que a la competencia.
+      </p>
+      <div class="hero-actions">
+        <a href="#contact" class="btn btn-primary">
+          Solicitar información
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+        </a>
+        <a href="#services" class="btn btn-ghost">Ver servicios</a>
+      </div>
+      <div class="hero-stats">
+        <div class="hero-stat">
+          <div class="hero-stat-num">2M<span>+</span></div>
+          <div class="hero-stat-label">Visualizaciones generadas</div>
+        </div>
+        <div class="hero-stat">
+          <div class="hero-stat-num">24<span>h</span></div>
+          <div class="hero-stat-label">Presencia online continua</div>
+        </div>
+        <div class="hero-stat">
+          <div class="hero-stat-num">5<span>★</span></div>
+          <div class="hero-stat-label">Valoración de clientes</div>
+        </div>
+      </div>
+    </div>
+
+    <div class="hero-visual">
+      <div class="hero-mockup">
+        <div class="mockup-browser">
+          <div class="mockup-bar">
+            <div class="mockup-dot"></div>
+            <div class="mockup-dot"></div>
+            <div class="mockup-dot"></div>
+            <div class="mockup-url">
+              <div class="mockup-url-dot"></div>
+              <span class="mockup-url-text">yourbusiness.com</span>
+            </div>
+          </div>
+          <div class="mockup-screen">
+            <div class="mock-nav-bar">
+              <div class="mock-nav-logo"></div>
+              <div class="mock-nav-links">
+                <div class="mock-nav-link"></div>
+                <div class="mock-nav-link"></div>
+                <div class="mock-nav-link"></div>
+              </div>
+            </div>
+            <div class="mock-hero-area">
+              <div class="mock-text-block">
+                <div class="mock-headline"></div>
+                <div class="mock-headline-2"></div>
+                <div class="mock-body-line"></div>
+                <div class="mock-body-line short"></div>
+                <div class="mock-cta-btn"></div>
+              </div>
+              <div class="mock-img-block"></div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Floating badges -->
+        <div class="hero-float-badge float-badge-1">
+          <div class="badge-icon green">📈</div>
+          <div class="badge-text-wrap">
+            <span class="badge-main">Más visibilidad</span>
+            <span class="badge-sub">SEO local en Tenerife</span>
+          </div>
+        </div>
+        <div class="hero-float-badge float-badge-2">
+          <div class="badge-icon blue">🌐</div>
+          <div class="badge-text-wrap">
+            <span class="badge-main">Web profesional</span>
+            <span class="badge-sub">Diseño a medida</span>
+          </div>
+        </div>
+        <div class="hero-float-badge float-badge-3">
+          <div class="badge-icon orange">📱</div>
+          <div class="badge-text-wrap">
+            <span class="badge-main">Redes sociales</span>
+            <span class="badge-sub">Contenido que convierte</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="hero-scroll-hint">
+    <div class="scroll-line"></div>
+    <span class="scroll-label">Descubre más</span>
+  </div>
+</section>
+
+<!-- ════════════════════════════════════════════════════
+     PROBLEM SECTION
+════════════════════════════════════════════════════ -->
+<section class="problem" id="problem">
+  <div class="container">
+    <div class="problem-header">
+      <div class="section-label">El problema</div>
+      <h2 class="section-title section-title--white">Tu Negocio Merece<br>Ser Encontrado Online</h2>
+      <p class="section-sub section-sub--white">Cada día que tu negocio no aparece en Google o no tiene una web actualizada, estás perdiendo clientes ante competidores que sí tienen presencia digital.</p>
+    </div>
+    <div class="problem-grid">
+      <div class="problem-card reveal">
+        <div class="problem-icon">🔍</div>
+        <h3 class="problem-title">No apareces en Google</h3>
+        <p class="problem-desc">Cuando alguien busca tu tipo de negocio en Tenerife, aparece la competencia. Tú estás invisible y perdes esos clientes cada día.</p>
+      </div>
+      <div class="problem-card reveal">
+        <div class="problem-icon">💻</div>
+        <h3 class="problem-title">Sin web o con una web antigua</h3>
+        <p class="problem-desc">Una página web lenta, anticuada o inexistente genera desconfianza. La primera impresión de tu negocio ocurre en internet.</p>
+      </div>
+      <div class="problem-card reveal">
+        <div class="problem-icon">📉</div>
+        <h3 class="problem-title">La competencia te supera</h3>
+        <p class="problem-desc">Otros negocios locales con mejor presencia digital están captando a tus posibles clientes. Cada mes que pasa, la diferencia aumenta.</p>
+      </div>
+      <div class="problem-card reveal">
+        <div class="problem-icon">📲</div>
+        <h3 class="problem-title">Redes sociales sin estrategia</h3>
+        <p class="problem-desc">Publicar de forma irregular o no publicar nada transmite poca profesionalidad. Tus clientes esperan ver actividad real en tus perfiles.</p>
+      </div>
+      <div class="problem-card reveal">
+        <div class="problem-icon">💸</div>
+        <h3 class="problem-title">Inversión sin resultados</h3>
+        <p class="problem-desc">Gastar en publicidad sin una estrategia clara es tirar dinero. Sin una web que convierta y un mensaje definido, el retorno es mínimo.</p>
+      </div>
+      <div class="problem-card reveal">
+        <div class="problem-icon">🗺️</div>
+        <h3 class="problem-title">Sin hoja de ruta digital</h3>
+        <p class="problem-desc">Improvisar en redes o en Google no es una estrategia. Tu negocio necesita un plan claro para crecer de forma sostenida en internet.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ════════════════════════════════════════════════════
+     SOLUTION SECTION
+════════════════════════════════════════════════════ -->
+<!-- ════════════════════════════════════════════════════
+     SOLUTION SECTION
+════════════════════════════════════════════════════ -->
+<section class="solution" id="why-us">
+  <div class="container solution-inner">
+    <div class="solution-visual">
+      <div class="solution-card-stack">
+
+        <!-- Main card -->
+        <div class="sol-card sol-card-main">
+          <div style="font-size:10px;letter-spacing:0.12em;text-transform:uppercase;color:rgba(255,255,255,0.3);font-family:var(--font-body);font-weight:600;">
+            Resultados acumulados
+          </div>
+
+          <div class="sol-hero-metric">
+            <div class="sol-metric">+2M</div>
+            <div class="sol-metric-label">Visualizaciones generadas para nuestros clientes</div>
+          </div>
+
+          <div class="sol-metrics-grid">
+            <div class="sol-metric-item">
+              <span class="sol-metric-badge sol-badge-up">↑</span>
+              <div>
+                <div class="sol-metric-val">+186%</div>
+                <div class="sol-metric-micro">Visibilidad orgánica</div>
+              </div>
+            </div>
+            <div class="sol-metric-item">
+              <span class="sol-metric-badge sol-badge-blue">◉</span>
+              <div>
+                <div class="sol-metric-val">4,820</div>
+                <div class="sol-metric-micro">Visitas mensuales</div>
+              </div>
+            </div>
+            <div class="sol-metric-item">
+              <span class="sol-metric-badge sol-badge-orange">✦</span>
+              <div>
+                <div class="sol-metric-val">32</div>
+                <div class="sol-metric-micro">Leads generados</div>
+              </div>
+            </div>
+            <div class="sol-metric-item">
+              <span class="sol-metric-badge sol-badge-up">↑</span>
+              <div>
+                <div class="sol-metric-val">#1</div>
+                <div class="sol-metric-micro">Posición SEO Google</div>
+              </div>
+            </div>
+          </div>
+
+          <div>
+            <div style="font-size:10px;letter-spacing:0.08em;text-transform:uppercase;color:rgba(255,255,255,0.25);font-family:var(--font-body);margin-bottom:10px;">
+              Tráfico mensual
+            </div>
+            <div class="sol-chart">
+              <div class="sol-bar" style="height:28%"></div>
+              <div class="sol-bar" style="height:42%"></div>
+              <div class="sol-bar blue" style="height:52%"></div>
+              <div class="sol-bar" style="height:38%"></div>
+              <div class="sol-bar blue" style="height:65%"></div>
+              <div class="sol-bar active" style="height:78%"></div>
+              <div class="sol-bar active" style="height:90%"></div>
+              <div class="sol-bar active" style="height:100%"></div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Float card: SEO -->
+        <div class="sol-card sol-card-small">
+          <div class="sol-small-icon-block">
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="var(--navy)" stroke-width="2.5" stroke-linecap="round">
+              <circle cx="11" cy="11" r="8"/><line x1="21" y1="21" x2="16.65" y2="16.65"/>
+            </svg>
+          </div>
+          <div class="sol-small-num">#1</div>
+          <div class="sol-small-label">Ranking Google alcanzado</div>
+        </div>
+
+        <!-- Float card: Tráfico -->
+        <div class="sol-card sol-card-accent">
+          <div style="font-size:10px;letter-spacing:0.1em;text-transform:uppercase;color:rgba(255,255,255,0.55);font-family:var(--font-body);font-weight:600;margin-bottom:6px;">
+            Tráfico web
+          </div>
+          <div style="font-family:var(--font-head);font-size:28px;font-weight:800;color:#fff;line-height:1;letter-spacing:-0.02em;">
+            +94%
+          </div>
+          <div style="font-size:11px;color:rgba(255,255,255,0.65);margin-top:4px;font-family:var(--font-body);">
+            en 6 meses
+          </div>
+        </div>
+
+      </div>
+    </div>
+
+    <div class="solution-content">
+      <div class="section-label">Nuestra propuesta</div>
+      <h2 class="section-title">Una estrategia digital completa<br>para crecer en Tenerife</h2>
+      <p class="section-sub" style="margin-top:18px;">Tú te centras en tu negocio. Nosotros nos encargamos de toda tu presencia digital: web profesional, posicionamiento en Google y contenido que atrae clientes reales.</p>
+
+      <div class="solution-points">
+        <div class="sol-point reveal">
+          <div class="sol-point-icon">
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+              <circle cx="12" cy="12" r="10"/><line x1="2" y1="12" x2="22" y2="12"/>
+              <path d="M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z"/>
+            </svg>
+          </div>
+          <div class="sol-point-text">
+            <h4>Páginas web que captan clientes</h4>
+            <p>Diseño profesional optimizado para móvil, velocidad y conversión.</p>
+          </div>
+        </div>
+        <div class="sol-point reveal">
+          <div class="sol-point-icon">
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round">
+              <circle cx="11" cy="11" r="8"/><line x1="21" y1="21" x2="16.65" y2="16.65"/>
+            </svg>
+          </div>
+          <div class="sol-point-text">
+            <h4>SEO local para Tenerife</h4>
+            <p>Posicionamos tu negocio en Google para búsquedas con intención real.</p>
+          </div>
+        </div>
+        <div class="sol-point reveal">
+          <div class="sol-point-icon">
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+              <path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/>
+              <path d="M23 21v-2a4 4 0 0 0-3-3.87"/><path d="M16 3.13a4 4 0 0 1 0 7.75"/>
+            </svg>
+          </div>
+          <div class="sol-point-text">
+            <h4>Redes sociales con impacto real</h4>
+            <p>Contenido constante que mejora visibilidad y genera confianza.</p>
+          </div>
+        </div>
+        <div class="sol-point reveal">
+          <div class="sol-point-icon">
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+              <polyline points="22 12 18 12 15 21 9 3 6 12 2 12"/>
+            </svg>
+          </div>
+          <div class="sol-point-text">
+            <h4>Estrategia digital personalizada</h4>
+            <p>Una hoja de ruta digital adaptada a tu sector y objetivos.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+
+<!-- ════════════════════════════════════════════════════
+     SERVICES
+════════════════════════════════════════════════════ -->
+<section class="services" id="services">
+  <div class="container">
+    <div class="services-header">
+      <div class="section-label">Qué hacemos</div>
+      <h2 class="section-title">Todo lo que Tu Negocio<br>Necesita para Crecer Online</h2>
+      <p class="section-sub" style="margin-top:16px;">Servicios digitales completos pensados para negocios locales en Tenerife que quieren más clientes y más visibilidad.</p>
+    </div>
+    <div class="services-grid">
+
+      <div class="service-card featured reveal">
+        <div class="service-icon ic-white">🌐</div>
+        <h3 class="service-title">Diseño de Páginas Web</h3>
+        <p class="service-desc">Páginas web profesionales, rápidas y adaptadas a móvil. Diseñadas para transmitir confianza y captar clientes desde el primer clic, con integración de WhatsApp y formulario de contacto.</p>
+        <div class="service-tags">
+          <span class="service-tag">WordPress</span>
+          <span class="service-tag">Responsive</span>
+          <span class="service-tag">WhatsApp</span>
+          <span class="service-tag">Landing Pages</span>
+        </div>
+        <a href="#contact" class="service-link">Pedir presupuesto <span class="arrow">→</span></a>
+      </div>
+
+      <div class="service-card reveal">
+        <div class="service-icon ic-blue">🔍</div>
+        <h3 class="service-title">Posicionamiento SEO Local</h3>
+        <p class="service-desc">Optimizamos tu web para que aparezca en los primeros resultados de Google cuando alguien busca tu servicio en Tenerife. Más visitas orgánicas, sin pagar por cada clic.</p>
+        <div class="service-tags">
+          <span class="service-tag">SEO Local</span>
+          <span class="service-tag">Google Maps</span>
+          <span class="service-tag">Palabras clave</span>
+        </div>
+        <a href="#contact" class="service-link">Mejorar posición <span class="arrow">→</span></a>
+      </div>
+
+      <div class="service-card reveal">
+        <div class="service-icon ic-orange">📱</div>
+        <h3 class="service-title">Gestión de Redes Sociales</h3>
+        <p class="service-desc">Gestionamos tu Instagram, Facebook y TikTok con contenido profesional y constante. Conectamos con tu audiencia y construimos una comunidad real alrededor de tu marca.</p>
+        <div class="service-tags">
+          <span class="service-tag">Instagram</span>
+          <span class="service-tag">Facebook</span>
+          <span class="service-tag">TikTok</span>
+        </div>
+        <a href="#contact" class="service-link">Activar redes <span class="arrow">→</span></a>
+      </div>
+
+      <div class="service-card reveal">
+        <div class="service-icon ic-navy">📣</div>
+        <h3 class="service-title">Marketing Digital</h3>
+        <p class="service-desc">Campañas de publicidad en Google Ads y Meta Ads orientadas a resultados. Llegamos a tus clientes potenciales en el momento exacto en que buscan lo que ofreces.</p>
+        <div class="service-tags">
+          <span class="service-tag">Google Ads</span>
+          <span class="service-tag">Meta Ads</span>
+          <span class="service-tag">Analítica</span>
+        </div>
+        <a href="#contact" class="service-link">Lanzar campaña <span class="arrow">→</span></a>
+      </div>
+
+      <div class="service-card reveal">
+        <div class="service-icon ic-teal">✍️</div>
+        <h3 class="service-title">Creación de Contenido</h3>
+        <p class="service-desc">Fotografía, vídeo, textos y diseño gráfico que comunican el valor de tu negocio. Contenido visual de calidad para web y redes sociales que atrae y fideliza clientes.</p>
+        <div class="service-tags">
+          <span class="service-tag">Fotografía</span>
+          <span class="service-tag">Vídeo</span>
+          <span class="service-tag">Copywriting</span>
+        </div>
+        <a href="#contact" class="service-link">Crear contenido <span class="arrow">→</span></a>
+      </div>
+
+      <div class="service-card reveal" style="background:var(--off-white);display:flex;flex-direction:column;align-items:center;justify-content:center;text-align:center;border:2px dashed rgba(4,34,114,0.15);">
+        <div style="font-size:36px;margin-bottom:16px;">💬</div>
+        <h3 class="service-title" style="font-size:17px;">¿No sabes por dónde empezar?</h3>
+        <p class="service-desc" style="font-size:14px;">Cuéntanos cómo es tu negocio y te damos una consulta gratuita. Sin compromisos, solo claridad sobre lo que necesitas.</p>
+        <a href="#contact" class="btn btn-primary" style="margin-top:20px;font-size:13px;padding:12px 22px;">Consulta gratuita</a>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<!-- ════════════════════════════════════════════════════
+     INDUSTRIES
+════════════════════════════════════════════════════ -->
+<section class="industries" id="industries">
+  <div class="container">
+    <div class="industries-header">
+      <div class="section-label">Sectores que atendemos</div>
+      <h2 class="section-title">Conocemos Tu Sector.<br>Conocemos a Tus Clientes.</h2>
+      <p class="section-sub" style="margin-top:16px;">Experiencia trabajando con los sectores más importantes de la economía local de Tenerife.</p>
+    </div>
+    <div class="industries-grid">
+      <div class="industry-card reveal">
+        <span class="industry-emoji">🍽️</span>
+        <div class="industry-name">Restaurantes y Hostelería</div>
+      </div>
+      <div class="industry-card reveal">
+        <span class="industry-emoji">🏨</span>
+        <div class="industry-name">Hoteles y Turismo</div>
+      </div>
+      <div class="industry-card reveal">
+        <span class="industry-emoji">🏡</span>
+        <div class="industry-name">Inmobiliarias</div>
+      </div>
+      <div class="industry-card reveal">
+        <span class="industry-emoji">🏖️</span>
+        <div class="industry-name">Apartamentos Turísticos</div>
+      </div>
+      <div class="industry-card reveal">
+        <span class="industry-emoji">🛍️</span>
+        <div class="industry-name">Comercio Local</div>
+      </div>
+      <div class="industry-card reveal">
+        <span class="industry-emoji">💼</span>
+        <div class="industry-name">Empresas de Servicios</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ════════════════════════════════════════════════════
+     PORTFOLIO
+════════════════════════════════════════════════════ -->
+<section class="portfolio" id="portfolio">
+  <div class="container">
+    <div class="portfolio-header">
+      <div>
+        <div class="section-label">Proyectos</div>
+        <h2 class="section-title">El Trabajo<br>Habla por Sí Solo</h2>
+      </div>
+      <div class="portfolio-filters">
+        <button class="filter-btn filter-btn--active" data-filter="all">Todos</button>
+        <button class="filter-btn" data-filter="web">Diseño Web</button>
+        <button class="filter-btn" data-filter="seo">SEO</button>
+        <button class="filter-btn" data-filter="social">Redes Sociales</button>
+        <button class="filter-btn" data-filter="brand">Branding</button>
+      </div>
+    </div>
+    <div class="portfolio-grid">
+
+      <div class="port-card reveal" data-cat="web">
+        <div class="port-img-wrap">
+          <img src="https://placehold.co/800x600/042272/FFFFFF?text=Diseño+Web" alt="Diseño web restaurante" />
+          <div class="port-overlay">
+            <span class="port-overlay-tag">Ver proyecto →</span>
+          </div>
+        </div>
+        <div class="port-info">
+          <div class="port-cat">Diseño Web</div>
+          <div class="port-title">Web para Restaurante</div>
+          <div class="port-desc">Diseño profesional con carta digital, integración WhatsApp y formulario de reservas. Optimizada para móvil y Google.</div>
+        </div>
+      </div>
+
+      <div class="port-card reveal" data-cat="seo">
+        <div class="port-img-wrap">
+          <img src="https://placehold.co/800x600/0B86AA/FFFFFF?text=SEO+Local" alt="SEO local Tenerife" />
+          <div class="port-overlay">
+            <span class="port-overlay-tag">Ver proyecto →</span>
+          </div>
+        </div>
+        <div class="port-info">
+          <div class="port-cat">SEO Local</div>
+          <div class="port-title">Posicionamiento Local en Tenerife</div>
+          <div class="port-desc">Optimización SEO completa para aparecer en las primeras posiciones de Google en búsquedas locales relevantes.</div>
+        </div>
+      </div>
+
+      <div class="port-card reveal" data-cat="social">
+        <div class="port-img-wrap">
+          <img src="https://placehold.co/800x600/F46224/FFFFFF?text=Redes+Sociales" alt="Gestión redes sociales" />
+          <div class="port-overlay">
+            <span class="port-overlay-tag">Ver proyecto →</span>
+          </div>
+        </div>
+        <div class="port-info">
+          <div class="port-cat">Redes Sociales</div>
+          <div class="port-title">Gestión de Instagram y Facebook</div>
+          <div class="port-desc">Estrategia de contenido, diseño visual y publicaciones constantes para generar comunidad y atraer clientes.</div>
+        </div>
+      </div>
+
+      <div class="port-card reveal" data-cat="brand">
+        <div class="port-img-wrap">
+          <img src="https://placehold.co/800x600/021347/0B86AA?text=Identidad+Visual" alt="Branding identidad visual" />
+          <div class="port-overlay">
+            <span class="port-overlay-tag">Ver proyecto →</span>
+          </div>
+        </div>
+        <div class="port-info">
+          <div class="port-cat">Branding</div>
+          <div class="port-title">Identidad Visual para Negocio Local</div>
+          <div class="port-desc">Diseño de logotipo, colores corporativos y materiales visuales para dar una imagen profesional y coherente.</div>
+        </div>
+      </div>
+
+      <div class="port-card reveal" data-cat="web">
+        <div class="port-img-wrap">
+          <img src="https://placehold.co/800x600/042272/F46224?text=Web+Inmobiliaria" alt="Web inmobiliaria" />
+          <div class="port-overlay">
+            <span class="port-overlay-tag">Ver proyecto →</span>
+          </div>
+        </div>
+        <div class="port-info">
+          <div class="port-cat">Diseño Web + SEO</div>
+          <div class="port-title">Portal Inmobiliario</div>
+          <div class="port-desc">Web con catálogo de propiedades, captación de leads y posicionamiento en Google para búsquedas inmobiliarias en Tenerife.</div>
+        </div>
+      </div>
+
+      <div class="port-card reveal" data-cat="seo">
+        <div class="port-img-wrap">
+          <img src="https://placehold.co/800x600/0A2FA0/FFFFFF?text=Marketing+Turístico" alt="Marketing turístico" />
+          <div class="port-overlay">
+            <span class="port-overlay-tag">Ver proyecto →</span>
+          </div>
+        </div>
+        <div class="port-info">
+          <div class="port-cat">Marketing Digital</div>
+          <div class="port-title">Apartamentos Turísticos</div>
+          <div class="port-desc">Estrategia digital completa para apartamento vacacional: web, SEO y redes sociales para aumentar reservas directas.</div>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<!-- ════════════════════════════════════════════════════
+     TESTIMONIALS
+════════════════════════════════════════════════════ -->
+<section class="testimonials" id="testimonials">
+  <div class="container">
+    <div class="testimonials-header">
+      <div class="section-label">Lo que dicen nuestros clientes</div>
+      <h2 class="section-title section-title--white">La Satisfacción de<br>Nuestros Clientes lo Es Todo</h2>
+      <p class="section-sub section-sub--white" style="margin: 0 auto;">Trabajamos con compromiso y dedicación en cada proyecto. Si ya has trabajado con nosotros, te invitamos a compartir tu experiencia.</p>
+    </div>
+    <div class="testimonials-grid">
+
+      <div class="test-card reveal" style="display:flex;flex-direction:column;align-items:center;justify-content:center;text-align:center;border:1px dashed rgba(255,255,255,0.15);">
+        <div style="font-size:40px;margin-bottom:20px;">⭐</div>
+        <p class="test-quote" style="font-style:normal;text-align:center;">¿Ya has trabajado con nosotros? Tu opinión es muy importante. Ayuda a otros negocios a tomar la mejor decisión.</p>
+        <a href="https://g.page/r/review" class="btn btn-outline-orange" style="margin-top:8px;font-size:13px;padding:12px 22px;" target="_blank" rel="noopener">Dejar una reseña en Google</a>
+      </div>
+
+      <div class="test-card reveal">
+        <div class="test-stars">★★★★★</div>
+        <p class="test-quote">Gran servicio de Marketing y publicidad. Profesionalidad y dedicación en cada proyecto. Muy recomendable para cualquier negocio local que quiera mejorar su presencia online.</p>
+        <div class="test-author">
+          <div class="test-avatar">CL</div>
+          <div>
+            <div class="test-name">Cliente verificado</div>
+            <div class="test-role">Negocio local · Tenerife</div>
+          </div>
+        </div>
+      </div>
+
+      <div class="test-card reveal" style="display:flex;flex-direction:column;justify-content:center;align-items:center;text-align:center;gap:16px;">
+        <div style="font-size:36px;">💬</div>
+        <p style="font-size:15px;line-height:1.7;color:rgba(255,255,255,0.6);">¿Tienes dudas sobre algún servicio? Escríbenos y te asesoramos sin compromiso sobre qué necesita tu negocio.</p>
+        <a href="#contact" class="btn btn-primary" style="font-size:13px;padding:12px 24px;">Hablar con nosotros</a>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<!-- ════════════════════════════════════════════════════
+     PROCESS
+════════════════════════════════════════════════════ -->
+<section class="process" id="process">
+  <div class="container">
+    <div class="process-header">
+      <div class="section-label">Cómo trabajamos</div>
+      <h2 class="section-title">Del Primer Contacto<br>al Crecimiento Real</h2>
+      <p class="section-sub" style="margin-top:16px;">Un proceso claro y transparente para que sepas en todo momento qué estamos haciendo y por qué.</p>
+    </div>
+    <div class="process-steps">
+
+      <div class="process-step reveal">
+        <div class="step-num">
+          01
+          <div class="step-icon">🔍</div>
+        </div>
+        <h3 class="step-title">Análisis</h3>
+        <p class="step-desc">Estudiamos tu negocio, tu competencia y tu situación actual en internet. Sin suposiciones, todo basado en datos reales de tu mercado en Tenerife.</p>
+      </div>
+
+      <div class="process-step reveal">
+        <div class="step-num">
+          02
+          <div class="step-icon">🗺️</div>
+        </div>
+        <h3 class="step-title">Estrategia</h3>
+        <p class="step-desc">Diseñamos un plan digital personalizado con objetivos claros, servicios priorizados y plazos concretos adaptados a tu sector y presupuesto.</p>
+      </div>
+
+      <div class="process-step reveal">
+        <div class="step-num">
+          03
+          <div class="step-icon">⚡</div>
+        </div>
+        <h3 class="step-title">Ejecución</h3>
+        <p class="step-desc">Ponemos en marcha todo el plan: diseñamos la web, optimizamos el SEO, creamos el contenido y activamos las campañas con precisión y rapidez.</p>
+      </div>
+
+      <div class="process-step reveal">
+        <div class="step-num">
+          04
+          <div class="step-icon">📈</div>
+        </div>
+        <h3 class="step-title">Crecimiento</h3>
+        <p class="step-desc">Medimos los resultados, optimizamos lo que funciona y seguimos mejorando. Te informamos de todo con reportes claros y comunicación directa.</p>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<!-- ════════════════════════════════════════════════════
+     FINAL CTA
+════════════════════════════════════════════════════ -->
+<section class="final-cta">
+  <div class="container">
+    <div class="final-cta-inner">
+      <div class="cta-badge">🚀 Plazas disponibles este mes</div>
+      <h2 class="final-cta-title">¿Listo para que Tu Negocio<br>Crezca <span class="accent">en Internet?</span></h2>
+      <p class="final-cta-sub">Da el primer paso hoy. Cuéntanos cómo es tu negocio y te explicamos sin compromiso qué podemos hacer por ti en Tenerife.</p>
+      <div class="cta-actions">
+        <a href="#contact" class="btn btn-primary" style="font-size:16px;padding:18px 36px;">
+          Solicitar información
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+        </a>
+        <a href="https://wa.me/34622034355" class="btn btn-ghost" style="font-size:15px;padding:17px 30px;" target="_blank" rel="noopener">
+          💬 Escribir por WhatsApp
+        </a>
+      </div>
+      <div class="cta-trust-line">
+        <div class="cta-trust-item"><span class="check">✓</span> Sin compromiso</div>
+        <div class="cta-trust-item"><span class="check">✓</span> Respuesta en 24 horas</div>
+        <div class="cta-trust-item"><span class="check">✓</span> Consulta gratuita</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ════════════════════════════════════════════════════
+     CONTACT
+════════════════════════════════════════════════════ -->
+<section id="contact">
+  <div class="container contact-inner">
+    <div class="contact-info">
+      <div class="section-label">Contacto</div>
+      <h2 class="section-title">Hablemos de<br>Tu Negocio</h2>
+      <p class="section-sub" style="margin-top:16px;margin-bottom:40px;">Cuéntanos en qué podemos ayudarte. Te respondemos en menos de 24 horas con una propuesta adaptada a tu negocio.</p>
+
+      <div class="contact-items">
+        <div class="contact-item">
+          <div class="contact-item-icon bg-orange">📍</div>
+          <div class="contact-item-text">
+            <h4>Ubicación</h4>
+            <p>Tenerife, Islas Canarias, España</p>
+          </div>
+        </div>
+        <div class="contact-item">
+          <div class="contact-item-icon bg-blue">📧</div>
+          <div class="contact-item-text">
+            <h4>Email</h4>
+            <p>Ismarklazarosac@gmail.com</p>
+          </div>
+        </div>
+        <div class="contact-item">
+          <div class="contact-item-icon bg-navy">📞</div>
+          <div class="contact-item-text">
+            <h4>Teléfono / WhatsApp</h4>
+            <p>+34 622 034 355</p>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="contact-form-wrap">
+      <div class="form-header">
+        <h3>Envíanos un Mensaje</h3>
+        <p>Consulta gratuita — te respondemos en menos de 24 horas.</p>
+      </div>
+      <form id="contactForm" novalidate>
+        <div class="form-row">
+          <div class="form-group">
+            <label for="fname">Nombre</label>
+            <input type="text" id="fname" name="fname" placeholder="Tu nombre" required />
+          </div>
+          <div class="form-group">
+            <label for="lname">Apellido</label>
+            <input type="text" id="lname" name="lname" placeholder="Tu apellido" />
+          </div>
+        </div>
+        <div class="form-group">
+          <label for="email">Correo electrónico</label>
+          <input type="email" id="email" name="email" placeholder="tucorreo@empresa.com" required />
+        </div>
+        <div class="form-group">
+          <label for="phone">Teléfono / WhatsApp</label>
+          <input type="tel" id="phone" name="phone" placeholder="+34 600 000 000" />
+        </div>
+        <div class="form-group">
+          <label for="service">Servicio de interés</label>
+          <select id="service" name="service">
+            <option value="">Selecciona un servicio...</option>
+            <option>Diseño de Página Web</option>
+            <option>Posicionamiento SEO</option>
+            <option>Gestión de Redes Sociales</option>
+            <option>Marketing Digital / Publicidad</option>
+            <option>Creación de Contenido</option>
+            <option>Estrategia Digital Completa</option>
+          </select>
+        </div>
+        <div class="form-group">
+          <label for="message">Cuéntanos sobre tu negocio</label>
+          <textarea id="message" name="message" placeholder="¿A qué se dedica tu negocio? ¿Cuáles son tus objetivos? ¿Qué necesitas mejorar?"></textarea>
+        </div>
+        <div class="form-submit">
+          <button type="submit" class="btn btn-primary">
+            Enviar mensaje
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M22 2L11 13M22 2L15 22l-4-9-9-4 20-7z"/></svg>
+          </button>
+        </div>
+      </form>
+    </div>
+  </div>
+</section>
+
+<!-- ════════════════════════════════════════════════════
+     FOOTER
+════════════════════════════════════════════════════ -->
+<footer class="footer">
+  <div class="container">
+    <div class="footer-grid">
+
+      <div class="footer-brand">
+        <div class="footer-logo-wrap">
+          <img src="BRANDING/LOGO.png" alt="MDT" class="footer-logo-img" />
+          <div>
+            <div class="footer-brand-name">MDT</div>
+            <div class="footer-brand-sub">Marketing Digital Tenerife</div>
+          </div>
+        </div>
+        <p class="footer-tagline">Tu equipo de marketing digital en Tenerife. Convertimos negocios locales en referentes online.</p>
+        <div class="footer-socials">
+          <a href="#" class="social-btn" aria-label="Instagram">📷</a>
+          <a href="#" class="social-btn" aria-label="Facebook">📘</a>
+          <a href="#" class="social-btn" aria-label="LinkedIn">💼</a>
+          <a href="#" class="social-btn" aria-label="TikTok">🎵</a>
+          <a href="#" class="social-btn" aria-label="WhatsApp">💬</a>
+        </div>
+      </div>
+
+      <div>
+        <div class="footer-col-title">Servicios</div>
+        <ul class="footer-links">
+          <li><a href="#services">Diseño de Páginas Web</a></li>
+          <li><a href="#services">Posicionamiento SEO</a></li>
+          <li><a href="#services">Gestión de Redes Sociales</a></li>
+          <li><a href="#services">Marketing Digital</a></li>
+          <li><a href="#services">Creación de Contenido</a></li>
+        </ul>
+      </div>
+
+      <div>
+        <div class="footer-col-title">Sectores</div>
+        <ul class="footer-links">
+          <li><a href="#industries">Restaurantes y Hostelería</a></li>
+          <li><a href="#industries">Hoteles y Turismo</a></li>
+          <li><a href="#industries">Inmobiliarias</a></li>
+          <li><a href="#industries">Apartamentos Turísticos</a></li>
+          <li><a href="#industries">Empresas de Servicios</a></li>
+        </ul>
+      </div>
+
+      <div class="footer-newsletter">
+        <div class="footer-col-title">Mantente al día</div>
+        <p style="font-size:13.5px;color:rgba(255,255,255,0.45);line-height:1.65;margin-bottom:4px;">Recibe consejos de marketing digital pensados para negocios en Tenerife.</p>
+        <div class="footer-newsletter-form">
+          <input type="email" placeholder="Your email address" />
+          <button type="button">→</button>
+        </div>
+        <p style="font-size:11px;color:rgba(255,255,255,0.25);margin-top:10px;">Sin spam. Cancela cuando quieras.</p>
+      </div>
+
+    </div>
+
+    <div class="footer-bottom">
+      <p class="footer-copy">© 2026 Marketing Digital Tenerife · All rights reserved · Made with ❤️ in Tenerife</p>
+      <div class="footer-legal">
+        <a href="#">Privacy Policy</a>
+        <a href="#">Cookie Policy</a>
+        <a href="#">Legal Notice</a>
+      </div>
+    </div>
+  </div>
+</footer>
+
+<script src="script.js"
+></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js"></script>
+    <script src="js/script.js"></script>
+
+<!-- Simplex noise (v2 – exposes global SimplexNoise) -->
+<script src="https://cdn.jsdelivr.net/npm/simplex-noise@2.4.0/simplex-noise.min.js"></script>
+<script>
+(function () {
+  var canvas = document.getElementById('hero-waves');
+  if (!canvas) return;
+  var ctx = canvas.getContext('2d');
+  var simplex = new SimplexNoise();
+
+  /* Brand-matched wave colors — rgba for per-wave opacity control */
+  var waveColors = [
+    'rgba(11,134,170,0.55)',    /* --blue       */
+    'rgba(42,174,206,0.40)',    /* --blue-light */
+    'rgba(4,34,114,0.55)',      /* --navy       */
+    'rgba(10,47,160,0.45)',     /* --navy-mid   */
+    'rgba(244,98,36,0.28)',     /* --orange (subtle accent) */
+  ];
+
+  var nt    = 0;
+  var speed = 0.0015;
+  var dpr   = window.devicePixelRatio || 1;
+  var W, H;   /* logical dimensions */
+  var animId;
+
+  /* ── DPR-aware resize: canvas bitmap = logical * dpr ── */
+  function resize() {
+    var hero = document.querySelector('.hero');
+    W = hero ? hero.offsetWidth  : window.innerWidth;
+    H = hero ? hero.offsetHeight : window.innerHeight;
+
+    canvas.width        = W * dpr;
+    canvas.height       = H * dpr;
+    canvas.style.width  = W + 'px';
+    canvas.style.height = H + 'px';
+
+    ctx.setTransform(dpr, 0, 0, dpr, 0, 0);  /* scale once; stays after resize */
+  }
+
+  /* ── Draw a single smooth wave using quadratic curves ── */
+  function drawWave(i) {
+    var points = [];
+    for (var x = 0; x <= W; x += 6) {
+      var y = simplex.noise3D(x / 900, 0.35 * i, nt) * 110;
+      points.push({ x: x, y: y + H * 0.52 });
+    }
+
+    ctx.beginPath();
+    ctx.moveTo(points[0].x, points[0].y);
+
+    /* Catmull-Rom → quadratic approximation for smooth curves */
+    for (var j = 1; j < points.length - 1; j++) {
+      var mx = (points[j].x + points[j + 1].x) * 0.5;
+      var my = (points[j].y + points[j + 1].y) * 0.5;
+      ctx.quadraticCurveTo(points[j].x, points[j].y, mx, my);
+    }
+    ctx.lineTo(points[points.length - 1].x, points[points.length - 1].y);
+
+    ctx.lineWidth   = 2.5 + i * 0.8;   /* subtle variation: 2.5 → 5.7 px */
+    ctx.strokeStyle = waveColors[i % waveColors.length];
+    ctx.lineCap     = 'round';
+    ctx.lineJoin    = 'round';
+    ctx.globalAlpha = 1;
+    ctx.stroke();
+  }
+
+  function render() {
+    nt += speed;
+
+    /* Clear to fully transparent each frame — no smear artifacts */
+    ctx.clearRect(0, 0, W, H);
+
+    for (var i = 0; i < 5; i++) {
+      drawWave(i);
+    }
+
+    animId = requestAnimationFrame(render);
+  }
+
+  resize();
+  window.addEventListener('resize', resize);
+  render();
+})();
+</script>
+</body>
+</html>
