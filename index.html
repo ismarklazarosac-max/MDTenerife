@@ -1771,11 +1771,11 @@ ul { list-style: none; }
 }
 .service-card:hover .service-icon { transform: scale(1.1) rotate(-4deg); }
 
-.service-icon.ic-navy { background: rgba(4,34,114,0.08); color: var(--navy); }
-.service-icon.ic-blue { background: rgba(11,134,170,0.1); color: var(--blue); }
-.service-icon.ic-orange { background: rgba(244,98,36,0.1); color: var(--orange); }
-.service-icon.ic-teal { background: rgba(0,180,200,0.1); color: #00b4c8; }
-.service-icon.ic-purple { background: rgba(130,80,200,0.1); color: #8250c8; }
+.service-icon.ic-navy { background: rgba(4,34,114,0.1); color: var(--navy); }
+.service-icon.ic-blue { background: rgba(11,134,170,0.12); color: var(--navy-mid); }
+.service-icon.ic-orange { background: rgba(244,98,36,0.12); color: var(--orange); }
+.service-icon.ic-teal { background: rgba(0,150,170,0.12); color: #008a9c; }
+.service-icon.ic-purple { background: rgba(130,80,200,0.12); color: #6a3daa; }
 .service-icon.ic-white { background: rgba(255,255,255,0.12); color: rgba(255,255,255,0.85); }
 .service-icon svg { stroke: currentColor; }
 
@@ -2005,8 +2005,8 @@ ul { list-style: none; }
 .port-card-icon {
   width: 46px; height: 46px;
   border-radius: 12px;
-  background: rgba(11,134,170,0.1);
-  border: 1px solid rgba(11,134,170,0.16);
+  background: rgba(11,134,170,0.15);
+  border: 1px solid rgba(11,134,170,0.25);
   display: flex;
   align-items: center;
   justify-content: center;
@@ -2016,8 +2016,9 @@ ul { list-style: none; }
   flex-shrink: 0;
   transition: background 0.25s, transform 0.3s var(--spring);
 }
+.port-card-icon svg { stroke: var(--blue-light); }
 .port-main-card:hover .port-card-icon {
-  background: rgba(11,134,170,0.18);
+  background: rgba(11,134,170,0.25);
   transform: scale(1.06);
 }
 
@@ -3794,6 +3795,115 @@ html.nav-open { overflow: hidden; }
   .about-body, .about-body-2 { max-width: 100%; }
 }
 
+
+/* ════════════════════════════════════════════════════
+   CONTACT FORM — estados de validación y envío
+════════════════════════════════════════════════════ */
+
+/* ── Campo con error ── */
+.form-group.has-error input,
+.form-group.has-error select,
+.form-group.has-error textarea {
+  border-color: #ef4444 !important;
+  background: rgba(239,68,68,0.04) !important;
+  box-shadow: 0 0 0 3px rgba(239,68,68,0.10) !important;
+}
+
+/* ── Mensaje de error inline ── */
+.form-field-error {
+  display: none;
+  font-size: 12px;
+  color: #ef4444;
+  font-family: var(--font-body);
+  margin-top: 6px;
+  line-height: 1.4;
+}
+.form-group.has-error .form-field-error { display: block; }
+
+/* ── Estado cargando en el botón ── */
+.btn--loading {
+  pointer-events: none;
+  opacity: 0.82;
+}
+.btn--loading .btn-label {
+  visibility: hidden;
+}
+.btn--loading::after {
+  content: '';
+  position: absolute;
+  inset: 0;
+  margin: auto;
+  width: 18px;
+  height: 18px;
+  border: 2px solid rgba(255,255,255,0.30);
+  border-top-color: #fff;
+  border-radius: 50%;
+  animation: btnSpin 0.65s linear infinite;
+}
+@keyframes btnSpin { to { transform: rotate(360deg); } }
+
+/* ── Banner de error de red/servidor ── */
+.form-error-banner {
+  display: none;
+  align-items: flex-start;
+  gap: 10px;
+  background: rgba(239,68,68,0.06);
+  border: 1px solid rgba(239,68,68,0.22);
+  border-radius: var(--r-sm);
+  padding: 12px 16px;
+  margin-top: 16px;
+  font-size: 13px;
+  color: #ef4444;
+  font-family: var(--font-body);
+  line-height: 1.5;
+}
+.form-error-banner.is-visible { display: flex; }
+.form-error-banner svg { flex-shrink: 0; margin-top: 1px; }
+
+/* ── Panel de éxito (sustituye al form) ── */
+.form-success {
+  display: none;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  padding: 52px 24px;
+  gap: 14px;
+}
+.form-success.is-visible { display: flex; }
+
+.form-success-icon {
+  width: 64px;
+  height: 64px;
+  border-radius: 50%;
+  background: rgba(52,211,153,0.10);
+  border: 1px solid rgba(52,211,153,0.25);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+}
+.form-success-icon svg { stroke: #34d399; }
+
+.form-success-title {
+  font-family: var(--font-head);
+  font-size: 21px;
+  font-weight: 800;
+  color: var(--text);
+  letter-spacing: -0.02em;
+  line-height: 1.15;
+}
+.form-success-sub {
+  font-size: 14px;
+  color: var(--text-muted);
+  line-height: 1.7;
+  max-width: 320px;
+}
+.form-success-sub a {
+  color: var(--navy);
+  font-weight: 600;
+  text-decoration: underline;
+}
+
   </style>
 </head>
 <body>
@@ -3895,10 +4005,10 @@ html.nav-open { overflow: hidden; }
         </div>
       </div>
 
-      <a href="#portfolio" class="nav-link">Proyectos</a>
+      <a href="#portfolio" class="nav-link">Resultados</a>
       <a href="#process" class="nav-link">Proceso</a>
-      <a href="#testimonials" class="nav-link">Opiniones</a>
-      <a href="#contact" class="nav-cta">Solicitar información</a>
+      <a href="#testimonials" class="nav-link">Clientes</a>
+      <a href="#contact" class="nav-cta">Consulta gratis</a>
 
     </nav>
 
@@ -3944,31 +4054,26 @@ html.nav-open { overflow: hidden; }
     <div class="hero-content">
       <div class="hero-badge">
         <span class="badge-line"></span>
-        Marketing digital · Tenerife
+        Especialista en marketing digital · Tenerife
       </div>
       <h1 class="hero-title">
-        <span class="hero-title-line"><span class="hero-title-inner">Estrategia digital</span></span>
-        <span class="hero-title-line"><span class="hero-title-inner">completa para negocios</span></span>
-        <span class="hero-title-line"><span class="hero-title-inner">que <span class="accent">compiten en serio</span></span></span>
+        <span class="hero-title-line"><span class="hero-title-inner">Más clientes para</span></span>
+        <span class="hero-title-line"><span class="hero-title-inner">tu negocio en Tenerife.</span></span>
+        <span class="hero-title-line"><span class="hero-title-inner"><span class="accent">Sin rodeos.</span></span></span>
       </h1>
       <p class="hero-desc">
-        Web profesional, SEO local y redes sociales.<br>
-        Un solo equipo, una estrategia clara, resultados que puedes medir.
+        Gestiono tus redes, posiciono tu negocio en Google y diseño webs que convierten.<br>
+        Trato directo, estrategia real, resultados que puedes medir.
       </p>
       <div class="hero-actions">
-        <a href="#process" class="btn btn-primary">
-          Ver cómo trabajamos
+        <a href="#contact" class="btn btn-primary">
+          Solicitar consulta gratuita
           <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
         </a>
-        <a href="#portfolio" class="btn btn-ghost">Explorar proyectos</a>
+        <a href="#portfolio" class="btn btn-ghost">Ver resultados reales</a>
       </div>
       <div class="hero-proof">
-        <div class="hero-proof-icons">
-          <span class="proof-dot proof-dot--blue"></span>
-          <span class="proof-dot proof-dot--cyan"></span>
-          <span class="proof-dot proof-dot--orange"></span>
-        </div>
-        <span class="hero-proof-text">Negocios en Tenerife que ya trabajan con nosotros</span>
+        <span class="hero-proof-text">+12.000 seguidores orgánicos · +2M visualizaciones · Clientes en Tenerife desde 2022</span>
       </div>
     </div>
     <div class="hero-visual">
@@ -3976,8 +4081,8 @@ html.nav-open { overflow: hidden; }
         <!-- Main analytics panel -->
         <div class="dash-panel">
           <div class="dash-panel-header">
-            <span class="dash-panel-title">Visibilidad orgánica</span>
-            <span class="dash-panel-tag">+187%</span>
+            <span class="dash-panel-title">Tenerife Sin Límites · Redes</span>
+            <span class="dash-panel-tag">+12.000 seg.</span>
           </div>
           <div class="dash-chart-area">
             <svg class="dash-chart-svg" viewBox="0 0 280 90" preserveAspectRatio="none">
@@ -3994,38 +4099,38 @@ html.nav-open { overflow: hidden; }
           </div>
           <div class="dash-metrics-row">
             <div class="dash-metric">
-              <span class="dash-metric-val">2.4k</span>
-              <span class="dash-metric-lbl">Visitas / mes</span>
+              <span class="dash-metric-val">+2M</span>
+              <span class="dash-metric-lbl">Visualizaciones</span>
             </div>
             <div class="dash-metric-sep"></div>
             <div class="dash-metric">
-              <span class="dash-metric-val">3.2x</span>
-              <span class="dash-metric-lbl">ROI medio</span>
+              <span class="dash-metric-val">6 m.</span>
+              <span class="dash-metric-lbl">Para conseguirlo</span>
             </div>
           </div>
         </div>
         <!-- Floating service status cards -->
         <div class="hero-svc-card svc-card-1">
-          <div class="svc-card-dot svc-dot--seo"></div>
+          <div class="svc-card-dot svc-dot--social"></div>
           <div class="svc-card-body">
-            <span class="svc-card-name">SEO Local</span>
-            <span class="svc-card-status">Top 3 en Google Maps</span>
+            <span class="svc-card-name">Redes Sociales</span>
+            <span class="svc-card-status">+12.000 seg. orgánicos</span>
           </div>
           <svg class="svc-card-arrow" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M7 17L17 7M17 7H7M17 7v10"/></svg>
         </div>
         <div class="hero-svc-card svc-card-2">
-          <div class="svc-card-dot svc-dot--web"></div>
+          <div class="svc-card-dot svc-dot--seo"></div>
           <div class="svc-card-body">
-            <span class="svc-card-name">Diseño Web</span>
-            <span class="svc-card-status">Performance 98/100</span>
+            <span class="svc-card-name">Estrategia Digital</span>
+            <span class="svc-card-status">+2M visualizaciones</span>
           </div>
           <svg class="svc-card-arrow" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M7 17L17 7M17 7H7M17 7v10"/></svg>
         </div>
         <div class="hero-svc-card svc-card-3">
-          <div class="svc-card-dot svc-dot--social"></div>
+          <div class="svc-card-dot svc-dot--web"></div>
           <div class="svc-card-body">
-            <span class="svc-card-name">Redes Sociales</span>
-            <span class="svc-card-status">+340% engagement</span>
+            <span class="svc-card-name">Diseño Web</span>
+            <span class="svc-card-status">Trato directo · Tenerife</span>
           </div>
           <svg class="svc-card-arrow" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M7 17L17 7M17 7H7M17 7v10"/></svg>
         </div>
@@ -4067,19 +4172,19 @@ html.nav-open { overflow: hidden; }
         <div class="section-label">Quién soy</div>
         <h2 class="about-headline">
           <span>Sin agencia detrás.</span>
-          <em>Solo criterio propio.</em>
+          <em>Solo resultados reales.</em>
         </h2>
         <p class="about-body">
-          Trabajo directamente contigo — sin gestores, sin equipos que no conocen tu negocio, sin promesas de temporada. Soy especialista en marketing digital para negocios en Tenerife, y cada proyecto que acepto recibe todo lo que tengo.
+          Soy Ismark, especialista en marketing digital para negocios en Tenerife. Trabajo directamente contigo — sin gestores, sin equipos que no conocen tu negocio, sin promesas vacías. Lo que hago, lo hago yo y lo hago bien.
         </p>
         <p class="about-body-2">
-          Prefiero trabajar con pocos clientes y hacerlo bien, que tener una cartera grande a la que nunca llego de verdad.
+          Mi fuerza está en redes sociales y estrategia digital: he llevado cuentas de cero a más de 12.000 seguidores orgánicos y a millones de visualizaciones para negocios locales. También ofrezco diseño web y SEO, y lo que no sé hacer todavía, no lo prometo.
         </p>
         <div class="about-pills">
           <span class="about-pill">Trato directo</span>
           <span class="about-pill">Sin intermediarios</span>
-          <span class="about-pill">Proceso claro</span>
-          <span class="about-pill">Ejecución real</span>
+          <span class="about-pill">Resultados documentados</span>
+          <span class="about-pill">Solo Tenerife</span>
         </div>
       </div>
     </div>
@@ -4278,80 +4383,90 @@ html.nav-open { overflow: hidden; }
 <section class="services" id="services">
   <div class="container">
     <div class="services-header">
-      <div class="section-label">Qué hacemos</div>
-      <h2 class="section-title">Todo lo que Tu Negocio<br>Necesita para Crecer Online</h2>
-      <p class="section-sub" style="margin-top:16px;">Servicios digitales completos pensados para negocios locales en Tenerife que quieren más clientes y más visibilidad.</p>
+      <div class="section-label">Qué hago</div>
+      <h2 class="section-title">Servicios digitales para<br>negocios en Tenerife</h2>
+      <p class="section-sub" style="margin-top:16px;">Trabajo en lo que conozco bien y lo que ya tiene resultados probados. Sin prometer lo que no puedo documentar.</p>
     </div>
     <div class="services-grid">
 
+      <!-- FEATURED: Redes Sociales — servicio con resultados probados -->
       <div class="service-card featured reveal">
-        <div class="service-icon ic-white"><svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><line x1="2" y1="12" x2="22" y2="12"/><path d="M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z"/></svg></div>
-        <h3 class="service-title">Diseño de Páginas Web</h3>
-        <p class="service-desc">Páginas web profesionales, rápidas y adaptadas a móvil. Diseñadas para transmitir confianza y captar clientes desde el primer clic, con integración de WhatsApp y formulario de contacto.</p>
+        <div class="service-icon ic-white"><svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="5" y="2" width="14" height="20" rx="2" ry="2"/><line x1="12" y1="18" x2="12.01" y2="18"/></svg></div>
+        <h3 class="service-title">Gestión de Redes Sociales</h3>
+        <p class="service-desc">Instagram, TikTok y Facebook con contenido profesional y estrategia real. He llevado cuentas de cero a más de 12.000 seguidores orgánicos y millones de visualizaciones para negocios en Tenerife. Esto es lo que mejor sé hacer.</p>
         <div class="service-tags">
-          <span class="service-tag">WordPress</span>
-          <span class="service-tag">Responsive</span>
-          <span class="service-tag">WhatsApp</span>
-          <span class="service-tag">Landing Pages</span>
+          <span class="service-tag">Instagram</span>
+          <span class="service-tag">TikTok</span>
+          <span class="service-tag">Facebook</span>
+          <span class="service-tag">Contenido profesional</span>
         </div>
         <div style="display:flex;align-items:center;gap:16px;flex-wrap:wrap;">
-          <a href="/diseno-web-tenerife/" class="service-link" style="color:rgba(255,255,255,0.8);">Ver más <span class="arrow">→</span></a>
-          <a href="#contact" class="service-link" data-service="Diseño de Página Web" style="color:var(--orange);">Pedir presupuesto <span class="arrow">→</span></a>
+          <a href="#portfolio" class="service-link" style="color:rgba(255,255,255,0.8);">Ver resultados <span class="arrow">→</span></a>
+          <a href="#contact" class="service-link" data-service="Gestión de Redes Sociales" style="color:var(--orange);">Empezar ahora <span class="arrow">→</span></a>
         </div>
       </div>
 
+      <!-- Creación de contenido visual -->
+      <div class="service-card reveal">
+        <div class="service-icon ic-teal"><svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 19l7-7 3 3-7 7-3-3z"/><path d="M18 13l-1.5-7.5L2 2l3.5 14.5L13 18l5-5z"/><path d="M2 2l7.586 7.586"/><circle cx="11" cy="11" r="2"/></svg></div>
+        <h3 class="service-title">Creación de Contenido</h3>
+        <p class="service-desc">Fotografía, vídeo con dron e Insta360, y textos que representan bien tu negocio. El contenido visual que ha generado millones de visualizaciones para mis clientes en Tenerife.</p>
+        <div class="service-tags">
+          <span class="service-tag">Fotografía</span>
+          <span class="service-tag">Vídeo · Dron</span>
+          <span class="service-tag">Insta360</span>
+          <span class="service-tag">Copywriting</span>
+        </div>
+        <a href="#contact" class="service-link" data-service="Creación de Contenido">Pedir contenido <span class="arrow">→</span></a>
+      </div>
+
+      <!-- Estrategia digital -->
+      <div class="service-card reveal">
+        <div class="service-icon ic-navy"><svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="23 6 13.5 15.5 8.5 10.5 1 18"/><polyline points="17 6 23 6 23 12"/></svg></div>
+        <h3 class="service-title">Estrategia Digital</h3>
+        <p class="service-desc">Si no tienes claro por dónde empezar, arrancamos por aquí. Analizamos tu negocio, tu competencia en Tenerife y diseñamos un plan con prioridades claras y presupuesto real.</p>
+        <div class="service-tags">
+          <span class="service-tag">Auditoría digital</span>
+          <span class="service-tag">Plan de acción</span>
+          <span class="service-tag">Competencia local</span>
+        </div>
+        <a href="#contact" class="service-link" data-service="Estrategia Digital Completa">Solicitar análisis <span class="arrow">→</span></a>
+      </div>
+
+      <!-- SEO Local -->
       <div class="service-card reveal">
         <div class="service-icon ic-blue"><svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="11" cy="11" r="8"/><line x1="21" y1="21" x2="16.65" y2="16.65"/></svg></div>
-        <h3 class="service-title">Posicionamiento SEO Local</h3>
-        <p class="service-desc">Optimizamos tu web para que aparezca en los primeros resultados de Google cuando alguien busca tu servicio en Tenerife. Más visitas orgánicas, sin pagar por cada clic.</p>
+        <h3 class="service-title">SEO Local</h3>
+        <p class="service-desc">Posicionamiento en Google para búsquedas locales en Tenerife. Optimización de ficha de Google Business, palabras clave con intención real y contenido que los algoritmos premian.</p>
         <div class="service-tags">
-          <span class="service-tag">SEO Local</span>
-          <span class="service-tag">Google Maps</span>
-          <span class="service-tag">Palabras clave</span>
+          <span class="service-tag">Google Business</span>
+          <span class="service-tag">SEO On-page</span>
+          <span class="service-tag">Búsquedas locales</span>
         </div>
         <a href="#contact" class="service-link" data-service="Posicionamiento SEO">Mejorar posición <span class="arrow">→</span></a>
       </div>
 
+      <!-- Diseño Web — honesto sobre el punto en que estamos -->
       <div class="service-card reveal">
-        <div class="service-icon ic-orange"><svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="5" y="2" width="14" height="20" rx="2" ry="2"/><line x1="12" y1="18" x2="12.01" y2="18"/></svg></div>
-        <h3 class="service-title">Gestión de Redes Sociales</h3>
-        <p class="service-desc">Gestionamos tu Instagram, Facebook y TikTok con contenido profesional y constante. Conectamos con tu audiencia y construimos una comunidad real alrededor de tu marca.</p>
+        <div class="service-icon ic-orange"><svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><line x1="2" y1="12" x2="22" y2="12"/><path d="M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z"/></svg></div>
+        <h3 class="service-title">Diseño Web</h3>
+        <p class="service-desc">Webs profesionales, rápidas y adaptadas a móvil para negocios en Tenerife. Estoy construyendo mi portfolio de proyectos publicados — si necesitas una web, hablemos sin compromiso y valora el trabajo antes de decidir.</p>
         <div class="service-tags">
-          <span class="service-tag">Instagram</span>
-          <span class="service-tag">Facebook</span>
-          <span class="service-tag">TikTok</span>
+          <span class="service-tag">WordPress</span>
+          <span class="service-tag">Responsive</span>
+          <span class="service-tag">WhatsApp</span>
+          <span class="service-tag">Conversión</span>
         </div>
-        <a href="#contact" class="service-link" data-service="Gestión de Redes Sociales">Activar redes <span class="arrow">→</span></a>
-      </div>
-
-      <div class="service-card reveal">
-        <div class="service-icon ic-navy"><svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="23 6 13.5 15.5 8.5 10.5 1 18"/><polyline points="17 6 23 6 23 12"/></svg></div>
-        <h3 class="service-title">Marketing Digital</h3>
-        <p class="service-desc">Campañas de publicidad en Google Ads y Meta Ads orientadas a resultados. Llegamos a tus clientes potenciales en el momento exacto en que buscan lo que ofreces.</p>
-        <div class="service-tags">
-          <span class="service-tag">Google Ads</span>
-          <span class="service-tag">Meta Ads</span>
-          <span class="service-tag">Analítica</span>
+        <div style="display:flex;align-items:center;gap:16px;flex-wrap:wrap;">
+          <a href="/diseno-web-tenerife/" class="service-link">Saber más <span class="arrow">→</span></a>
+          <a href="#contact" class="service-link" data-service="Diseño de Página Web" style="color:var(--orange);">Pedir presupuesto <span class="arrow">→</span></a>
         </div>
-        <a href="#contact" class="service-link" data-service="Marketing Digital / Publicidad">Lanzar campaña <span class="arrow">→</span></a>
-      </div>
-
-      <div class="service-card reveal">
-        <div class="service-icon ic-teal"><svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 19l7-7 3 3-7 7-3-3z"/><path d="M18 13l-1.5-7.5L2 2l3.5 14.5L13 18l5-5z"/><path d="M2 2l7.586 7.586"/><circle cx="11" cy="11" r="2"/></svg></div>
-        <h3 class="service-title">Creación de Contenido</h3>
-        <p class="service-desc">Fotografía, vídeo, textos y diseño gráfico que comunican el valor de tu negocio. Contenido visual de calidad para web y redes sociales que atrae y fideliza clientes.</p>
-        <div class="service-tags">
-          <span class="service-tag">Fotografía</span>
-          <span class="service-tag">Vídeo</span>
-          <span class="service-tag">Copywriting</span>
-        </div>
-        <a href="#contact" class="service-link" data-service="Creación de Contenido">Crear contenido <span class="arrow">→</span></a>
       </div>
 
       <div class="service-card reveal" style="background:linear-gradient(145deg, var(--navy) 0%, var(--ink) 100%);display:flex;flex-direction:column;align-items:center;justify-content:center;text-align:center;border-color:rgba(11,134,170,0.2);">
         <div style="width:56px;height:56px;border-radius:16px;background:rgba(244,98,36,0.12);border:1px solid rgba(244,98,36,0.25);display:flex;align-items:center;justify-content:center;margin-bottom:28px;"><svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="var(--orange)" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 11.5a8.38 8.38 0 0 1-.9 3.8 8.5 8.5 0 0 1-7.6 4.7 8.38 8.38 0 0 1-3.8-.9L3 21l1.9-5.7a8.38 8.38 0 0 1-.9-3.8 8.5 8.5 0 0 1 4.7-7.6 8.38 8.38 0 0 1 3.8-.9h.5a8.48 8.48 0 0 1 8 8v.5z"/></svg></div>
         <h3 class="service-title" style="font-size:17px;color:var(--white);">¿No sabes por dónde empezar?</h3>
-        <p class="service-desc" style="font-size:14px;color:rgba(255,255,255,0.55);">Cuéntanos cómo es tu negocio y te orientamos sin compromiso.</p>
+        <p class="service-desc" style="font-size:14px;color:rgba(255,255,255,0.55);">Cuéntame cómo es tu negocio y te digo qué tiene más sentido para ti ahora mismo.</p>
         <a href="#contact" class="btn btn-primary" style="margin-top:20px;font-size:13px;padding:12px 22px;">Consulta gratuita</a>
       </div>
 
@@ -4362,14 +4477,6 @@ html.nav-open { overflow: hidden; }
 <!-- ════════════════════════════════════════════════════
      INDUSTRIES
 ════════════════════════════════════════════════════ -->
-<section class="industries" id="industries" style="padding:80px 0;">
-  <div class="container">
-    <div style="text-align:center;max-width:700px;margin:0 auto;">
-      <div class="section-label">Sectores</div>
-      <p style="font-size:15px;line-height:1.7;color:var(--text-muted);">Hostelería · Hoteles y turismo · Inmobiliarias · Apartamentos turísticos · Comercio local · Empresas de servicios</p>
-    </div>
-  </div>
-</section>
 
 <!-- ════════════════════════════════════════════════════
      PORTFOLIO
@@ -4377,114 +4484,87 @@ html.nav-open { overflow: hidden; }
 <section class="portfolio" id="portfolio">
   <div class="container">
     <div class="portfolio-header">
-      <div class="section-label">Proyectos</div>
-      <h2 class="section-title">El trabajo habla<br>por sí solo</h2>
-      <p class="portfolio-sub">Servicios y muestras visuales pensados para negocios que quieren verse mejor y vender más online.</p>
+      <div class="section-label">Resultados reales</div>
+      <h2 class="section-title">Casos documentados.<br>Negocios en Tenerife.</h2>
+      <p class="portfolio-sub">No maquetas, no estimaciones. Estos son los proyectos reales con métricas reales que ya ocurrieron.</p>
     </div>
 
     <div class="port-grid-wrap">
 
-      <!-- TOP ROW -->
+      <!-- FILA ÚNICA: 2 casos reales + CTA -->
       <div class="port-row port-row--top">
 
-        <!-- CARD 1: Páginas Web (expandable) -->
-        <div class="port-main-card port-main-card--web reveal" id="portWebCard" role="button" aria-expanded="false" tabindex="0">
-          <div class="port-card-icon"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><line x1="2" y1="12" x2="22" y2="12"/><path d="M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z"/></svg></div>
-          <div class="port-card-label">Diseño Web</div>
-          <div class="port-card-title">Páginas Web</div>
-          <div class="port-card-desc">Webs profesionales, rápidas y adaptadas a móvil. Diseñadas para convertir visitas en clientes reales desde el primer clic.</div>
+        <!-- CASO 1: Tenerife Sin Límites (expandable) -->
+        <div class="port-main-card port-main-card--social reveal" id="portTSLCard" role="button" aria-expanded="false" tabindex="0">
+          <div class="port-card-icon">
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="5" y="2" width="14" height="20" rx="2" ry="2"/><line x1="12" y1="18" x2="12.01" y2="18"/></svg>
+          </div>
+          <div class="port-card-label">Redes Sociales · Turismo activo</div>
+          <div class="port-card-title">Tenerife Sin Límites</div>
+          <div class="port-card-desc">Gestión de redes sociales para un negocio de alquiler de autocaravanas en Tenerife. De cero a comunidad real en 6 meses, con contenido propio de vídeo, dron e Insta360.</div>
+          <div class="port-social-stats" style="margin-bottom:18px;">
+            <div class="port-stat-item">
+              <span class="port-stat-value">+12.000</span>
+              <span class="port-stat-label">seguidores orgánicos en 6 meses</span>
+            </div>
+            <div class="port-stat-item">
+              <span class="port-stat-value">+2M</span>
+              <span class="port-stat-label">visualizaciones totales</span>
+            </div>
+          </div>
           <div style="display:flex;align-items:center;gap:10px;flex-wrap:wrap;">
             <div class="port-expand-btn">
-              Ver proyectos <span class="port-expand-count">3</span>
+              Ver capturas <span class="port-expand-count">2</span>
               <span class="port-expand-arrow">↓</span>
             </div>
-            <a href="/diseno-web-tenerife/" class="port-card-cta" style="pointer-events:auto;" onclick="event.stopPropagation();">Ver página completa <span>→</span></a>
+            <a href="#contact" class="port-card-cta" data-service="Gestión de Redes Sociales" style="pointer-events:auto;" onclick="event.stopPropagation();">Quiero esto para mi negocio <span>→</span></a>
           </div>
         </div>
 
-        <!-- CARD 2: SEO Local -->
-        <div class="port-main-card reveal">
-          <div class="port-card-icon"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg></div>
-          <div class="port-card-label">Posicionamiento</div>
-          <div class="port-card-title">SEO Local</div>
-          <div class="port-card-desc">Optimización orientada a mejorar visibilidad en Google, búsquedas locales y captación de clientes en Tenerife.</div>
-          <a href="#contact" class="port-card-cta" data-service="Posicionamiento SEO">Mejorar posición <span>→</span></a>
-        </div>
-
-        <!-- CARD 3: Redes Sociales (expandable) -->
-        <div class="port-main-card port-main-card--social reveal" id="portSocialCard" role="button" aria-expanded="false" tabindex="0">
-          <div class="port-card-icon"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="5" y="2" width="14" height="20" rx="2" ry="2"/><line x1="12" y1="18" x2="12.01" y2="18"/></svg></div>
-          <div class="port-card-label">Social Media</div>
-          <div class="port-card-title">Redes Sociales</div>
-          <div class="port-card-desc">Gestión de contenido, diseño visual y publicaciones constantes para mejorar imagen, alcance y comunidad.</div>
+        <!-- CASO 2: CaracolCamper (expandable) -->
+        <div class="port-main-card port-main-card--social reveal" id="portCCCard" role="button" aria-expanded="false" tabindex="0">
+          <div class="port-card-icon">
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="5" y="2" width="14" height="20" rx="2" ry="2"/><line x1="12" y1="18" x2="12.01" y2="18"/></svg>
+          </div>
+          <div class="port-card-label">Redes Sociales · Camper / Aventura</div>
+          <div class="port-card-title">CaracolCamper</div>
+          <div class="port-card-desc">Estrategia de contenido y gestión de redes para un negocio del sector camper y turismo activo. Crecimiento orgánico sostenido con contenido visual de calidad.</div>
+          <div class="port-social-stats" style="margin-bottom:18px;">
+            <div class="port-stat-item">
+              <span class="port-stat-value">+6.000</span>
+              <span class="port-stat-label">seguidores en 4 meses</span>
+            </div>
+            <div class="port-stat-item">
+              <span class="port-stat-value">+1.3M</span>
+              <span class="port-stat-label">visualizaciones totales</span>
+            </div>
+          </div>
           <div style="display:flex;align-items:center;gap:10px;flex-wrap:wrap;">
             <div class="port-expand-btn">
-              Ver casos <span class="port-expand-count">3</span>
+              Ver capturas <span class="port-expand-count">2</span>
               <span class="port-expand-arrow">↓</span>
             </div>
-            <a href="#contact" class="port-card-cta" data-service="Gestión de Redes Sociales" style="pointer-events:auto;" onclick="event.stopPropagation();">Activar redes <span>→</span></a>
+            <a href="#contact" class="port-card-cta" data-service="Gestión de Redes Sociales" style="pointer-events:auto;" onclick="event.stopPropagation();">Quiero esto para mi negocio <span>→</span></a>
           </div>
+        </div>
+
+        <!-- TARJETA CTA: Tu negocio podría ser el próximo -->
+        <div class="port-main-card reveal" style="display:flex;flex-direction:column;justify-content:center;align-items:flex-start;background:linear-gradient(145deg,rgba(4,34,114,0.5) 0%,rgba(2,11,30,0.85) 100%);border-color:rgba(244,98,36,0.2);">
+          <div class="port-card-icon" style="background:rgba(244,98,36,0.12);border-color:rgba(244,98,36,0.25);">
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="var(--orange)" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 11.5a8.38 8.38 0 0 1-.9 3.8 8.5 8.5 0 0 1-7.6 4.7 8.38 8.38 0 0 1-3.8-.9L3 21l1.9-5.7a8.38 8.38 0 0 1-.9-3.8 8.5 8.5 0 0 1 4.7-7.6 8.38 8.38 0 0 1 3.8-.9h.5a8.48 8.48 0 0 1 8 8v.5z"/></svg>
+          </div>
+          <div class="port-card-label" style="color:var(--orange);">¿Tu negocio en Tenerife?</div>
+          <div class="port-card-title">El próximo caso podría ser el tuyo</div>
+          <div class="port-card-desc">Estos resultados son reales y repetibles. Si tienes un negocio en Tenerife y quieres crecer en redes o en Google, hablemos sin compromiso.</div>
+          <a href="#contact" class="port-card-cta" data-service="Gestión de Redes Sociales" style="background:rgba(244,98,36,0.15);border-color:rgba(244,98,36,0.3);">Solicitar consulta gratuita <span>→</span></a>
         </div>
 
       </div>
 
-      <!-- EXPANDABLE WEB PREVIEWS PANEL -->
-      <div class="port-web-panel" id="portWebPanel" aria-hidden="true">
-        <div class="port-web-panel-inner">
+      <!-- PANEL EXPANDABLE: Tenerife Sin Límites -->
+      <div class="port-social-panel" id="portTSLPanel" aria-hidden="true">
+        <div class="port-web-panel-inner" style="grid-template-columns:repeat(2,1fr);max-width:720px;">
 
-          <!-- Preview 1: Física Tenerife -->
-          <div class="port-preview-card">
-            <div class="port-preview-img-wrap">
-              <img src="assets/previews/fisica-tenerife.png" alt="Física Tenerife" loading="lazy" />
-              <div class="port-preview-overlay">
-                <a href="https://fisica-tenerife-yjjijkqa5fmkamyp.builder-preview.com/" class="port-preview-view-link" target="_blank" rel="noopener">Ver diseño →</a>
-              </div>
-            </div>
-            <div class="port-preview-info">
-              <div class="port-preview-name">Física Tenerife</div>
-              <div class="port-preview-desc">Web con estructura clara, imagen profesional y enfoque en captar alumnos y transmitir confianza desde el primer vistazo.</div>
-              <a href="https://fisica-tenerife-yjjijkqa5fmkamyp.builder-preview.com/" class="port-preview-btn" target="_blank" rel="noopener">Ver diseño <span>→</span></a>
-            </div>
-          </div>
-
-          <!-- Preview 2: Hefesto Reformas -->
-          <div class="port-preview-card">
-            <div class="port-preview-img-wrap">
-              <img src="assets/previews/hefesto-reformas.png" alt="Hefesto Reformas y Servicios" loading="lazy" />
-              <div class="port-preview-overlay">
-                <a href="https://hefesto-reformas-y-servicios-v9au3lyqkeaxrpf5.builder-preview.com/" class="port-preview-view-link" target="_blank" rel="noopener">Ver diseño →</a>
-              </div>
-            </div>
-            <div class="port-preview-info">
-              <div class="port-preview-name">Hefesto Reformas y Servicios</div>
-              <div class="port-preview-desc">Propuesta visual con enfoque comercial, servicios bien organizados y contacto claro para convertir visitas en oportunidades reales.</div>
-              <a href="https://hefesto-reformas-y-servicios-v9au3lyqkeaxrpf5.builder-preview.com/" class="port-preview-btn" target="_blank" rel="noopener">Ver diseño <span>→</span></a>
-            </div>
-          </div>
-
-          <!-- Preview 3: Reformas Espinosa Sur -->
-          <div class="port-preview-card">
-            <div class="port-preview-img-wrap">
-              <img src="assets/previews/espinosa-sur.png" alt="Reformas Espinosa Sur" loading="lazy" />
-              <div class="port-preview-overlay">
-                <a href="https://reformas-espinosa-sur-9ajvdiexwk4y3959.builder-preview.com/" class="port-preview-view-link" target="_blank" rel="noopener">Ver diseño →</a>
-              </div>
-            </div>
-            <div class="port-preview-info">
-              <div class="port-preview-name">Reformas Espinosa Sur</div>
-              <div class="port-preview-desc">Diseño pensado para transmitir confianza, mostrar servicios de forma directa y facilitar la captación de clientes en Tenerife.</div>
-              <a href="https://reformas-espinosa-sur-9ajvdiexwk4y3959.builder-preview.com/" class="port-preview-btn" target="_blank" rel="noopener">Ver diseño <span>→</span></a>
-            </div>
-          </div>
-
-        </div>
-      </div>
-
-      <!-- EXPANDABLE SOCIAL CASES PANEL -->
-      <div class="port-social-panel" id="portSocialPanel" aria-hidden="true">
-        <div class="port-web-panel-inner">
-
-          <!-- Caso 1: Tenerife Sin Límites -->
           <div class="port-preview-card">
             <div class="port-preview-img-wrap port-img-slider" data-slider>
               <div class="port-slider-track">
@@ -4500,20 +4580,34 @@ html.nav-open { overflow: hidden; }
             </div>
             <div class="port-preview-info">
               <div class="port-preview-name">Tenerife Sin Límites</div>
-              <div class="port-social-stats">
-                <div class="port-stat-item">
-                  <span class="port-stat-value">+12.000</span>
-                  <span class="port-stat-label">seguidores orgánicos en 6 meses</span>
-                </div>
-                <div class="port-stat-item">
-                  <span class="port-stat-value">+2M</span>
-                  <span class="port-stat-label">visitas</span>
-                </div>
+              <div class="port-preview-desc">Contenido de vídeo, dron e Insta360. Gestión mensual de publicaciones, stories y estrategia de crecimiento orgánico.</div>
+            </div>
+          </div>
+
+          <div class="port-preview-card" style="background:rgba(255,255,255,0.02);display:flex;flex-direction:column;justify-content:center;padding:28px;">
+            <div style="font-size:10px;letter-spacing:0.12em;text-transform:uppercase;color:var(--orange);font-family:var(--font-body);font-weight:600;margin-bottom:20px;">Resultados · 6 meses</div>
+            <div style="display:flex;flex-direction:column;gap:16px;">
+              <div>
+                <div style="font-family:var(--font-head);font-size:32px;font-weight:800;color:#fff;line-height:1;letter-spacing:-0.02em;">+12.000</div>
+                <div style="font-size:12px;color:rgba(255,255,255,0.5);margin-top:4px;font-family:var(--font-body);">seguidores orgánicos</div>
+              </div>
+              <div>
+                <div style="font-family:var(--font-head);font-size:32px;font-weight:800;color:#fff;line-height:1;letter-spacing:-0.02em;">+2M</div>
+                <div style="font-size:12px;color:rgba(255,255,255,0.5);margin-top:4px;font-family:var(--font-body);">visualizaciones totales</div>
+              </div>
+              <div>
+                <div style="font-family:var(--font-head);font-size:14px;font-weight:700;color:rgba(255,255,255,0.65);line-height:1.4;">Alquiler de autocaravanas · Tenerife</div>
               </div>
             </div>
           </div>
 
-          <!-- Caso 2: CaracolCamper -->
+        </div>
+      </div>
+
+      <!-- PANEL EXPANDABLE: CaracolCamper -->
+      <div class="port-social-panel" id="portCCPanel" aria-hidden="true">
+        <div class="port-web-panel-inner" style="grid-template-columns:repeat(2,1fr);max-width:720px;">
+
           <div class="port-preview-card">
             <div class="port-preview-img-wrap port-img-slider" data-slider>
               <div class="port-slider-track">
@@ -4529,70 +4623,28 @@ html.nav-open { overflow: hidden; }
             </div>
             <div class="port-preview-info">
               <div class="port-preview-name">CaracolCamper</div>
-              <div class="port-social-stats">
-                <div class="port-stat-item">
-                  <span class="port-stat-value">+6.000</span>
-                  <span class="port-stat-label">seguidores en 4 meses</span>
-                </div>
-                <div class="port-stat-item">
-                  <span class="port-stat-value">+1.3M</span>
-                  <span class="port-stat-label">visitas</span>
-                </div>
+              <div class="port-preview-desc">Estrategia de contenido orientada a turismo activo. Vídeo, reels y publicaciones constantes que generaron crecimiento sostenido.</div>
+            </div>
+          </div>
+
+          <div class="port-preview-card" style="background:rgba(255,255,255,0.02);display:flex;flex-direction:column;justify-content:center;padding:28px;">
+            <div style="font-size:10px;letter-spacing:0.12em;text-transform:uppercase;color:var(--orange);font-family:var(--font-body);font-weight:600;margin-bottom:20px;">Resultados · 4 meses</div>
+            <div style="display:flex;flex-direction:column;gap:16px;">
+              <div>
+                <div style="font-family:var(--font-head);font-size:32px;font-weight:800;color:#fff;line-height:1;letter-spacing:-0.02em;">+6.000</div>
+                <div style="font-size:12px;color:rgba(255,255,255,0.5);margin-top:4px;font-family:var(--font-body);">seguidores orgánicos</div>
+              </div>
+              <div>
+                <div style="font-family:var(--font-head);font-size:32px;font-weight:800;color:#fff;line-height:1;letter-spacing:-0.02em;">+1.3M</div>
+                <div style="font-size:12px;color:rgba(255,255,255,0.5);margin-top:4px;font-family:var(--font-body);">visualizaciones totales</div>
+              </div>
+              <div>
+                <div style="font-family:var(--font-head);font-size:14px;font-weight:700;color:rgba(255,255,255,0.65);line-height:1.4;">Camper y turismo activo · Tenerife</div>
               </div>
             </div>
           </div>
 
-          <!-- Caso 3: Placeholder -->
-          <div class="port-preview-card port-preview-card--placeholder">
-            <div class="port-preview-placeholder-body">
-              <div class="port-preview-placeholder-icon"><svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg></div>
-              <div class="port-preview-placeholder-text">Tú podrías ser<br>el próximo</div>
-              <a href="#contact" class="port-preview-btn" data-service="Gestión de Redes Sociales" onclick="event.stopPropagation();">Hablemos <span>→</span></a>
-            </div>
-          </div>
-
         </div>
-      </div>
-
-      <!-- BOTTOM ROW -->
-      <div class="port-row port-row--bottom">
-
-        <!-- CARD 4: Identidad Visual / Branding -->
-        <div class="port-main-card reveal">
-          <div class="port-card-icon"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg></div>
-          <div class="port-card-label">Branding</div>
-          <div class="port-card-title">Identidad Visual y Branding</div>
-          <div class="port-card-desc">Diseño visual coherente para que tu negocio transmita profesionalidad, personalidad y una imagen sólida.</div>
-          <div style="display:flex;align-items:center;gap:10px;flex-wrap:wrap;">
-            <a href="#contact" class="port-card-cta" data-service="Creación de Contenido">Solicitar información <span>→</span></a>
-            <span style="font-size:10px;font-weight:600;letter-spacing:0.08em;text-transform:uppercase;color:rgba(255,255,255,0.3);font-family:var(--font-body);">Casos próximamente</span>
-          </div>
-        </div>
-
-        <!-- CARD 5: Web Inmobiliaria -->
-        <div class="port-main-card reveal">
-          <div class="port-card-icon"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"/><polyline points="9 22 9 12 15 12 15 22"/></svg></div>
-          <div class="port-card-label">Sector Inmobiliario</div>
-          <div class="port-card-title">Web Inmobiliaria</div>
-          <div class="port-card-desc">Diseño y estructura digital pensados para mostrar propiedades, captar contactos y transmitir confianza.</div>
-          <div style="display:flex;align-items:center;gap:10px;flex-wrap:wrap;">
-            <a href="#contact" class="port-card-cta" data-service="Diseño de Página Web">Solicitar información <span>→</span></a>
-            <span style="font-size:10px;font-weight:600;letter-spacing:0.08em;text-transform:uppercase;color:rgba(255,255,255,0.3);font-family:var(--font-body);">Casos próximamente</span>
-          </div>
-        </div>
-
-        <!-- CARD 6: Marketing Turístico -->
-        <div class="port-main-card reveal">
-          <div class="port-card-icon"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M17.8 19.2L16 11l3.5-3.5C21 6 21.5 4 21 3c-1-.5-3 0-4.5 1.5L13 8 4.8 6.2c-.5-.1-.9.1-1.1.5l-.3.5c-.2.5-.1 1 .3 1.3L9 12l-2 3H4l-1 1 3 2 2 3 1-1v-3l3-2 3.5 5.3c.3.4.8.5 1.3.3l.5-.2c.4-.3.6-.7.5-1.2z"/></svg></div>
-          <div class="port-card-label">Sector Turístico</div>
-          <div class="port-card-title">Marketing Turístico</div>
-          <div class="port-card-desc">Estrategias orientadas a alojamientos, apartamentos vacacionales y negocios turísticos que quieren más visibilidad y reservas.</div>
-          <div style="display:flex;align-items:center;gap:10px;flex-wrap:wrap;">
-            <a href="#contact" class="port-card-cta" data-service="Marketing Digital / Publicidad">Solicitar información <span>→</span></a>
-            <span style="font-size:10px;font-weight:600;letter-spacing:0.08em;text-transform:uppercase;color:rgba(255,255,255,0.3);font-family:var(--font-body);">Casos próximamente</span>
-          </div>
-        </div>
-
       </div>
 
     </div>
@@ -4606,9 +4658,9 @@ html.nav-open { overflow: hidden; }
   <div class="container">
 
     <div class="testimonials-header">
-      <div class="section-label">Reseñas reales</div>
-      <h2 class="section-title section-title--white">Lo que dicen nuestros<br>clientes</h2>
-      <p class="section-sub section-sub--white" style="margin: 0 auto;">Opiniones reales de negocios que ya han trabajado con nosotros en Tenerife.</p>
+      <div class="section-label">Opiniones reales</div>
+      <h2 class="section-title section-title--white">Clientes que<br>ya lo han vivido</h2>
+      <p class="section-sub section-sub--white" style="margin: 0 auto;">Lo que dicen los negocios en Tenerife que ya trabajan conmigo.</p>
     </div>
 
     <div class="testimonials-grid">
@@ -4654,64 +4706,24 @@ html.nav-open { overflow: hidden; }
           <div class="test-avatar test-avatar--warm">AP</div>
           <div>
             <div class="test-name">Adalberto Pérez Rivero</div>
-            <div class="test-role">Profesor · Tenerife</div>
+            <div class="test-role">Asesoramiento estratégico · Tenerife</div>
           </div>
         </div>
       </div>
 
-      <!-- RESEÑA 3: Placeholder — sustituir con reseña real -->
-      <div class="test-card test-card--growth reveal">
-        <div class="test-google-badge">
-          <span class="badge-dot"></span>
-          Reseña real de Google
-        </div>
-        <div class="test-stars">★★★★★</div>
-        <div class="test-title"><!-- TODO: Título de la reseña --></div>
-        <p class="test-quote"><!-- TODO: Pegar aquí la reseña real de Google --></p>
-        <div class="test-badges">
-          <!-- TODO: Añadir badges con resultados -->
-        </div>
-        <div class="test-author">
-          <div class="test-avatar test-avatar--teal">··</div>
-          <div>
-            <div class="test-name"><!-- TODO: Nombre del cliente --></div>
-            <div class="test-role"><!-- TODO: Sector · Tenerife --></div>
-          </div>
-        </div>
-      </div>
-
-      <!-- RESEÑA 4: Placeholder — sustituir con reseña real -->
-      <div class="test-card test-card--trust reveal">
-        <div class="test-google-badge">
-          <span class="badge-dot"></span>
-          Cliente real
-        </div>
-        <div class="test-stars">★★★★★</div>
-        <div class="test-title"><!-- TODO: Título de la reseña --></div>
-        <p class="test-quote"><!-- TODO: Pegar aquí la reseña real de Google --></p>
-        <div class="test-badges">
-          <!-- TODO: Añadir badges con resultados -->
-        </div>
-        <div class="test-author">
-          <div class="test-avatar test-avatar--warm">··</div>
-          <div>
-            <div class="test-name"><!-- TODO: Nombre del cliente --></div>
-            <div class="test-role"><!-- TODO: Sector · Tenerife --></div>
-          </div>
-        </div>
-      </div>
+      <!-- Más reseñas en Google Maps -->
 
     </div>
 
     <div class="testimonials-cta">
-      <a href="https://www.google.com/maps/search/Agencia+Marketing+Digital+Tenerife+Ismark" class="btn-google" target="_blank" rel="noopener">
+      <a href="https://www.google.com/search?sca_esv=bb6c5abae431ebb2&hl=es&authuser=6&sxsrf=ANbL-n6iZUEMYz6nViVuuOTC3LquTtGofA:1775854662209&uds=ALYpb_ncDc7jTlmw6Mmq7NjuX5c-kf9qva3KSlTDQao7JEzsTxF4l-Ub2_13NCm4DGGT8_omSXtSjynW6KIGk75zmgh6gViig-qpFsDWRowZnBVRYyG8ZF-G3nrwQ3rgfMjZz1ahU1TOVFaOo6urwubVH6G_-k36EPRiD0FBr-w2m6RnaBKRngG8bLJdbJN_XsKjIZEnxCrKM2K7n7-ZbseeYd5JROYhfkvLv4k-4I8RQZdPB3ETTFpoXrggqsVU061LhdGNJ9F28Wyu8t8yR4O0ra2XRRoNiw&q=MDT+Digital+Rese%C3%B1as&si=AL3DRZEsmMGCryMMFSHJ3StBhOdZ2-6yYkXd_doETEE1OR-qOXHqbmEHSONh7-4qsfcokLjLdFG3JnX_N2jBQICpJ7Lsse6iDVDxvMzArxekD3aN8Tg3VZk_ijcxwuTMe9CjBoFAP0pq&authuser=6&sa=X&ved=2ahUKEwjF_cCSluSTAxV8NvsDHZSkMWoQ_4MLegQIKBAJ&biw=1920&bih=953&dpr=1" class="btn-google" target="_blank" rel="noopener noreferrer">
         <svg class="btn-google-icon" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
           <path d="M22.56 12.25c0-.78-.07-1.53-.2-2.25H12v4.26h5.92c-.26 1.37-1.04 2.53-2.21 3.31v2.77h3.57c2.08-1.92 3.28-4.74 3.28-8.09z" fill="#4285F4"/>
           <path d="M12 23c2.97 0 5.46-.98 7.28-2.66l-3.57-2.77c-.98.66-2.23 1.06-3.71 1.06-2.86 0-5.29-1.93-6.16-4.53H2.18v2.84C3.99 20.53 7.7 23 12 23z" fill="#34A853"/>
           <path d="M5.84 14.09c-.22-.66-.35-1.36-.35-2.09s.13-1.43.35-2.09V7.07H2.18C1.43 8.55 1 10.22 1 12s.43 3.45 1.18 4.93l3.66-2.84z" fill="#FBBC05"/>
           <path d="M12 5.38c1.62 0 3.06.56 4.21 1.64l3.15-3.15C17.45 2.09 14.97 1 12 1 7.7 1 3.99 3.47 2.18 7.07l3.66 2.84c.87-2.6 3.3-4.53 6.16-4.53z" fill="#EA4335"/>
         </svg>
-        Ver más reseñas en Google
+        Leer reseñas en Google →
       </a>
     </div>
 
@@ -4776,9 +4788,9 @@ html.nav-open { overflow: hidden; }
 <section class="final-cta">
   <div class="container">
     <div class="final-cta-inner">
-      <div class="cta-badge"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="flex-shrink:0;"><path d="M4.5 16.5c-1.5 1.26-2 5-2 5s3.74-.5 5-2c.71-.84.7-2.13-.09-2.91a2.18 2.18 0 0 0-2.91-.09z"/><path d="M12 15l-3-3a22 22 0 0 1 2-3.95A12.88 12.88 0 0 1 22 2c0 2.72-.78 7.5-6 11a22.35 22.35 0 0 1-4 2z"/><path d="M9 12H4s.55-3.03 2-4c1.62-1.08 5 0 5 0"/><path d="M12 15v5s3.03-.55 4-2c1.08-1.62 0-5 0-5"/></svg> Plazas disponibles este mes</div>
-      <h2 class="final-cta-title">¿Listo para que Tu Negocio<br>Crezca <span class="accent">en Internet?</span></h2>
-      <p class="final-cta-sub">Da el primer paso hoy. Cuéntanos cómo es tu negocio y te explicamos sin compromiso qué podemos hacer por ti en Tenerife.</p>
+      <div class="cta-badge"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="flex-shrink:0;"><path d="M21 11.5a8.38 8.38 0 0 1-.9 3.8 8.5 8.5 0 0 1-7.6 4.7 8.38 8.38 0 0 1-3.8-.9L3 21l1.9-5.7a8.38 8.38 0 0 1-.9-3.8 8.5 8.5 0 0 1 4.7-7.6 8.38 8.38 0 0 1 3.8-.9h.5a8.48 8.48 0 0 1 8 8v.5z"/></svg> Consulta gratuita · Sin compromiso</div>
+      <h2 class="final-cta-title">Tu negocio en Tenerife<br>puede llegar más lejos. <span class="accent">Hablemos.</span></h2>
+      <p class="final-cta-sub">Cuéntame cómo es tu negocio y qué quieres conseguir. En 24 horas tienes una respuesta concreta, no un PDF genérico.</p>
       <div class="cta-actions">
         <a href="#contact" class="btn btn-primary" style="font-size:16px;padding:18px 36px;">
           Solicitar información
@@ -4790,8 +4802,8 @@ html.nav-open { overflow: hidden; }
       </div>
       <div class="cta-trust-line">
         <div class="cta-trust-item"><span class="check">✓</span> Sin compromiso</div>
-        <div class="cta-trust-item"><span class="check">✓</span> Respuesta en 24 horas</div>
-        <div class="cta-trust-item"><span class="check">✓</span> Consulta gratuita</div>
+        <div class="cta-trust-item"><span class="check">✓</span> Respuesta en menos de 24 horas</div>
+        <div class="cta-trust-item"><span class="check">✓</span> Solo trabajo con negocios en Tenerife</div>
       </div>
     </div>
   </div>
@@ -4804,15 +4816,15 @@ html.nav-open { overflow: hidden; }
   <div class="container contact-inner">
     <div class="contact-info">
       <div class="section-label">Contacto</div>
-      <h2 class="section-title">Cuéntanos qué<br>necesitas</h2>
-      <p class="section-sub" style="margin-top:16px;margin-bottom:40px;">Te respondemos con una propuesta clara en menos de 24 horas.</p>
+      <h2 class="section-title">Cuéntame qué<br>necesitas</h2>
+      <p class="section-sub" style="margin-top:16px;margin-bottom:40px;">Te escribo directamente con una propuesta clara en menos de 24 horas. Sin intermediarios, sin spam.</p>
 
       <div class="contact-items">
         <div class="contact-item">
           <div class="contact-item-icon bg-blue"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="var(--blue)" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg></div>
           <div class="contact-item-text">
             <h4>Email</h4>
-            <p>hola@marketingdigitaltenerife.com</p>
+            <p>ismarklazarosac@gmail.com</p>
           </div>
         </div>
         <div class="contact-item">
@@ -4827,18 +4839,51 @@ html.nav-open { overflow: hidden; }
 
     <div class="contact-form-wrap">
       <div class="form-header">
-        <h3>Cuéntanos qué necesitas</h3>
-        <p>Consulta gratuita — te respondemos en menos de 24 horas.</p>
+        <h3>Cuéntame qué necesitas</h3>
+        <p>Consulta gratuita — te respondo en menos de 24 horas.</p>
       </div>
+
+      <!-- ═══════════════════════════════════════════════
+           FORMULARIO DE CONTACTO — Formspree
+           ─────────────────────────────────────────────
+           SETUP (una sola vez):
+           1. Crea cuenta gratis en https://formspree.io
+           2. Crea un nuevo Form → destino: ismarklazarosac@gmail.com
+           3. Copia el endpoint (ej: https://formspree.io/f/abcdefgh)
+           4. Pégalo en la constante FORMSPREE_ENDPOINT del <script>
+              que está al final de esta página.
+      ════════════════════════════════════════════════ -->
       <form id="contactForm" novalidate>
+
+        <!-- Asunto del email que recibirás -->
+        <input type="hidden" name="_subject" value="Nueva consulta — marketingdigitaltenerife.com" />
+
         <div class="form-group">
           <label for="fname">Nombre</label>
-          <input type="text" id="fname" name="fname" placeholder="Tu nombre" required />
+          <input
+            type="text"
+            id="fname"
+            name="name"
+            placeholder="Tu nombre"
+            required
+            autocomplete="name"
+          />
+          <span class="form-field-error" id="fname-error">Por favor, escribe tu nombre.</span>
         </div>
+
         <div class="form-group">
           <label for="contact-method">Email o WhatsApp</label>
-          <input type="text" id="contact-method" name="contact_method" placeholder="tucorreo@email.com o +34 600 000 000" required />
+          <input
+            type="text"
+            id="contact-method"
+            name="contact_method"
+            placeholder="tucorreo@email.com o +34 600 000 000"
+            required
+            autocomplete="email"
+          />
+          <span class="form-field-error" id="contact-error">Necesitamos tu email o número para responderte.</span>
         </div>
+
         <div class="form-group">
           <label for="service">Servicio de interés</label>
           <select id="service" name="service">
@@ -4851,18 +4896,49 @@ html.nav-open { overflow: hidden; }
             <option>Estrategia Digital Completa</option>
           </select>
         </div>
+
         <div class="form-group">
-          <label for="message">¿Qué necesitas?</label>
-          <textarea id="message" name="message" placeholder="Cuéntanos brevemente sobre tu negocio y qué quieres mejorar." style="min-height:90px;"></textarea>
+          <label for="message">¿Cuál es tu mayor reto ahora mismo?</label>
+          <textarea
+            id="message"
+            name="message"
+            placeholder="Ej: Tengo un restaurante en Santa Cruz y no aparezco en Google. Quiero más reservas online."
+            style="min-height:90px;"
+          ></textarea>
         </div>
+
         <div class="form-submit">
-          <button type="submit" class="btn btn-primary">
-            Recibir propuesta
-            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M22 2L11 13M22 2L15 22l-4-9-9-4 20-7z"/></svg>
+          <button type="submit" class="btn btn-primary" id="contactSubmitBtn">
+            <!-- .btn-label se oculta durante la carga para mostrar el spinner -->
+            <span class="btn-label">
+              Enviar mensaje
+              <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M22 2L11 13M22 2L15 22l-4-9-9-4 20-7z"/></svg>
+            </span>
           </button>
-          <p class="form-submit-note">Sin compromiso. Respuesta rápida y clara.</p>
+          <p class="form-submit-note">Sin compromiso. Respuesta en menos de 24 horas.</p>
         </div>
+
+        <!-- Banner de error de red o servidor -->
+        <div class="form-error-banner" id="formErrorBanner" role="alert" aria-live="assertive">
+          <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round"><circle cx="12" cy="12" r="10"/><line x1="12" y1="8" x2="12" y2="12"/><line x1="12" y1="16" x2="12.01" y2="16"/></svg>
+          <span id="formErrorText">Algo salió mal. Inténtalo de nuevo o escríbeme directamente por <a href="https://wa.me/34622034355" style="color:inherit;font-weight:600;" target="_blank" rel="noopener">WhatsApp</a>.</span>
+        </div>
+
       </form>
+
+      <!-- Panel de éxito: visible tras envío correcto, oculta el form -->
+      <div class="form-success" id="formSuccess" role="status" aria-live="polite">
+        <div class="form-success-icon">
+          <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg>
+        </div>
+        <p class="form-success-title">Mensaje recibido</p>
+        <p class="form-success-sub">
+          Gracias por escribir. Te respondo en menos de 24 horas con algo concreto.<br>
+          Si necesitas respuesta urgente, escríbeme por
+          <a href="https://wa.me/34622034355" target="_blank" rel="noopener">WhatsApp</a>.
+        </p>
+      </div>
+
     </div>
   </div>
 </section>
@@ -4882,12 +4958,13 @@ html.nav-open { overflow: hidden; }
             <div class="footer-brand-sub">Marketing Digital Tenerife</div>
           </div>
         </div>
-        <p class="footer-tagline">Tu equipo de marketing digital en Tenerife. Convertimos negocios locales en referentes online.</p>
+        <p class="footer-tagline">Marketing digital en Tenerife para negocios que quieren crecer. Redes sociales, SEO y diseño web con resultados reales.</p>
         <div class="footer-socials">
-          <a href="#" class="social-btn" aria-label="Instagram"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="rgba(255,255,255,0.7)" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="2" width="20" height="20" rx="5" ry="5"/><path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"/><line x1="17.5" y1="6.5" x2="17.51" y2="6.5"/></svg></a>
-          <a href="#" class="social-btn" aria-label="Facebook"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="rgba(255,255,255,0.7)" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M18 2h-3a5 5 0 0 0-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 0 1 1-1h3z"/></svg></a>
-          <a href="#" class="social-btn" aria-label="LinkedIn"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="rgba(255,255,255,0.7)" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6z"/><rect x="2" y="9" width="4" height="12"/><circle cx="4" cy="4" r="2"/></svg></a>
-          <a href="#" class="social-btn" aria-label="TikTok"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="rgba(255,255,255,0.7)" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M9 12a4 4 0 1 0 4 4V4a5 5 0 0 0 5 5"/></svg></a>
+          <!-- Añade las URLs reales cuando tengas los perfiles activos:
+               Instagram → href="https://www.instagram.com/TU_USUARIO"
+               TikTok    → href="https://www.tiktok.com/@TU_USUARIO"
+               Facebook  → href="https://www.facebook.com/TU_PAGINA"
+          -->
           <a href="https://wa.me/34622034355" class="social-btn" aria-label="WhatsApp" target="_blank" rel="noopener"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="rgba(255,255,255,0.7)" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 11.5a8.38 8.38 0 0 1-.9 3.8 8.5 8.5 0 0 1-7.6 4.7 8.38 8.38 0 0 1-3.8-.9L3 21l1.9-5.7a8.38 8.38 0 0 1-.9-3.8 8.5 8.5 0 0 1 4.7-7.6 8.38 8.38 0 0 1 3.8-.9h.5a8.48 8.48 0 0 1 8 8v.5z"/></svg></a>
         </div>
       </div>
@@ -4929,9 +5006,9 @@ html.nav-open { overflow: hidden; }
     <div class="footer-bottom">
       <p class="footer-copy">© 2026 Marketing Digital Tenerife · Todos los derechos reservados</p>
       <div class="footer-legal">
-        <a href="#">Política de Privacidad</a>
-        <a href="#">Política de Cookies</a>
-        <a href="#">Aviso Legal</a>
+        <a href="/privacidad.html">Política de Privacidad</a>
+        <a href="/cookies.html">Política de Cookies</a>
+        <a href="/aviso-legal.html">Aviso Legal</a>
       </div>
     </div>
   </div>
@@ -5070,8 +5147,8 @@ function makeExpandable(cardId, panelId) {
   });
 }
 
-makeExpandable('portWebCard',    'portWebPanel');
-makeExpandable('portSocialCard', 'portSocialPanel');
+makeExpandable('portTSLCard', 'portTSLPanel');
+makeExpandable('portCCCard',  'portCCPanel');
 
 // ── Mini sliders inside social panel ──────────
 (function() {
@@ -5190,6 +5267,162 @@ document.querySelectorAll('[data-service]').forEach(function(link) {
       }
     });
   }
+})();
+</script>
+
+<script>
+/* ════════════════════════════════════════════════════
+   CONTACT FORM — Integración con Formspree
+   ────────────────────────────────────────────────────
+   SETUP (una sola vez):
+   1. Ve a https://formspree.io y crea una cuenta gratis
+   2. Crea un nuevo Form → pon ismarklazarosac@gmail.com
+      como dirección de destino y verifica el email
+   3. Copia el endpoint que te dan
+      (tiene este aspecto: https://formspree.io/f/xxxxxxxx)
+   4. Reemplaza el valor de FORMSPREE_ENDPOINT aquí abajo
+════════════════════════════════════════════════════ */
+(function () {
+  /* ─── CONFIGURA ESTO ────────────────────────────── */
+  var FORMSPREE_ENDPOINT = 'https://formspree.io/f/meepbyen';
+  /* ─────────────────────────────────────────────── */
+
+  var form        = document.getElementById('contactForm');
+  var btn         = document.getElementById('contactSubmitBtn');
+  var successPanel = document.getElementById('formSuccess');
+  var errBanner   = document.getElementById('formErrorBanner');
+  var errText     = document.getElementById('formErrorText');
+
+  if (!form) return; /* Salida segura si no existe el form */
+
+  /* ── Validadores ────────────────────────────────── */
+  function looksLikeEmail(v) {
+    return /^[^\s@]+@[^\s@]+\.[^\s@]{2,}$/.test(v.trim());
+  }
+  function looksLikePhone(v) {
+    /* acepta: +34 622 034 355 · 622034355 · (34)622034355 */
+    return /^[\+\d\s\-\(\)]{7,20}$/.test(v.trim());
+  }
+
+  /* ── Marca / desmarca error en un campo ─────────── */
+  function setFieldError(inputId, errorId, message) {
+    var input = document.getElementById(inputId);
+    var errEl = document.getElementById(errorId);
+    if (message) {
+      input.closest('.form-group').classList.add('has-error');
+      if (errEl && message !== true) errEl.textContent = message;
+    } else {
+      input.closest('.form-group').classList.remove('has-error');
+    }
+  }
+
+  /* ── Limpia errores al escribir ─────────────────── */
+  ['fname', 'contact-method'].forEach(function (id) {
+    var el = document.getElementById(id);
+    if (!el) return;
+    el.addEventListener('input', function () {
+      this.closest('.form-group').classList.remove('has-error');
+    });
+  });
+
+  /* ── Valida campos requeridos ───────────────────── */
+  function validate() {
+    var ok      = true;
+    var name    = document.getElementById('fname').value.trim();
+    var contact = document.getElementById('contact-method').value.trim();
+
+    /* Nombre: obligatorio, mínimo 2 caracteres */
+    if (name.length < 2) {
+      setFieldError('fname', 'fname-error', 'Por favor, escribe tu nombre.');
+      ok = false;
+    } else {
+      setFieldError('fname', 'fname-error', null);
+    }
+
+    /* Contacto: obligatorio + formato email o teléfono */
+    if (!contact) {
+      setFieldError('contact-method', 'contact-error', 'Necesitamos tu email o número para responderte.');
+      ok = false;
+    } else if (!looksLikeEmail(contact) && !looksLikePhone(contact)) {
+      setFieldError('contact-method', 'contact-error', 'Introduce un email válido o un número de teléfono.');
+      ok = false;
+    } else {
+      setFieldError('contact-method', 'contact-error', null);
+    }
+
+    return ok;
+  }
+
+  /* ── Estado: cargando ───────────────────────────── */
+  function setLoading(isLoading) {
+    if (isLoading) {
+      btn.classList.add('btn--loading');
+      btn.setAttribute('aria-busy', 'true');
+      btn.disabled = true;
+    } else {
+      btn.classList.remove('btn--loading');
+      btn.removeAttribute('aria-busy');
+      btn.disabled = false;
+    }
+  }
+
+  /* ── Mostrar error de red/servidor ─────────────── */
+  function showNetworkError(msg) {
+    errText.innerHTML = msg ||
+      'Algo salió mal. Inténtalo de nuevo o escríbeme por ' +
+      '<a href="https://wa.me/34622034355" style="color:inherit;font-weight:600;" target="_blank" rel="noopener">WhatsApp</a>.';
+    errBanner.classList.add('is-visible');
+    /* Scroll suave al error para que el usuario lo vea */
+    errBanner.scrollIntoView({ behavior: 'smooth', block: 'nearest' });
+  }
+
+  /* ── Envío ──────────────────────────────────────── */
+  form.addEventListener('submit', function (e) {
+    e.preventDefault();
+
+    /* Limpia banner de error previo */
+    errBanner.classList.remove('is-visible');
+
+    /* Valida antes de enviar */
+    if (!validate()) return;
+
+    setLoading(true);
+
+    fetch(FORMSPREE_ENDPOINT, {
+      method : 'POST',
+      body   : new FormData(form),
+      headers: { 'Accept': 'application/json' }
+    })
+    .then(function (res) {
+      setLoading(false);
+
+      if (res.ok) {
+        /* ✓ Éxito: ocultar form y mostrar panel de confirmación */
+        form.style.display = 'none';
+        successPanel.classList.add('is-visible');
+        successPanel.scrollIntoView({ behavior: 'smooth', block: 'nearest' });
+      } else {
+        /* ✗ Error del servidor (ej: endpoint incorrecto, límite excedido) */
+        res.json()
+          .then(function (body) {
+            var serverMsg = (body.errors && body.errors.length)
+              ? body.errors.map(function (e) { return e.message; }).join('. ')
+              : null;
+            showNetworkError(serverMsg);
+          })
+          .catch(function () {
+            showNetworkError(null);
+          });
+      }
+    })
+    .catch(function () {
+      /* ✗ Error de red (sin conexión, timeout…) */
+      setLoading(false);
+      showNetworkError('No se pudo enviar el mensaje. Comprueba tu conexión o escríbeme por ' +
+        '<a href="https://wa.me/34622034355" style="color:inherit;font-weight:600;" target="_blank" rel="noopener">WhatsApp</a>.');
+    });
+  });
+
 })();
 </script>
 

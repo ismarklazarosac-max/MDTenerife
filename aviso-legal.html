@@ -1,0 +1,288 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Aviso Legal | Marketing Digital Tenerife</title>
+  <meta name="description" content="Aviso legal de Marketing Digital Tenerife. Información del responsable, condiciones de uso y propiedad intelectual." />
+  <meta name="robots" content="noindex, follow" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600;700;800&family=Poppins:wght@400;500;600&display=swap" />
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    :root {
+      --ink:        #020B1E;
+      --navy:       #042272;
+      --blue:       #0B86AA;
+      --orange:     #F46224;
+      --white:      #FFFFFF;
+      --off-white:  #F8FAFF;
+      --gray-light: #EFF3FB;
+      --text:       #0F1C3F;
+      --text-muted: #64748B;
+      --font-head:  'Montserrat', sans-serif;
+      --font-body:  'Poppins', sans-serif;
+    }
+    html { scroll-behavior: smooth; }
+    body { font-family: var(--font-body); color: var(--text); background: var(--white); line-height: 1.6; -webkit-font-smoothing: antialiased; }
+    a { text-decoration: none; color: inherit; }
+
+    /* ── NAV ── */
+    .nav-header {
+      position: fixed; top: 0; left: 0; right: 0; z-index: 1000;
+      padding: 16px 0; background: rgba(2,11,30,0.97);
+      backdrop-filter: blur(20px); -webkit-backdrop-filter: blur(20px);
+      border-bottom: 1px solid rgba(255,255,255,0.06);
+    }
+    .nav-inner {
+      max-width: 1200px; margin: 0 auto; padding: 0 28px;
+      display: flex; align-items: center; justify-content: space-between;
+    }
+    .nav-logo { display: flex; align-items: center; gap: 12px; }
+    .logo-img { width: 40px; height: 40px; object-fit: contain; }
+    .brand-mdt { font-family: var(--font-head); font-size: 16px; font-weight: 800; color: #fff; letter-spacing: 0.04em; }
+    .brand-sub { font-family: var(--font-body); font-size: 10px; color: rgba(255,255,255,0.45); letter-spacing: 0.08em; text-transform: uppercase; }
+    .nav-back {
+      display: inline-flex; align-items: center; gap: 6px;
+      font-family: var(--font-head); font-size: 13px; font-weight: 600;
+      color: rgba(255,255,255,0.65); padding: 8px 14px; border-radius: 8px;
+      border: 1px solid rgba(255,255,255,0.12); transition: color 0.2s, background 0.2s;
+    }
+    .nav-back:hover { color: #fff; background: rgba(255,255,255,0.08); }
+
+    /* ── HERO LEGAL ── */
+    .legal-hero {
+      background: var(--ink); padding: 120px 0 64px;
+      position: relative; overflow: hidden;
+    }
+    .legal-hero::before {
+      content: ''; position: absolute; inset: 0;
+      background: radial-gradient(ellipse 60% 70% at 80% 50%, rgba(4,34,114,0.35) 0%, transparent 60%),
+                  radial-gradient(ellipse 40% 60% at 10% 80%, rgba(11,134,170,0.12) 0%, transparent 55%);
+    }
+    .legal-hero .container { max-width: 1200px; margin: 0 auto; padding: 0 28px; position: relative; z-index: 1; }
+    .legal-breadcrumb { font-size: 12px; color: rgba(255,255,255,0.35); font-family: var(--font-body); margin-bottom: 20px; letter-spacing: 0.04em; }
+    .legal-breadcrumb a { color: rgba(255,255,255,0.5); transition: color 0.2s; }
+    .legal-breadcrumb a:hover { color: #fff; }
+    .legal-badge {
+      display: inline-flex; align-items: center; gap: 8px;
+      font-size: 11px; font-weight: 600; letter-spacing: 0.12em; text-transform: uppercase;
+      color: var(--orange); font-family: var(--font-body); margin-bottom: 16px;
+    }
+    .legal-badge::before { content: ''; display: block; width: 20px; height: 1.5px; background: var(--orange); border-radius: 2px; }
+    .legal-title { font-family: var(--font-head); font-size: clamp(28px, 4vw, 44px); font-weight: 800; color: #fff; line-height: 1.1; letter-spacing: -0.02em; }
+    .legal-updated { font-size: 12px; color: rgba(255,255,255,0.28); font-family: var(--font-body); margin-top: 14px; }
+
+    /* ── CONTENIDO ── */
+    .legal-body { padding: 72px 0 96px; background: var(--white); }
+    .legal-body .container { max-width: 780px; margin: 0 auto; padding: 0 28px; }
+
+    .legal-section { margin-bottom: 52px; }
+    .legal-section:last-child { margin-bottom: 0; }
+
+    .legal-h2 {
+      font-family: var(--font-head); font-size: 18px; font-weight: 800;
+      color: var(--navy); letter-spacing: -0.01em; margin-bottom: 16px;
+      padding-bottom: 10px; border-bottom: 2px solid var(--gray-light);
+    }
+    .legal-h3 {
+      font-family: var(--font-head); font-size: 15px; font-weight: 700;
+      color: var(--text); margin-bottom: 10px; margin-top: 24px;
+    }
+    .legal-p { font-size: 15px; color: #334155; line-height: 1.8; margin-bottom: 14px; }
+    .legal-p:last-child { margin-bottom: 0; }
+    .legal-ul { list-style: none; margin: 0 0 14px; padding: 0; }
+    .legal-ul li {
+      font-size: 15px; color: #334155; line-height: 1.75; padding: 5px 0 5px 20px;
+      position: relative;
+    }
+    .legal-ul li::before { content: '—'; position: absolute; left: 0; color: var(--orange); font-weight: 600; }
+
+    /* Dato pendiente */
+    .pending {
+      display: inline-block; background: rgba(244,98,36,0.08);
+      border: 1px dashed rgba(244,98,36,0.4); border-radius: 4px;
+      padding: 2px 8px; font-size: 13px; font-weight: 600;
+      color: var(--orange); font-family: var(--font-body);
+    }
+
+    /* Bloque de contacto */
+    .legal-contact-box {
+      background: var(--off-white); border: 1px solid var(--gray-light);
+      border-radius: 14px; padding: 28px 32px; margin-top: 20px;
+    }
+    .legal-contact-box p { font-size: 14px; color: var(--text-muted); line-height: 1.75; }
+    .legal-contact-box strong { color: var(--text); font-weight: 600; }
+    .legal-contact-box a { color: var(--navy); font-weight: 600; }
+    .legal-contact-box a:hover { text-decoration: underline; }
+
+    /* ── FOOTER ── */
+    .footer { background: var(--ink); padding: 64px 0 0; }
+    .footer .container { max-width: 1200px; margin: 0 auto; padding: 0 28px; }
+    .footer-grid { display: grid; grid-template-columns: 1.8fr 1fr 1fr 1.4fr; gap: 48px; padding-bottom: 48px; border-bottom: 1px solid rgba(255,255,255,0.07); }
+    .footer-logo-wrap { display: flex; align-items: center; gap: 12px; margin-bottom: 16px; }
+    .footer-logo-img { width: 44px; height: 44px; object-fit: contain; }
+    .footer-brand-name { font-family: var(--font-head); font-size: 17px; font-weight: 800; color: #fff; letter-spacing: 0.04em; }
+    .footer-brand-sub { font-size: 10px; color: rgba(255,255,255,0.35); letter-spacing: 0.08em; text-transform: uppercase; }
+    .footer-tagline { font-size: 13px; color: rgba(255,255,255,0.38); line-height: 1.7; margin-bottom: 20px; }
+    .footer-socials { display: flex; gap: 8px; }
+    .social-btn { width: 36px; height: 36px; border-radius: 9px; background: rgba(255,255,255,0.06); border: 1px solid rgba(255,255,255,0.1); display: flex; align-items: center; justify-content: center; transition: background 0.2s; }
+    .social-btn:hover { background: rgba(255,255,255,0.12); }
+    .footer-col-title { font-family: var(--font-head); font-size: 12px; font-weight: 700; color: #fff; letter-spacing: 0.08em; text-transform: uppercase; margin-bottom: 18px; }
+    .footer-links { list-style: none; }
+    .footer-links li { margin-bottom: 10px; }
+    .footer-links a { font-size: 13.5px; color: rgba(255,255,255,0.42); transition: color 0.2s; }
+    .footer-links a:hover { color: #fff; }
+    .footer-bottom { display: flex; align-items: center; justify-content: space-between; flex-wrap: wrap; gap: 16px; padding: 24px 0; }
+    .footer-copy { font-size: 12.5px; color: rgba(255,255,255,0.25); font-family: var(--font-body); }
+    .footer-legal { display: flex; gap: 20px; flex-wrap: wrap; }
+    .footer-legal a { font-size: 12.5px; color: rgba(255,255,255,0.35); transition: color 0.2s; }
+    .footer-legal a:hover { color: #fff; }
+    .footer-legal a.active { color: rgba(255,255,255,0.7); }
+
+    @media (max-width: 900px) { .footer-grid { grid-template-columns: 1fr 1fr; } }
+    @media (max-width: 560px) { .footer-grid { grid-template-columns: 1fr; } .footer-bottom { flex-direction: column; align-items: flex-start; } }
+  </style>
+</head>
+<body>
+
+<header class="nav-header">
+  <div class="nav-inner">
+    <a href="/" class="nav-logo">
+      <img src="BRANDING/LOGO.png" alt="MDT" class="logo-img" />
+      <span>
+        <div class="brand-mdt">MDT</div>
+        <div class="brand-sub">Marketing Digital Tenerife</div>
+      </span>
+    </a>
+    <a href="/" class="nav-back">
+      <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round"><path d="M19 12H5M12 5l-7 7 7 7"/></svg>
+      Volver al inicio
+    </a>
+  </div>
+</header>
+
+<section class="legal-hero">
+  <div class="container">
+    <p class="legal-breadcrumb"><a href="/">Inicio</a> / Aviso Legal</p>
+    <div class="legal-badge">Legal</div>
+    <h1 class="legal-title">Aviso Legal</h1>
+    <p class="legal-updated">Última actualización: abril de 2026</p>
+  </div>
+</section>
+
+<section class="legal-body">
+  <div class="container">
+
+    <div class="legal-section">
+      <h2 class="legal-h2">1. Datos identificativos del responsable</h2>
+      <p class="legal-p">En cumplimiento del artículo 10 de la Ley 34/2002, de 11 de julio, de Servicios de la Sociedad de la Información y de Comercio Electrónico (LSSI-CE), se facilitan los siguientes datos del titular del sitio web:</p>
+      <ul class="legal-ul">
+        <li><strong>Titular:</strong> Ismark Lazaro Echenique Nápoles</li>
+        <li><strong>NIF:</strong> <span class="pending">⚠ PENDIENTE — añade tu NIF/NIE aquí</span></li>
+        <li><strong>Domicilio:</strong> <span class="pending">⚠ PENDIENTE — añade tu dirección completa (municipio, provincia, CP)</span></li>
+        <li><strong>Email:</strong> <a href="mailto:ismarklazarosac@gmail.com" style="color:var(--navy);font-weight:600;">ismarklazarosac@gmail.com</a></li>
+        <li><strong>Teléfono / WhatsApp:</strong> +34 622 034 355</li>
+        <li><strong>Web:</strong> marketingdigitaltenerife.com</li>
+        <li><strong>Actividad:</strong> Servicios de marketing digital, diseño web, posicionamiento SEO y gestión de redes sociales</li>
+      </ul>
+    </div>
+
+    <div class="legal-section">
+      <h2 class="legal-h2">2. Objeto y ámbito de aplicación</h2>
+      <p class="legal-p">El presente Aviso Legal regula el acceso y uso del sitio web <strong>marketingdigitaltenerife.com</strong> (en adelante, "el sitio web"). El acceso y uso del sitio web implica la aceptación plena y sin reservas de las condiciones establecidas en este aviso.</p>
+      <p class="legal-p">El titular se reserva el derecho a modificar, en cualquier momento y sin previo aviso, la presentación y configuración del sitio web, así como el presente Aviso Legal.</p>
+    </div>
+
+    <div class="legal-section">
+      <h2 class="legal-h2">3. Propiedad intelectual e industrial</h2>
+      <p class="legal-p">Todos los contenidos del sitio web —incluyendo textos, imágenes, diseño gráfico, logotipos, código fuente y estructura— son propiedad de Ismark Lazaro Echenique Nápoles o de terceros que han autorizado su uso, y están protegidos por la legislación española e internacional sobre propiedad intelectual e industrial.</p>
+      <p class="legal-p">Queda expresamente prohibida la reproducción, distribución, comunicación pública o transformación de cualquier contenido sin autorización escrita del titular. El uso no autorizado de los contenidos puede constituir una infracción sancionable legalmente.</p>
+    </div>
+
+    <div class="legal-section">
+      <h2 class="legal-h2">4. Condiciones de uso</h2>
+      <p class="legal-p">El usuario se compromete a hacer un uso diligente del sitio web y a no emplearlo para actividades ilícitas, contrarias a la moral, al orden público o que puedan causar daños a terceros o al propio titular.</p>
+      <p class="legal-p">El titular no se responsabiliza de los daños derivados de un uso incorrecto del sitio web ni del uso que el usuario haga de los contenidos publicados.</p>
+    </div>
+
+    <div class="legal-section">
+      <h2 class="legal-h2">5. Limitación de responsabilidad</h2>
+      <p class="legal-p">El titular no garantiza la disponibilidad continua del sitio web ni la ausencia de errores en sus contenidos. Se reserva el derecho a suspender temporalmente el acceso por razones técnicas o de mantenimiento.</p>
+      <p class="legal-p">El sitio web puede contener enlaces a sitios externos. El titular no controla ni se responsabiliza del contenido, política de privacidad o prácticas de dichos sitios de terceros.</p>
+    </div>
+
+    <div class="legal-section">
+      <h2 class="legal-h2">6. Legislación aplicable y jurisdicción</h2>
+      <p class="legal-p">El presente Aviso Legal se rige por la legislación española vigente. Para la resolución de cualquier controversia derivada del acceso o uso del sitio web, las partes se someten, con renuncia a cualquier otro fuero, a los juzgados y tribunales de Santa Cruz de Tenerife, salvo que la normativa aplicable establezca otro fuero imperativo.</p>
+    </div>
+
+    <div class="legal-section">
+      <h2 class="legal-h2">7. Contacto</h2>
+      <div class="legal-contact-box">
+        <p>Para cualquier consulta relacionada con este Aviso Legal, puedes ponerte en contacto a través de:</p>
+        <p style="margin-top:14px;"><strong>Email:</strong> <a href="mailto:ismarklazarosac@gmail.com">ismarklazarosac@gmail.com</a><br>
+        <strong>WhatsApp:</strong> <a href="https://wa.me/34622034355" target="_blank" rel="noopener">+34 622 034 355</a></p>
+      </div>
+    </div>
+
+  </div>
+</section>
+
+<footer class="footer">
+  <div class="container">
+    <div class="footer-grid">
+      <div class="footer-brand">
+        <div class="footer-logo-wrap">
+          <img src="BRANDING/LOGO.png" alt="MDT" class="footer-logo-img" />
+          <div>
+            <div class="footer-brand-name">MDT</div>
+            <div class="footer-brand-sub">Marketing Digital Tenerife</div>
+          </div>
+        </div>
+        <p class="footer-tagline">Marketing digital en Tenerife para negocios que quieren crecer. Redes sociales, SEO y diseño web con resultados reales.</p>
+        <div class="footer-socials">
+          <a href="https://wa.me/34622034355" class="social-btn" aria-label="WhatsApp" target="_blank" rel="noopener"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="rgba(255,255,255,0.7)" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 11.5a8.38 8.38 0 0 1-.9 3.8 8.5 8.5 0 0 1-7.6 4.7 8.38 8.38 0 0 1-3.8-.9L3 21l1.9-5.7a8.38 8.38 0 0 1-.9-3.8 8.5 8.5 0 0 1 4.7-7.6 8.38 8.38 0 0 1 3.8-.9h.5a8.48 8.48 0 0 1 8 8v.5z"/></svg></a>
+        </div>
+      </div>
+      <div>
+        <div class="footer-col-title">Servicios</div>
+        <ul class="footer-links">
+          <li><a href="/diseno-web-tenerife/">Diseño de Páginas Web</a></li>
+          <li><a href="/#services">Posicionamiento SEO</a></li>
+          <li><a href="/#services">Gestión de Redes Sociales</a></li>
+          <li><a href="/#services">Marketing Digital</a></li>
+          <li><a href="/#services">Creación de Contenido</a></li>
+        </ul>
+      </div>
+      <div>
+        <div class="footer-col-title">Legal</div>
+        <ul class="footer-links">
+          <li><a href="/privacidad.html">Política de Privacidad</a></li>
+          <li><a href="/cookies.html">Política de Cookies</a></li>
+          <li><a href="/aviso-legal.html" class="active">Aviso Legal</a></li>
+        </ul>
+      </div>
+      <div>
+        <div class="footer-col-title">Contacto</div>
+        <ul class="footer-links">
+          <li><a href="mailto:ismarklazarosac@gmail.com">ismarklazarosac@gmail.com</a></li>
+          <li><a href="https://wa.me/34622034355" target="_blank" rel="noopener">+34 622 034 355</a></li>
+          <li><a href="/#contact">Formulario de contacto</a></li>
+        </ul>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <p class="footer-copy">© 2026 Marketing Digital Tenerife · Todos los derechos reservados</p>
+      <div class="footer-legal">
+        <a href="/privacidad.html">Política de Privacidad</a>
+        <a href="/cookies.html">Política de Cookies</a>
+        <a href="/aviso-legal.html" class="active">Aviso Legal</a>
+      </div>
+    </div>
+  </div>
+</footer>
+
+</body>
+</html>
