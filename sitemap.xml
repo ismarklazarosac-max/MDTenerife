@@ -1,0 +1,75 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
+
+  <!-- HOME — prioridad máxima -->
+  <url>
+    <loc>https://marketingdigitaltenerife.com/</loc>
+    <lastmod>2026-04-10</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>1.0</priority>
+  </url>
+
+  <!-- SERVICIOS PRINCIPALES — alta prioridad comercial -->
+  <url>
+    <loc>https://marketingdigitaltenerife.com/seo-local-tenerife/</loc>
+    <lastmod>2026-04-10</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.9</priority>
+  </url>
+
+  <url>
+    <loc>https://marketingdigitaltenerife.com/diseno-web-tenerife/</loc>
+    <lastmod>2026-04-10</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.9</priority>
+  </url>
+
+  <url>
+    <loc>https://marketingdigitaltenerife.com/gestion-redes-sociales-tenerife/</loc>
+    <lastmod>2026-04-10</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.9</priority>
+  </url>
+
+  <!-- SERVICIOS SECUNDARIOS — prioridad media -->
+  <url>
+    <loc>https://marketingdigitaltenerife.com/marketing-digital-tenerife/</loc>
+    <lastmod>2026-04-10</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+
+  <url>
+    <loc>https://marketingdigitaltenerife.com/branding-identidad-visual-tenerife/</loc>
+    <lastmod>2026-04-10</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+
+  <url>
+    <loc>https://marketingdigitaltenerife.com/creacion-de-contenido/</loc>
+    <lastmod>2026-04-10</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+
+  <!-- PÁGINAS DE SECTOR — prioridad media-baja -->
+  <url>
+    <loc>https://marketingdigitaltenerife.com/marketing-turistico-tenerife/</loc>
+    <lastmod>2026-04-10</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+
+  <url>
+    <loc>https://marketingdigitaltenerife.com/web-inmobiliaria-tenerife/</loc>
+    <lastmod>2026-04-10</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+
+  <!-- PÁGINAS LEGALES — noindex pero incluidas para transparencia -->
+  <!-- Nota: están excluidas intencionadamente del sitemap porque tienen meta robots noindex -->
+  <!-- aviso-legal.html, privacidad.html, cookies.html → no se indexan -->
+
+</urlset>

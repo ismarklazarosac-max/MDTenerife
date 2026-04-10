@@ -1,0 +1,14 @@
+User-agent: *
+Allow: /
+
+# Excluir archivos de backup y directorios de trabajo
+Disallow: /index-backup.html/
+Disallow: /index2-backup.html/
+Disallow: /Mi web actual SEO1/
+Disallow: /temporary screenshots/
+Disallow: /MI WEB mdt - copia/
+
+# Excluir páginas legales del rastreo de bots agresivos
+# (ya tienen noindex pero por si acaso)
+
+Sitemap: https://marketingdigitaltenerife.com/sitemap.xml
