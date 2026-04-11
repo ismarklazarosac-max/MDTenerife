@@ -68,6 +68,28 @@
     <priority>0.6</priority>
   </url>
 
+  <!-- CASOS REALES — alta prioridad (prueba social + SEO) -->
+  <url>
+    <loc>https://marketingdigitaltenerife.com/casos/</loc>
+    <lastmod>2026-04-11</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+
+  <url>
+    <loc>https://marketingdigitaltenerife.com/caso/tenerife-sin-limites/</loc>
+    <lastmod>2026-04-11</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+
+  <url>
+    <loc>https://marketingdigitaltenerife.com/caso/caracolcamper/</loc>
+    <lastmod>2026-04-11</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+
   <!-- PÁGINAS LEGALES — noindex pero incluidas para transparencia -->
   <!-- Nota: están excluidas intencionadamente del sitemap porque tienen meta robots noindex -->
   <!-- aviso-legal.html, privacidad.html, cookies.html → no se indexan -->
