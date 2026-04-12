@@ -105,6 +105,14 @@
     <priority>0.8</priority>
   </url>
 
+  <!-- PRODUCTO — Motor de Reservas -->
+  <url>
+    <loc>https://marketingdigitaltenerife.com/motor-de-reservas/</loc>
+    <lastmod>2026-04-12</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.9</priority>
+  </url>
+
   <!-- PÁGINAS LEGALES — noindex pero incluidas para transparencia -->
   <!-- Nota: están excluidas intencionadamente del sitemap porque tienen meta robots noindex -->
   <!-- aviso-legal.html, privacidad.html, cookies.html → no se indexan -->
