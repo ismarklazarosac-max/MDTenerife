@@ -1,0 +1,38 @@
+# Marketing Digital Tenerife
+
+> Diseno web, SEO local y gestion de redes sociales para negocios en Tenerife. Casos reales documentados (+12.000 seguidores organicos para clientes locales).
+
+Este archivo sigue el estandar llms.txt (https://llmstxt.org). Lista las paginas relevantes del sitio para que los modelos de lenguaje puedan localizarlas y entender el contenido. Cada enlace tiene un mirror en markdown disponible en la misma URL anadiendo .md al final (cuando aplica).
+
+## Home
+
+- [Marketing Digital Tenerife | Resultados Reales para Negocios en Tenerife](https://marketingdigitaltenerife.com/): Diseño web, SEO local y redes sociales en Tenerife. +12.000 seguidores orgánicos documentados para clientes locales. Consulta gratuita.
+
+## Servicios
+
+- [SEO Local Tenerife | Posicionamiento en Google y Google Maps | MDT](https://marketingdigitaltenerife.com/seo-local-tenerife/): SEO Local en Tenerife: Google Business Profile, posicionamiento en Google Maps y búsquedas locales. Más clientes sin publicidad. Auditoría gratuita.
+- [Diseño Web en Tenerife para Negocios | Webs que Convierten | MDT](https://marketingdigitaltenerife.com/diseno-web-tenerife/): Diseño web profesional en Tenerife para negocios. Páginas rápidas, adaptadas a móvil y con SEO técnico. Presupuesto gratuito en menos de 24 horas.
+- [Gestión de Redes Sociales Tenerife | +12.000 Seguidores Documentados | MDT](https://marketingdigitaltenerife.com/gestion-redes-sociales-tenerife/): Gestión de redes sociales en Tenerife. +12.000 seguidores y +3,3M reproducciones orgánicas documentadas. Estrategia, contenido y publicación. Propuesta gratuita.
+- [Marketing Digital Tenerife | Estrategia para Negocios Locales | MDT](https://marketingdigitaltenerife.com/marketing-digital-tenerife/): Marketing digital en Tenerife para negocios que necesitan estrategia clara: web, SEO, redes y branding bajo una misma dirección. Solicita propuesta.
+- [Branding e Identidad Visual en Tenerife | Logotipo y Guía de Estilo | MDT](https://marketingdigitaltenerife.com/branding-identidad-visual-tenerife/): Branding profesional en Tenerife: logotipo, paleta de colores, tipografía y guía de estilo. Una identidad visual coherente que transmite confianza en cada punto de contacto. Solicita propuesta.
+- [Creación de Contenido en Tenerife | Foto, Vídeo y Reels Profesionales | MDT](https://marketingdigitaltenerife.com/creacion-de-contenido/): Fotografía de negocio, vídeo corto y reels para web y redes sociales en Tenerife. Para negocios que quieren transmitir más nivel y generar confianza desde el primer vistazo.
+
+## Producto
+
+- [Motor de Reservas para Negocios de Alquiler en Tenerife | MDT](https://marketingdigitaltenerife.com/motor-de-reservas/): Sistema de reservas directas para negocios de alquiler en Tenerife. Cobros con Stripe, calendario en tiempo real y panel admin. Sin comisiones. Operativo en días. Desde 49€/mes.
+
+## Sectores
+
+- [Marketing Turístico Tenerife | Reservas Directas para Tu Negocio | MDT](https://marketingdigitaltenerife.com/marketing-turistico-tenerife/): Marketing turístico en Tenerife para alojamientos, villas y actividades. Más reservas directas y menos dependencia de Booking y Airbnb. Solicita propuesta.
+- [Web Inmobiliaria en Tenerife | Diseño para Agencias Inmobiliarias | MDT](https://marketingdigitaltenerife.com/web-inmobiliaria-tenerife/): Diseño de webs inmobiliarias en Tenerife para agencias, agentes y promotores. Presentación visual de propiedades, captación de leads y diseño premium que transmite confianza.
+
+## Casos reales
+
+- [Casos Reales de Marketing Digital en Tenerife | MDT](https://marketingdigitaltenerife.com/casos/): Tenerife Sin Límites: +12.000 seguidores orgánicos. CaracolCamper: +6.000 seguidores. Resultados documentados para negocios en Tenerife. Sin publicidad.
+- [Tenerife Sin Límites | +12.000 Seguidores Orgánicos en 6 Meses | MDT](https://marketingdigitaltenerife.com/caso/tenerife-sin-limites/): Tenerife Sin Límites: de 500 a +12.000 seguidores orgánicos en 6 meses. Vídeo, dron e Insta360. Caso real de gestión de redes en Tenerife. Sin publicidad.
+- [CaracolCamper | +6.000 Seguidores Orgánicos en 4 Meses | MDT](https://marketingdigitaltenerife.com/caso/caracolcamper/): CaracolCamper: de 1.000 a +7.000 seguidores orgánicos en 4 meses. Instagram y TikTok. Caso real de gestión de redes en Tenerife. Sin publicidad.
+
+## Guias y recursos
+
+- [Cómo Conseguir Clientes en Tenerife | Guía para Negocios Locales | MDT](https://marketingdigitaltenerife.com/como-conseguir-clientes-en-tenerife/): Tres canales que funcionan para negocios locales en Tenerife: SEO, redes sociales y web. Ejemplos reales documentados. Sin publicidad de pago.
+- [¿Cuánto Cuesta una Web en Tenerife? | Guía de Precios Real | MDT](https://marketingdigitaltenerife.com/cuanto-cuesta-una-web-en-tenerife/): Qué factores influyen en el precio de una web en Tenerife: páginas, diseño, SEO técnico. La diferencia entre web básica y web profesional.

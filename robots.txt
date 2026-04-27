@@ -12,3 +12,8 @@ Disallow: /MI WEB mdt - copia/
 # (ya tienen noindex pero por si acaso)
 
 Sitemap: https://marketingdigitaltenerife.com/sitemap.xml
+
+# Indice optimizado para modelos de lenguaje (estandar llms.txt)
+# https://llmstxt.org
+# Resumen: https://marketingdigitaltenerife.com/llms.txt
+# Contenido completo: https://marketingdigitaltenerife.com/llms-full.txt
