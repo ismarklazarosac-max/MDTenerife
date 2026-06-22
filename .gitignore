@@ -1,0 +1,17 @@
+# Dependencias
+node_modules/
+
+# Capturas de trabajo y material temporal
+temporary screenshots/
+screenshot/
+*.tmp
+
+# Copias de seguridad y duplicados de trabajo
+MI WEB mdt - copia/
+index-backup.html/
+index2-backup.html/
+Mi web actual SEO1/
+
+# Sistema
+.DS_Store
+Thumbs.db
